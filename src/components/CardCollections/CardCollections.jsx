@@ -5,12 +5,11 @@ import Header from "../header/Header";
 
 const CardCollections = () => {
   return (
-    <div className=" flex flex-wrap">
-      <Header/>
+    <div className=" flex flex-wrap justify-center ">
       <div>
         <Allfilter />
       </div>
-      <div className="flex flex-wrap gap-[20px] mt-[20px]">
+      <div className="flex flex-wrap gap-[20px] mt-[20px] justify-center">
         <Card />
         <Card />
         <Card />

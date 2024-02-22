@@ -3,19 +3,26 @@ import React from "react";
 import { StyledAllfilter } from "../../styles/styelsOfferdetails";
 import { SearchOutlined } from "@ant-design/icons";
 import DrawerFilter from "./DrawerFilter";
+import Pricefilter from "./Pricefilter";
 
 const Allfilter = () => {
   return (
     <StyledAllfilter>
       <div className="filter-btn ">
         <Radio.Group className="">
-          <Radio.Button   className="  text-[#FFFFFF40] text-[14px] before:bg-transparent" value="Buy">
+          <Radio.Button
+            className="  text-[#FFFFFF40] text-[14px] before:bg-transparent"
+            value="Buy"
+          >
             Buy
           </Radio.Button>
-          <Radio.Button  className="text-[#FFFFFF40]  text-[14px] before:content-[none] " value="Sell">
+          <Radio.Button
+            className="text-[#FFFFFF40]  text-[14px] before:content-[none] "
+            value="Sell"
+          >
             Sell
           </Radio.Button>
-          <Radio.Button 
+          <Radio.Button
             className="text-[#FFFFFF40]  text-[14px] before:bg-transparent "
             value="100% Filled"
           >
@@ -37,7 +44,10 @@ const Allfilter = () => {
           >
             Strict List
           </Radio.Button>
-          <Radio.Button className=" text-[#FFFFFF40] text-[14px] before:bg-transparent" value="All">
+          <Radio.Button
+            className=" text-[#FFFFFF40] text-[14px] before:bg-transparent"
+            value="All"
+          >
             All
           </Radio.Button>
         </Radio.Group>
@@ -50,6 +60,8 @@ const Allfilter = () => {
         />
       </div>
       <DrawerFilter />
+      <Pricefilter />
+      <div className=" w-[32px] h-[32px] border-2 rounded-md bg-[#121212] border-[#d9d9d933] "></div>
     </StyledAllfilter>
   );
 };

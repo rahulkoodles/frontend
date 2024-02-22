@@ -130,4 +130,9 @@ export const StyledAllfilter = styled.div`
       background: #0e1420;
     }
   }
+
+  .price-filter{
+    
+  }
+  
 `;
