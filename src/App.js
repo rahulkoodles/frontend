@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import CardCollections from "./components/CardCollections/CardCollections";
 import Sidebar from "./components/SideBar/Sidebar";
 import OfferDetails from "./components/offerDetails/OfferDetails";
@@ -6,6 +7,7 @@ import OfferDetails from "./components/offerDetails/OfferDetails";
 
 
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers5/react'
+import RoutesPages from "./routes/RoutesPages";
 
 function App() {
 const projectId = '20eb0c483bb4801ec4004dea1a843576'
@@ -35,9 +37,13 @@ createWeb3Modal({
     <div>
       <div className=" flex flex-nowrap gap-[20px]">
        
+
+        <BrowserRouter>
         <Sidebar />
         {/* <OfferDetails /> */}
-        <CardCollections />
+        <RoutesPages />
+        
+        </BrowserRouter>
       </div>
     </div>
   );
