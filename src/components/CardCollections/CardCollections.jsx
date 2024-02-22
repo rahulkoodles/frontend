@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../Card/Card";
 import Allfilter from "../allfilter/Allfilter";
-import Header from "../header/Header";
 
 const CardCollections = () => {
   return (

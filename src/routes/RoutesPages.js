@@ -2,13 +2,11 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import CardCollections from "../components/CardCollections/CardCollections";
 import OfferDetails from "../components/offerDetails/OfferDetails";
-import Header from "../components/header/Header";
 import CreateOfferOTCMarket from "../components/ CreateOfferOTCMarket/ CreateOfferOTCMarket";
 
 const RoutesPages = () => {
   return (
     <div>
-      <Header />
       <Routes>
         <Route path="/" element={<CardCollections />} />
         <Route path="/offerdetails" element={<OfferDetails />} />

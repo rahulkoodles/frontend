@@ -47,8 +47,7 @@ export const StyledAllfilter = styled.div`
     .ant-radio-button-wrapper {
       background: #121212;
       border: 1px solid #d9d9d933;
-      color: #FFFFFF66;
-      
+      color: #ffffff66;
     }
     /* .ant-radio-button-wrapper:nth-child(1) {
       &:hover {
@@ -131,8 +130,10 @@ export const StyledAllfilter = styled.div`
     }
   }
 
-  .price-filter{
-    
+  .price-filter {
+    .ant-select-selector {
+      background: #121212;
+      border: 1px solid #d9d9d933;
+    }
   }
-  
 `;
