@@ -141,7 +141,7 @@ const Header = () => {
                 <span className="text-white text-xl">Wallet Connect</span>
               </div>
               <div>
-              <span className=" text-white bg-red-100flex justify-center items-center bg-[#1A1F2E] px-3 py-2 rounded-full cursor-pointer"
+              <span className=" text-white bg-red-100flex justify-center items-center hover:bg-[#1A1F2E] px-3 py-2 rounded-full cursor-pointer"
               onClick={()=>setIsModalOpen(false)}
               ><span className="text-lg">X</span></span>
               </div>
