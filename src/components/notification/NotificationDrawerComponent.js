@@ -19,7 +19,7 @@ const NotificationDrawerComponent = createGlobalStyle`
         color:white;
     }
     .ant-drawer .ant-drawer-header{
-        border-bottom: 1px solid white;
+        border-bottom: 0.5px solid gray;
     }
     .ant-drawer .ant-drawer-body {
         padding:3px;
