@@ -110,12 +110,10 @@ const Card = () => {
             <span className="text-[#FFFFFF80] text-[12px]">4 hours ago</span>
 
             <Link to="/offerdetails">
-
               <Button className=" bg-[#D9D9D933] text-[#FFFFFF80] border-none">
                 Buy
               </Button>
             </Link>
-            
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ const OfferDetailsPurchaseCard = () => {
               </span>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="bg-[#D9D9D933] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit text-xs font-semibold rounded cursor-pointer">
-                CA:DeZx...B263
+                  CA:DeZx...B263
                 </span>
               </div>
             </div>
@@ -136,7 +136,7 @@ const OfferDetailsPurchaseCard = () => {
           type="button"
           className="flex items-center justify-center gap-2 w-full  px-3 h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor"
         >
-          <WalletOutlined className=" text-black " />
+          <WalletOutlined className=" text-black" />
           <span class="">Connect wallet</span>
         </button>
         <div class=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">
