@@ -15,6 +15,7 @@ import metaMaskImg from "../../imgs/metamask-icon.png";
 import WalletConnectImg from "../../imgs/WalletLogo.png";
 
 const Header = () => {
+
   // Walllet Function-------------
 
   const { open } = useWeb3Modal();
@@ -71,6 +72,8 @@ const Header = () => {
   };
 
   return (
+  <div className="w-full">
+
     <div className=" w-full flex items-center justify-between gap-4 py-4 px-3  h-fit container-2xl border-b-2 border-[#202631] ">
       <nav className="h-full w-full flex items-center justify-between  px-[19px]">
         <div className=" h-[64px] flex justify-between items-center ">
@@ -137,16 +140,17 @@ const Header = () => {
         closeIcon={null}
       >
         <div className="w-full flex justify-between">
-              <div>
-                <span className="text-white text-xl">Wallet Connect</span>
-              </div>
-              <div>
-              <span className=" text-white bg-red-100flex justify-center items-center hover:bg-[#1A1F2E] px-3 py-2 rounded-full cursor-pointer"
-              onClick={()=>setIsModalOpen(false)}
-              ><span className="text-lg">X</span></span>
-              </div>
-
-
+          <div>
+            <span className="text-white text-xl">Wallet Connect</span>
+          </div>
+          <div>
+            <span
+              className=" text-white bg-red-100flex justify-center items-center hover:bg-[#1A1F2E] px-3 py-2 rounded-full cursor-pointer"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <span className="text-lg">X</span>
+            </span>
+          </div>
         </div>
         <div className=" flex flex-col gap-6 mt-10">
           <div className="w-full  flex justify-center">
@@ -171,7 +175,7 @@ const Header = () => {
           </button>
 
           {/* // Line between both constract */}
-          
+
           <div class="flex items-center">
             <hr class="flex-grow border-t border-white mx-1" />
             <span class="text-white font-bold ">Or</span>
@@ -199,6 +203,7 @@ const Header = () => {
           </button>
         </div>
       </Modal>
+    </div>
     </div>
   );
 };

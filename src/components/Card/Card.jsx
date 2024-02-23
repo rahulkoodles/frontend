@@ -108,14 +108,11 @@ const Card = () => {
         <div className="my-ant-button ">
           <div className="flex items-center justify-between w-full py-2">
             <span className="text-[#FFFFFF80] text-[12px]">4 hours ago</span>
-
-            <Link to="/offerdetails">
-
-              <Button className=" bg-[#D9D9D933] text-[#FFFFFF80] border-none">
-                Buy
-              </Button>
+            <Link to='/offerdetails'>
+            <Button className=" bg-[#D9D9D933] text-[#FFFFFF80] border-none">
+              Buy
+            </Button>
             </Link>
-            
           </div>
         </div>
       </div>

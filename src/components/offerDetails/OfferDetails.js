@@ -7,8 +7,8 @@ import OrderHistory from "./orderHistory/OrderHistory";
 const offerDetails = () => {
   return (
     <StyledDiv>
-      <div className="w-full  grid grid-cols-12 gap-4 relative ">
-        <div className=" col-span-12 flex lg:flex-nowrap max-md:flex-wrap gap-5 justify-center">
+      <div className="w-full  grid grid-cols-12 gap-4 relative place-items-center ">
+        <div className=" col-span-12 flex lg:flex-nowrap max-md:flex-wrap gap-5 ">
           <div className=" w-full bg-CustomCardBgColor rounded-md">
             <OfferDetailsPurchaseCard />
           </div>
@@ -17,7 +17,7 @@ const offerDetails = () => {
           </div>
         </div>
       </div>
-      <div className=" col-span-6">
+      <div className=" ">
         <OrderHistory />
       </div>
     </StyledDiv>
