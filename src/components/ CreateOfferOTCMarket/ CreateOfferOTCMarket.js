@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { Button, ConfigProvider, Steps } from "antd";
 import { CreateOfferOTCMarketDiv } from "../../styles/ CreateOfferOTCMarket";
 import FirstStep from './FirstStep'
@@ -49,11 +49,14 @@ const CreateOfferOTCMarket = () => {
         return <SecondStep />;
       case 2:
         return <ThirdStep />;
-      // Add more cases for additional steps if needed
       default:
         return null;
     }
   };
+
+  useEffect(() => {
+    setIsOpen(!address);
+  }, [address]);
 
   const handleOpenModal = () => {
     setIsOpen(true);

@@ -13,6 +13,8 @@ import {
 //Modal
 import metaMaskImg from "../../imgs/metamask-icon.png";
 import WalletConnectImg from "../../imgs/WalletLogo.png";
+import NotificationDrawer from "../notification/NotificationDrawer";
+import NotificationDrawerComponent from "../notification/NotificationDrawerComponent";
 
 const Header = () => {
 
@@ -32,6 +34,15 @@ const Header = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  // Drawaer Notification------
+
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const showDrawer = () => {
+    setOpenDrawer(true);
+  };
+
 
   //*************************** Connect Wallet ***************************** */
 
@@ -90,8 +101,6 @@ const Header = () => {
             className={`bg-[#87EE94] to-[#161328] rounded-lg text-black px-4 h-full flex items-center justify-center 
             ${address ? "bg-red-500" : ""}`}
             onClick={!address ? showModal : handleDisconnectWallet}
-
-            // onClick={address ? handleDisconnectWallet : handleConnectWallet}
           >
             <LuWallet2
               className="text-4xl"
@@ -100,7 +109,7 @@ const Header = () => {
               style={{ color: "black" }}
             />
 
-            <span className="text-[14px] ml-2 text-center font-medium">
+            <span className="text-[14px] ml-2 text-center font-medium hidden lg:inline ">
               {address && address.length > 0
                 ? truncateAddress(address, 6)
                 : "Connect"}
@@ -113,14 +122,18 @@ const Header = () => {
           <div className="border-2 border-gray-100 flex justify-center items-center px-2 h-[40px] w-[50px] rounded-md cursor-pointer gap-0.5 ">
             <span className="text-xl">🎁</span>
           </div>
-          <div className="border-2 border-ct-white-800 flex justify-center items-center px-2 h-[40px] w-[50px] rounded-md cursor-pointer gap-0.5 ">
+          <div className="border-2 border-ct-white-800 flex justify-center items-center px-2 h-[40px] w-[50px] rounded-md cursor-pointer gap-0.5"onClick={showDrawer}>
             <span className="text-xl text-gray">
               <FaBell style={{ color: "gray" }} />
             </span>
           </div>
 
+          {/* // */}
+          <NotificationDrawer open={openDrawer} onClose={() => setOpenDrawer(false)} />
+          <NotificationDrawerComponent/>
+
           <div className="lg:hidden   flex justify-center items-center px-2 h-[40px] w-[60px] rounded-xl cursor-pointer gap-0.5 ">
-            <span className="text-4xl bg-[#87EE94] w-full h-full text-black rounded-lg">
+            <span className="text-4xl bg-[#87EE94] w-full h-full text-black rounded-lg text-center">
               +
             </span>
           </div>
