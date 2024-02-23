@@ -25,7 +25,7 @@ const stepsInfo = [
 const CreateOfferOTCMarket = () => {
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const [currentSteps, setCurrentSteps] = useState(0);
-  const [isOpen, setIsOpen] = useState(!address); // Open modal if address is undefined
+  const [isOpen, setIsOpen] = useState(!address);
 
   const StepsIncreament = () => {
     if (currentSteps < 3) {
@@ -115,7 +115,9 @@ const CreateOfferOTCMarket = () => {
             </div>
           </CreateOfferOTCMarketDiv>
         </ConfigProvider>
-      ) : null}
+      ) : <div className="h-full w-full flex  justify-center mt-[20rem]" >
+        <span className="text-7xl text-white">Please Connect You'r Wallet First</span>
+         </div>}
       {isOpen && (
         <ModalCreateOffer isOpen={isOpen} closeModal={handleCloseModal} />
       )}

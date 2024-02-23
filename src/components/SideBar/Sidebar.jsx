@@ -8,6 +8,7 @@ import ModalCreateOffer from "../Modal/ModalCreateOffer";
 import Sider from "antd/es/layout/Sider";
 // import ModalCreateOffer from "../Modal/ModalCreateOffer";
 import Logo from '../../imgs/logo.png'
+import otclogoImg from '../../imgs/otclogo.png'
 
 
 const Sidebar = () => {
@@ -28,9 +29,9 @@ const Sidebar = () => {
             </div>
           </div>
           <div className="">
-            <div className="w-full h-[48px] bg-[#ffffff0A] p-[12px] flex justify-around rounded-md  mt-10">
+            <div className="w-full h-[48px] bg-[#ffffff0A] p-[12px] flex items-center gap-4 rounded-md  mt-10">
               <div className="w-[24px] h-[24px] ">
-                <DollarOutlined className="text-CustomGreenColor" />
+                <img src={otclogoImg} alt="" className=""/>
               </div>
               <span className="text-[14px] font-[500] leading-[17.09px] text-CustomGreenColor">
                 OTC Market

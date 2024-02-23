@@ -19,14 +19,12 @@ import NotificationDrawerComponent from "../notification/NotificationDrawerCompo
 const Header = () => {
 
   // Walllet Function-------------
-
   const { open } = useWeb3Modal();
   const { disconnect } = useDisconnect();
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const [errorMessage, setErrorMessage] = useState(null);
 
   //Modal Function------------
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -38,11 +36,9 @@ const Header = () => {
   // Drawaer Notification------
 
   const [openDrawer, setOpenDrawer] = useState(false);
-
   const showDrawer = () => {
     setOpenDrawer(true);
   };
-
 
   //*************************** Connect Wallet ***************************** */
 
