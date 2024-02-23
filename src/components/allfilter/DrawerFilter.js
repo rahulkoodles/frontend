@@ -2,6 +2,8 @@ import { FilterOutlined } from "@ant-design/icons";
 import { Button, Drawer, Space } from "antd";
 import React, { useState } from "react";
 
+import DrawerImg from "../../imgs/Frame 34.png";
+
 const DrawerFilter = () => {
   const [open, setOpen] = useState(false);
   const showDefaultDrawer = () => {
@@ -12,8 +14,11 @@ const DrawerFilter = () => {
   };
   return (
     <div className="drawer-class ">
-      <Button className=" bg-inherit hover:bg-transparent" onClick={showDefaultDrawer}>
-        <FilterOutlined size={30} className=" text-gray-300" />
+      <Button
+        className=" bg-inherit hover:bg-transparent"
+        onClick={showDefaultDrawer}
+      >
+        <img src={DrawerImg} />
       </Button>
       <Drawer
         title={`${378} Drawer`}
@@ -21,9 +26,8 @@ const DrawerFilter = () => {
         size={378}
         onClose={onClose}
         open={open}
-        
         extra={
-          <Space  className="">
+          <Space className="">
             <Button onClick={onClose}>Cancel</Button>
             <Button type="primary" onClick={onClose}>
               OK

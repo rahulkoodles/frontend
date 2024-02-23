@@ -31,7 +31,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div className=" flex flex-nowrap gap-[20px]">
+        <div className=" flex flex-nowrap">
           <Sidebar />
           <RoutesPages className=" flex " />
         </div>
@@ -41,4 +41,3 @@ function App() {
 }
 
 export default App;
-

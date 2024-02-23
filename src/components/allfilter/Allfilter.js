@@ -5,6 +5,8 @@ import { SearchOutlined } from "@ant-design/icons";
 import DrawerFilter from "./DrawerFilter";
 import Pricefilter from "./Pricefilter";
 
+import reLoadImg from "../../imgs/Frame 36.png";
+
 const Allfilter = () => {
   return (
     <StyledAllfilter>
@@ -69,9 +71,11 @@ const Allfilter = () => {
             className=" outline-none bg-transparent placeholder:text-[#FFFFFF40] "
           />
         </div>
-        <DrawerFilter />
+        <DrawerFilter></DrawerFilter>
         <Pricefilter />
-        <div className=" w-[32px] h-[32px] border-2 rounded-md bg-[#121212] border-[#d9d9d933] "></div>
+        <div className=" w-[32px] h-[32px] border-2 rounded-md bg-[#121212] border-[#d9d9d933] ">
+          <img src={reLoadImg} className=" m-1.5"/>
+        </div>
       </ConfigProvider>
     </StyledAllfilter>
   );

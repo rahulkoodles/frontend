@@ -4,6 +4,8 @@ import Allfilter from "../../components/allfilter/Allfilter"
 
 const CardCollections = () => {
   return (
+ 
+    
     <div className=" flex flex-wrap justify-center">
       <div>
         <Allfilter />
@@ -15,6 +17,8 @@ const CardCollections = () => {
         <Card />
         <Card />
         <Card />
+
+        
       </div>
     </div>
   );

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 import { Button, ConfigProvider, Steps } from "antd";
 import { CreateOfferOTCMarketDiv } from "../../styles/ CreateOfferOTCMarket";
+import FirstStep from "./FirstStep";
+import SecondStep from "./SecondStep";
+import ThirdStep from "./ThirdStep";
 
 const stepsInfo = [
   {
@@ -31,42 +34,69 @@ const CreateOfferOTCMarket = () => {
     }
   };
 
+  const renderStepComponent = () => {
+    switch (currentSteps) {
+      case 0:
+        return <FirstStep />;
+      case 1:
+        return <SecondStep />;
+
+      case 2:
+        return <ThirdStep />;
+      // Add more cases for additional steps if needed
+      default:
+        return null;
+    }
+  };
+
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Steps: {
-            colorPrimary: "#5dec96",
-            colorText: "white",
-            // colorPrimaryBorder: "#5dec96",
-            colorBorderBg: "#5dec96",
-            colorTextDescription: "#FFFFFF80",
-            iconSize: 40,
-            titleLineHeight: 60,
-            navArrowColor:"navArrowColor"
+    <div className="w-full h-full flex justify-center items-center ">
+      <ConfigProvider
+        theme={{
+          components: {
+            Steps: {
+              colorPrimary: "#5dec96",
+              colorText: "white",
+              // colorPrimaryBorder: "#5dec96",
+              colorBorderBg: "#5dec96",
+              colorTextDescription: "#FFFFFF80",
+              iconSize: 40,
+              titleLineHeight: 60,
+              navArrowColor: "navArrowColor",
+            },
           },
-        },
-      }}
-    >
-      <CreateOfferOTCMarketDiv>
-        <div className=" w-[600px]">
-          <div className="steps-div w-full flex p-6 border-b bg-[#121212]">
-            <Steps
-              labelPlacement="vertical"
-              className="text-[#FFFFFF80]"
-              current={currentSteps}
-              items={stepsInfo}
-            />
+        }}
+      >
+        <CreateOfferOTCMarketDiv>
+          <div className=" w-[500px]">
+            <div className="steps-div w-full flex p-6 border-b bg-[#121212]">
+              <Steps
+                labelPlacement="vertical"
+                className="text-[#FFFFFF80]"
+                current={currentSteps}
+                items={stepsInfo}
+              />
+            </div>
+            {renderStepComponent()}
+
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                className="capitalize rounded-lg p-3 text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94]"
+                onClick={StepsDecreament}
+              >
+                Back
+              </button>
+              <button
+                className="capitalize rounded-lg p-3 text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94]"
+                onClick={StepsIncreament}
+              >
+                Next
+              </button>
+            </div>
           </div>
-          <Button onClick={StepsDecreament}  className=" bg-red-50 ">
-            Back
-          </Button>
-          <Button onClick={StepsIncreament} className=" bg-red-50 ">
-            Next
-          </Button>
-        </div>
-      </CreateOfferOTCMarketDiv>
-    </ConfigProvider>
+        </CreateOfferOTCMarketDiv>
+      </ConfigProvider>
+    </div>
   );
 };
 
