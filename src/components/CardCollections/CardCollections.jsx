@@ -4,12 +4,11 @@ import Allfilter from "../allfilter/Allfilter";
 
 const CardCollections = () => {
   return (
-    <div className=" flex flex-wrap">
-    
+    <div className=" flex flex-wrap justify-center">
       <div>
         <Allfilter />
       </div>
-      <div className="flex flex-wrap gap-[20px] mt-[20px] justify-center">
+      <div className="flex flex-wrap gap-[20px] mt-[20px] justify-evenly">
         <Card />
         <Card />
         <Card />
@@ -24,3 +23,4 @@ const CardCollections = () => {
 };
 
 export default CardCollections;
+

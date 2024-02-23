@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledDiv = styled.div`
-  margin: 2rem;
+  padding: 40px;
+  width: 100%;
 `;
 
 export const StyledPurchaseCardDiv = styled.div`

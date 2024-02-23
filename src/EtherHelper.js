@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import { whaleAbi } from "../src/abis/whaleAbi";
 
 export const handleWalletConnect = async () => {
-  try {
+  try { 
     if (!window.ethereum)
       throw new Error("No crypto wallet found. Please install it.");
     await window.ethereum.send("eth_requestAccounts");

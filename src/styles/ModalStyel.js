@@ -1,7 +1,7 @@
 // GlobalStyles.js
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+const ModalStyle = createGlobalStyle`
   .ant-modal .ant-modal-content {
     position: relative;
     background-color: #10141F; /* Set background color to black */
@@ -17,4 +17,4 @@ const GlobalStyle = createGlobalStyle`
     color: white}
 `;
 
-export default GlobalStyle;
+export default ModalStyle;

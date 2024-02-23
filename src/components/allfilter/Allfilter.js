@@ -12,37 +12,39 @@ const Allfilter = () => {
         theme={{
           token: {
             colorBorder: "transparent",
-            optionSelectedBg:"transparent"
+            optionSelectedBg: "transparent",
           },
         }}
       >
-        <div className="filter-btn ">
-          <Radio.Group className="">
-            <Radio.Button
-              className="  text-[#FFFFFF40] text-[14px] before:bg-transparent"
-              value="Buy"
-            >
-              Buy
-            </Radio.Button>
-            <Radio.Button
-              className="text-[#FFFFFF40]  text-[14px] before:content-[none] "
-              value="Sell"
-            >
-              Sell
-            </Radio.Button>
-            <Radio.Button
-              className="text-[#FFFFFF40]  text-[14px] before:bg-transparent "
-              value="100% Filled"
-            >
-              100% Filled
-            </Radio.Button>
-            <Radio.Button
-              className="text-[#FFFFFF40]  text-[14px] before:bg-transparent"
-              value="Closed"
-            >
-              Closed
-            </Radio.Button>
-          </Radio.Group>
+        <div className="filter-btn flex flex-wrap justify-around ">
+          <div>
+            <Radio.Group className="">
+              <Radio.Button
+                className="  text-[#FFFFFF40] text-[14px] before:bg-transparent"
+                value="Buy"
+              >
+                Buy
+              </Radio.Button>
+              <Radio.Button
+                className="text-[#FFFFFF40]  text-[14px] before:content-[none] "
+                value="Sell"
+              >
+                Sell
+              </Radio.Button>
+              <Radio.Button
+                className="text-[#FFFFFF40]  text-[14px] before:bg-transparent "
+                value="100% Filled"
+              >
+                100% Filled
+              </Radio.Button>
+              <Radio.Button
+                className="text-[#FFFFFF40]  text-[14px] before:bg-transparent"
+                value="Closed"
+              >
+                Closed
+              </Radio.Button>
+            </Radio.Group>
+          </div>
         </div>
         <div className="filter-btn">
           <Radio.Group>

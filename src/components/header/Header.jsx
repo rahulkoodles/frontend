@@ -74,7 +74,8 @@ const Header = () => {
   return (
   <div className="w-full">
 
-    <div className=" w-full flex items-center justify-between gap-4 py-4 px-3  h-fit container-2xl border-b-2 border-[#202631] ">
+    <div className=" w-full flex items-center justify-between gap-4 py-4 px-3  h-fit container-2xl border-b-2  border-[#47474766]">
+      
       <nav className="h-full w-full flex items-center justify-between  px-[19px]">
         <div className=" h-[64px] flex justify-between items-center ">
           <h1 className="text-3xl text-white">OTC Market</h1>
@@ -204,6 +205,7 @@ const Header = () => {
         </div>
       </Modal>
     </div>
+
     </div>
   );
 };

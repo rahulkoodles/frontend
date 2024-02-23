@@ -28,6 +28,7 @@ function SecondStep(props) {
    const closeSecondModal = () => {
        setIsSeconfSelectTokenModalOpen(false);
    };
+   
 
     return (
         <>
@@ -316,7 +317,7 @@ function SecondStep(props) {
       </div>
 
        <SteperSelectToken isOpen={isSelectTokenModalOpen} closeModal={closeModal}/>
-       <StepSelectTokenComponent/>
+       {/* <StepSelectTokenComponent/> */}
 
       <StepSecondSelectToken isOpen={isSecondSelectTokenModalOpen} closeModal={closeSecondModal}/>
 
