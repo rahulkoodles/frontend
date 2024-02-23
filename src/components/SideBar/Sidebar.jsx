@@ -5,11 +5,13 @@ import { StyledSidebarDiv } from "../../styles/styleSidebar";
 import { DollarOutlined, WalletOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import ModalCreateOffer from "../Modal/ModalCreateOffer";
-import Logo from "../../imgs/logo.png";
 import Sider from "antd/es/layout/Sider";
+// import ModalCreateOffer from "../Modal/ModalCreateOffer";
+import Logo from '../../imgs/logo.png'
+
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+ 
 
   return (
     <StyledSidebarDiv>
@@ -22,39 +24,36 @@ const Sidebar = () => {
               </a>
             </div>
             <div>
-              {/* <WalletOutlined className=" text-[#42454F] active:text-[CustomGreenColor] " /> */}
-              <span className="text-[20px] text-white">9MM</span>
+              <span className="text-xl text-white">9MM</span>
             </div>
           </div>
-
-          <div className="  mt-[105px]   ">
-            <div className=" w-full h-[48px] bg-[#ffffff0A] p-[12px] flex justify-around rounded-md  ">
-              <div className=" w-[24px] h-[24px] ">
-                <DollarOutlined className=" text-CustomGreenColor " />
+          <div className="">
+            <div className="w-full h-[48px] bg-[#ffffff0A] p-[12px] flex justify-around rounded-md  mt-10">
+              <div className="w-[24px] h-[24px] ">
+                <DollarOutlined className="text-CustomGreenColor" />
               </div>
-              <span className="text-[20px] text-CustomGreenColor">
+              <span className="text-[14px] font-[500] leading-[17.09px] text-CustomGreenColor">
                 OTC Market
               </span>
             </div>
-          </div>
+          </div> 
+          <Divider className=" mt-10 border-b-1 border-[#121212]"/>
+          <div className="create-class w-full h-[45px] mt-10 mb-10  border-[rgba(36, 36, 36, 1)]">
+            <Button
+              // onClick={handleOpenModal}
+              className="w-full h-full bg-CustomGreenColor hover:bg-CustomGreenColor border-none"
+            >
 
-          <Divider className="bg-[#121212] h-[0.5px]"/>
-
-          <div className="create-class w-full h-[80px] mt-10 mb-10  border-[rgba(36, 36, 36, 1)] ">
-            <Link to="/createoffer">
-              <Button
-                onClick={() => setIsOpen(!isOpen)}
-                className=" w-full h-[45px] bg-CustomGreenColor hover:bg-CustomGreenColor border-none "
-              >
-                <ModalCreateOffer isOpen={isOpen} />
-                <span className=" font-medium text-[18px] text-black ">
-                  Create Offer
-                </span>
-              </Button>
-            </Link>
+              <Link to='/createoffer'>
+              <span className="font-medium text-[18px] text-black ">
+                Create Offer
+              </span>
+              </Link>
+            </Button>
           </div>
         </Sider>
       </div>
+      
     </StyledSidebarDiv>
   );
 };

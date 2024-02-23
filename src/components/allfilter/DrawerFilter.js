@@ -26,6 +26,7 @@ const DrawerFilter = () => {
         size={378}
         onClose={onClose}
         open={open}
+         className=" bg-black"
         extra={
           <Space className="">
             <Button onClick={onClose}>Cancel</Button>

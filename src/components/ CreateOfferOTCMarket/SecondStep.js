@@ -1,37 +1,36 @@
-import React,{useState} from 'react';
+import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import SteperSelectToken from '../Modal/SteperSelectToken';
-import StepSelectTokenComponent from '../Modal/StepSelectTokenComponent'
-import StepSecondSelectToken from '../Modal/StepSecondSelectToken';
+import SteperSelectToken from "../Modal/SteperSelectToken";
+import StepSelectTokenComponent from "../Modal/StepSelectTokenComponent";
+import StepSecondSelectToken from "../Modal/StepSecondSelectToken";
 
 function SecondStep(props) {
+  //*********** First Modal open************** */
+  const [isSelectTokenModalOpen, setIsSelectTokenModalOpen] = useState(false);
 
+  const handleSelectTokenModal = () => {
+    setIsSelectTokenModalOpen(true);
+  };
 
-   //*********** First Modal open************** */
-   const [isSelectTokenModalOpen, setIsSelectTokenModalOpen] = useState(false);
+  const closeModal = () => {
+    setIsSelectTokenModalOpen(false);
+  };
 
-   const handleSelectTokenModal = () => {
-     setIsSelectTokenModalOpen(true);
-   };
- 
-   const closeModal = () => {
-     setIsSelectTokenModalOpen(false);
-   };
+  //************** Second Modal Open ********************* */
+  const [isSecondSelectTokenModalOpen, setIsSeconfSelectTokenModalOpen] =
+    useState(false);
 
-   //************** Second Modal Open ********************* */
-   const [isSecondSelectTokenModalOpen, setIsSeconfSelectTokenModalOpen] = useState(false);
+  const handleSecondSelectTokenModal = () => {
+    setIsSeconfSelectTokenModalOpen(true);
+  };
 
-   const handleSecondSelectTokenModal = () => {
-       setIsSeconfSelectTokenModalOpen(true);
-   };
- 
-   const closeSecondModal = () => {
-       setIsSeconfSelectTokenModalOpen(false);
-   };
+  const closeSecondModal = () => {
+    setIsSeconfSelectTokenModalOpen(false);
+  };
 
-    return (
-        <>
-        <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
+  return (
+    <>
+      <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
         {/* //****** 2nd Stepper*** */}
         <div className="flex px-6 border-b "></div>
 
@@ -40,7 +39,7 @@ function SecondStep(props) {
           <div>
             <div className="secondhead">
               <div className="flex flex-col gap-2 text-ct-gray-500">
-                <div className="p-3 flex flex-col gap-2 w-full bg-[#212632] rounded-lg ">
+                <div className="p-3 flex flex-col gap-2 w-full bg-[#1B1B1B] rounded-lg ">
                   <div className=" rounded-lg flex flex-col gap-3 ">
                     <div className="flex items-center gap-2 w-full ">
                       <span
@@ -51,7 +50,7 @@ function SecondStep(props) {
                       </span>
                       <i
                         id="total-amount"
-                        className="fa-regular fa-circle-info w-3 h-3 cursor-pointer text-ct-xs text-ct-gray-600"
+                        className="fa-regular fa-circle-info w-3 h-3 cursor-pointer text-ct-xs text-gray-600"
                       ></i>
                     </div>
                   </div>
@@ -59,21 +58,22 @@ function SecondStep(props) {
                   <div className=" flex items-center gap-1 w-full h-10">
                     <div className="flex-1 ">
                       <input
-                        class="w-full flex-1 border-none text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none"
+                        class="w-full flex-1 border-none text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-gray-500 focus:outline-none"
                         placeholder="Enter amount"
                         min="0"
                         name="tokenAmount"
                       />
                       <div className="flex justify-start">
-                        <span className="text-start text-ct-sm text-gray-400" >
+                        <span className="text-start text-ct-sm text-gray-400">
                           1 Token ={" "}
                         </span>
                       </div>
                     </div>
 
                     {/* // Select Token  */}
-                    <div className="flex items-center p-1 text-gray-400 rounded-lg cursor-pointer h-full gap-1 px-3 bg-[#2A2F3A]"
-                    onClick={()=>handleSelectTokenModal()}
+                    <div
+                      className="flex items-center p-1 text-gray-400 rounded-lg cursor-pointer h-full gap-1 px-3 bg-[#2A2F3A]"
+                      onClick={() => handleSelectTokenModal()}
                     >
                       <span className="flex items-center gap-1">
                         <span className="text-ct-base  font-medium text-ct-white-500">
@@ -87,7 +87,7 @@ function SecondStep(props) {
                   </div>
                 </div>
                 {/* // */}
-                <div className="p-3 flex flex-col gap-2 w-full bg-[#212632] rounded-lg ">
+                <div className="p-3 flex flex-col gap-2 w-full bg-[#1B1B1B] rounded-lg ">
                   <div className=" rounded-lg flex flex-col gap-3 ">
                     <div className="flex items-center gap-2 w-full ">
                       <span
@@ -109,16 +109,15 @@ function SecondStep(props) {
                         class="w-full flex-1 border-none bg-transparent text-left text-white text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none"
                         placeholder="Enter amount"
                         min="0"
-                      
                         name="tokenAmount"
-                       
                       />
                     </div>
-                    <div className="flex items-center p-1 text-gray-400 bg-[#2A2F3A] rounded-lg cursor-pointer h-full gap-1 px-3"
-                    onClick={()=>handleSecondSelectTokenModal()}
+                    <div
+                      className="flex items-center p-1 text-gray-400 bg-[#2A2F3A] rounded-lg cursor-pointer h-full gap-1 px-3"
+                      onClick={() => handleSecondSelectTokenModal()}
                     >
                       <span className="flex items-center gap-1">
-                        <span className="text-ct-base  font-medium text-ct-white-500">
+                        <span className="text-base  font-medium text-white-500">
                           Select Token
                         </span>
                       </span>
@@ -133,10 +132,10 @@ function SecondStep(props) {
                 <div className="flex flex-col gap-2 mt-6 mb-2">
                   <span className="flex items-center justify-between gap-3 text-ct-sm text-gray-500">
                     <span className="flex item-center gap-0.5">
-                      <span class="text-ct-gray-200 text-ct-base font-medium">
+                      <span class="text-[#FFFFFF] text-[12px]  font-[700]">
                         Description
                       </span>
-                      <span class="flex items-center mt-0.5">(Optional)</span>
+                      <span class="flex items-center mt-0.5 text-[#808080] text-[12px]">(Optional)</span>
                     </span>
                     <span class="flex items-center mt-0.5">0/180</span>
                   </span>
@@ -307,22 +306,24 @@ function SecondStep(props) {
                     Next
                   </button>
                 </div> */}
-                
               </div>
-
             </div>
           </div>
         </div>
       </div>
 
-       <SteperSelectToken isOpen={isSelectTokenModalOpen} closeModal={closeModal}/>
-       <StepSelectTokenComponent/>
+      <SteperSelectToken
+        isOpen={isSelectTokenModalOpen}
+        closeModal={closeModal}
+      />
+      <StepSelectTokenComponent />
 
-      <StepSecondSelectToken isOpen={isSecondSelectTokenModalOpen} closeModal={closeSecondModal}/>
-
-  
+      <StepSecondSelectToken
+        isOpen={isSecondSelectTokenModalOpen}
+        closeModal={closeSecondModal}
+      />
     </>
-    );
+  );
 }
 
 export default SecondStep;

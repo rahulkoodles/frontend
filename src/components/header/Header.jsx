@@ -74,7 +74,8 @@ const Header = () => {
   return (
   <div className="w-full">
 
-    <div className=" w-full flex items-center justify-between gap-4 py-4 px-3  h-fit container-2xl border-b-2 border-[#202631] ">
+    <div className=" w-full flex items-center justify-between gap-4 py-4 px-3  h-fit container-2xl border-b-2  border-[#47474766]">
+      
       <nav className="h-full w-full flex items-center justify-between  px-[19px]">
         <div className=" h-[64px] flex justify-between items-center ">
           <h1 className="text-3xl text-white">OTC Market</h1>
@@ -86,7 +87,7 @@ const Header = () => {
 
           {/* //*********************** Open Modal Button ********************** */}
           <button
-            className={`bg-[#87EE94] to-[#161328] rounded-lg text-black px-4 h-full flex items-center justify-center 
+            className={`bg-CustomGreenColor to-[#161328] rounded-lg text-black px-4 h-full flex items-center justify-center 
             ${address ? "bg-red-500" : ""}`}
             onClick={!address ? showModal : handleDisconnectWallet}
 
@@ -118,8 +119,8 @@ const Header = () => {
             </span>
           </div>
 
-          <div className="lg:hidden   flex justify-center items-center px-2 h-[40px] w-[60px] rounded-xl cursor-pointer gap-0.5 ">
-            <span className="text-4xl bg-[#87EE94] w-full h-full text-black rounded-lg">
+          <div className="sm:hidden   flex justify-center items-center px-2 h-[40px] w-[60px] rounded-xl cursor-pointer gap-0.5 ">
+            <span className="text-4xl bg-CustomGreenColor w-full h-full text-black rounded-lg">
               +
             </span>
           </div>
@@ -204,6 +205,7 @@ const Header = () => {
         </div>
       </Modal>
     </div>
+
     </div>
   );
 };

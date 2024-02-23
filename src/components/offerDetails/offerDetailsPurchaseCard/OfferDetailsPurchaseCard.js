@@ -69,7 +69,7 @@ const OfferDetailsPurchaseCard = () => {
               title="The amount of token you want to buy "
               className="mt-0.5 text-gray-600 text-xs w-3 h-3 cursor-pointer"
             >
-              <InfoCircleFilled />
+              <InfoCircleOutlined />
             </Tooltip>
           </span>
           <div className=" flex flex-nowrap justify-between">
@@ -115,7 +115,7 @@ const OfferDetailsPurchaseCard = () => {
               title="The amount of you are paying for seller  "
               className="mt-0.5 text-gray-600 text-xs w-3 h-3 cursor-pointer"
             >
-              <InfoCircleFilled />
+              <InfoCircleOutlined />
             </Tooltip>
           </span>
           <div className="flex justify-between gap-2 items-start">
@@ -136,11 +136,11 @@ const OfferDetailsPurchaseCard = () => {
           type="button"
           className="flex items-center justify-center gap-2 w-full  px-3 h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor"
         >
-          <WalletOutlined className=" text-black" />
+          <WalletOutlined color="black" />
           <span class="">Connect wallet</span>
         </button>
         <div class=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">
-          <InfoCircleFilled />
+          <InfoCircleOutlined />
           <div class="text-info text-[#d6cdcd]">
             <span>Platform fee (0.1%): 0.1199 USDC. </span>
             <a

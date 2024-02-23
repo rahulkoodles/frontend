@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 const ModalStyle = createGlobalStyle`
   .ant-modal .ant-modal-content {
     position: relative;
-    background-color: #10141F; /* Set background color to black */
+    background-color: #121212; /* Set background color to black */
     background-clip: padding-box;
     border: 0;
     border-radius: 8px;

@@ -18,7 +18,7 @@ const Allfilter = () => {
           },
         }}
       >
-        <div className="filter-btn flex flex-wrap justify-around ">
+        <div className="filter-btn flex flex-wrap">
           <div>
             <Radio.Group className="">
               <Radio.Button
