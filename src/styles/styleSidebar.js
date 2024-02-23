@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledSidebarDiv = styled.div`
   position: relative;
   max-width: 353px;
+  border: fullscreen;
   .create-class {
     .ant-btn-default {
       background-color: "CustomGreenColor";
@@ -23,6 +24,11 @@ export const StyledSidebarDiv = styled.div`
           :disabled
         ):not(.ant-btn-disabled):hover {
         background: #5dec96;
+      }
+    }
+    .ant-layout-sider {
+      .ant-layout-sider-children {
+        width: 348px;
       }
     }
   }

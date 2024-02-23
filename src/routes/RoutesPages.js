@@ -9,7 +9,7 @@ import ModalStyle from "../styles/ModalStyel";
 
 const RoutesPages = () => {
   return (
-    <div>
+    <div className=" w-full">
       <Header />
       <ModalStyle />
       <Routes>
