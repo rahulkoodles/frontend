@@ -97,13 +97,13 @@ const CreateOfferOTCMarket = () => {
                   <Link to="/createoffer">
                     <div className="grid grid-cols-2 gap-2  pb-4 px-6">
                       <button
-                        className="capitalize rounded-lg p-3 text-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor"
+                        className="capitalize rounded-lg p-[16px, 36px, 16px, 36px] text-[#000000] text-[16px] font-[400]  leading-[19.54px] disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor"
                         onClick={StepsDecreament}
                       >
                         Back
                       </button>
                       <button
-                        className="capitalize rounded-lg p-3 text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor"
+                        className="capitalize rounded-lg p-3 text-ct-gray-950 text-[#000000] text-[16px] font-[400]  leading-[19.54px] disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor"
                         onClick={StepsIncreament}
                       >
                         Next

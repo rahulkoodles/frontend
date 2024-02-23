@@ -3,6 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import SteperSelectToken from "../Modal/SteperSelectToken";
 import StepSelectTokenComponent from "../Modal/StepSelectTokenComponent";
 import StepSecondSelectToken from "../Modal/StepSecondSelectToken";
+import { Divider } from "antd";
 
 function SecondStep(props) {
   //*********** First Modal open************** */
@@ -32,7 +33,7 @@ function SecondStep(props) {
     <>
       <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
         {/* //****** 2nd Stepper*** */}
-        <div className="flex px-6 border-b "></div>
+        <Divider className=" p-0 m-0 bg-[#47474733]"/>
 
         {/* // *********** Steper Content ********** */}
         <div className="p-6">
@@ -44,7 +45,7 @@ function SecondStep(props) {
                     <div className="flex items-center gap-2 w-full ">
                       <span
                         id="tooldip-buy"
-                        className="bg-success/10 text-success px-0 text-start py-1 uppercase w-fit  font-semibold rounded cursor-default text-green-300"
+                        className="bg-[#808080] text-[8px] p-[4px] text-start py-1 uppercase w-fit  font-semibold rounded cursor-default text-CustomGreenColor"
                       >
                         Buying
                       </span>
@@ -58,25 +59,25 @@ function SecondStep(props) {
                   <div className=" flex items-center gap-1 w-full h-10">
                     <div className="flex-1 ">
                       <input
-                        class="w-full flex-1 border-none text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-gray-500 focus:outline-none"
+                        class="w-full flex-1 border-none bg-transparent text-left text-[20px] text-[#FFFFFF] placeholder:text-[#FFFFFF] focus:outline-none"
                         placeholder="Enter amount"
                         min="0"
                         name="tokenAmount"
                       />
                       <div className="flex justify-start">
-                        <span className="text-start text-ct-sm text-gray-400">
+                        <span className="text-start text-[10px] text-[#808080]">
                           1 Token ={" "}
                         </span>
                       </div>
                     </div>
 
                     {/* // Select Token  */}
-                    <div
-                      className="flex items-center p-1 text-gray-400 rounded-lg cursor-pointer h-full gap-1 px-3 bg-[#2A2F3A]"
+                    <div 
+                      className="flex items-center p-1 text-white text-[15px]  rounded-lg cursor-pointer h-full gap-1 px-2 bg-[#5B5B5B]"
                       onClick={() => handleSelectTokenModal()}
                     >
                       <span className="flex items-center gap-1">
-                        <span className="text-ct-base  font-medium text-ct-white-500">
+                        <span className="text-[15px] font-medium ">
                           Select Token
                         </span>
                       </span>
@@ -92,7 +93,7 @@ function SecondStep(props) {
                     <div className="flex items-center gap-2 w-full ">
                       <span
                         id="tooldip-buy"
-                        className="bg-success/10 text-success px-0 text-start py-1 uppercase w-fit  font-semibold rounded cursor-default text-gray-400"
+                        className="bg-success/10 text-success px-0 text-start py-1 uppercase w-fit  font-semibold rounded cursor-default text-[#808080]"
                       >
                         For
                       </span>
@@ -106,18 +107,18 @@ function SecondStep(props) {
                   <div className=" flex items-center gap-1 w-full h-10">
                     <div className="flex-1 ">
                       <input
-                        class="w-full flex-1 border-none bg-transparent text-left text-white text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none"
+                        class="w-full flex-1 border-none bg-transparent text-left text-[20px] text-white placeholder:text-white focus:outline-none"
                         placeholder="Enter amount"
                         min="0"
                         name="tokenAmount"
                       />
                     </div>
                     <div
-                      className="flex items-center p-1 text-gray-400 bg-[#2A2F3A] rounded-lg cursor-pointer h-full gap-1 px-3"
+                      className="flex items-center p-1 text-white text-[15px]  rounded-lg cursor-pointer h-full gap-1 px-2 bg-[#5B5B5B]"
                       onClick={() => handleSecondSelectTokenModal()}
                     >
                       <span className="flex items-center gap-1">
-                        <span className="text-base  font-medium text-white-500">
+                        <span className="text-[15px]  font-[500] text-white">
                           Select Token
                         </span>
                       </span>
@@ -141,7 +142,7 @@ function SecondStep(props) {
                   </span>
 
                   <textarea
-                    class="bg-transparent text-white border-gray-400 border-[1px] rounded-lg px-3 py-2 focus:outline-none text-ct-gray-200  focus:border-ct-gray-700 resize-none placeholder:text-ct-gray-600"
+                    class="bg-transparent text-white  text-sm border-[#FFFFFF33] border-[1px] rounded-lg px-3 py-2 focus:outline-none  focus:border-[#FFFFFF33] resize-none placeholder:text-[#FFFFFF33]"
                     rows="4"
                     maxlength="180"
                     placeholder="Write your description"
@@ -152,7 +153,7 @@ function SecondStep(props) {
                 <div className="flex flex-col gap-6  mt-6">
                   <div className="flex flex-col sm:flex-row gap-4">
                     <span className="flex item-center gap-0.5 min-w-[96px]">
-                      <span class="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white">
+                      <span class="text-[10px] font-[700] leading-[12px]  text-white">
                         Fill Type
                       </span>
                     </span>
@@ -160,7 +161,7 @@ function SecondStep(props) {
                       <div>
                         <div className="flex gap-2 cursor-pointer">
                           <div
-                            className="border-ct-gray-700 flex items-center justify-center rounded-full border-[3px]"
+                            className=" border-[1.43px] flex items-center justify-center rounded-full"
                             style={{
                               width: "18px",
                               height: "18px",
@@ -168,21 +169,21 @@ function SecondStep(props) {
                             }}
                           >
                             <div
-                              className="bg-primary rounded-full mt-[0px] bg-[#87EE94]"
+                              className=" border-[1.43px] border-[#47474733] rounded-full"
                               style={{
-                                width: "6px",
-                                height: "6px",
+                                width: "14.3px",                          
+                                height: "14.3px",
                                 minWidth: "6px",
                               }}
                             ></div>
                           </div>
 
                           <span className="flex flex-col gap-0">
-                            <h5 className="text-ct-base text-white font-medium uppercase mb-0">
+                            <h5 className="text-[11.44px] text-white font-[500] leading-[13px] mb-0">
                               {" "}
                               Partial Fill
                             </h5>
-                            <span className="text-ct-sm text-white">
+                            <span className="text-[8.5px]  text-[#FFFFFF80] leading-[20.24px]">
                               Multiple users can contribute to fulfill the offer
                             </span>
                           </span>
@@ -190,7 +191,7 @@ function SecondStep(props) {
 
                         <div className="flex gap-2 cursor-pointer mt-6">
                           <div
-                            className="border-ct-gray-700 flex items-center justify-center rounded-full border-[3px]"
+                            className=" flex items-center justify-center rounded-full border-[1.47px]"
                             style={{
                               width: "18px",
                               height: "18px",
@@ -208,11 +209,11 @@ function SecondStep(props) {
                           </div>
 
                           <span className="flex flex-col gap-0">
-                            <h5 className="text-white font-medium uppercase mb-0">
+                            <h5 className="text-[11.44px] text-white font-[500] leading-[13px] mb-0">
                               {" "}
                               Single Fill
                             </h5>
-                            <span className="text-ct-sm text-white">
+                            <span className="text-[8.5px]  text-[#FFFFFF80] leading-[20.24px]">
                               Entire offer must be filled by 1 user
                             </span>
                           </span>
@@ -226,7 +227,7 @@ function SecondStep(props) {
 
                   <div className="flex flex-col sm:flex-row gap-4 mt-2">
                     <span className="flex item-center gap-0.5 min-w-[96px]">
-                      <span class="text-white text-ct-sm font-semibold uppercase">
+                      <span class="text-[10px] font-[700] leading-[12px]  text-white">
                         Privacy
                       </span>
                     </span>
@@ -234,7 +235,7 @@ function SecondStep(props) {
                       <div>
                         <div className="flex gap-2 cursor-pointer">
                           <div
-                            className="border-ct-gray-700 flex items-center justify-center rounded-full border-[3px]"
+                            className="border-ct-gray-700 flex items-center justify-center rounded-full border-[1.47px]"
                             style={{
                               width: "18px",
                               height: "18px",
@@ -252,11 +253,11 @@ function SecondStep(props) {
                           </div>
 
                           <span className="flex flex-col gap-0">
-                            <h5 className="text-ct-base text-white font-medium uppercase mb-0">
+                            <h5 className="text-[11.44px] text-white font-[500] leading-[13px]">
                               {" "}
                               Partial Fill
                             </h5>
-                            <span className="text-ct-sm text-white">
+                            <span className="text-[8.5px]  text-[#FFFFFF80] leading-[20.24px]">
                               Multiple users can contribute to fulfill the offer
                             </span>
                           </span>
@@ -264,7 +265,7 @@ function SecondStep(props) {
 
                         <div className="flex gap-2 cursor-pointer mt-6">
                           <div
-                            className="border-ct-gray-700 flex items-center justify-center rounded-full border-[3px]"
+                            className="flex items-center justify-center rounded-full border-[1.47px]"
                             style={{
                               width: "18px",
                               height: "18px",
@@ -272,7 +273,7 @@ function SecondStep(props) {
                             }}
                           >
                             <div
-                              className="bg-primary rounded-full mt-[0px] bg-[#87EE94]"
+                              className="bg-primary rounded-full mt-[0px] "
                               style={{
                                 width: "6px",
                                 height: "6px",
@@ -282,11 +283,11 @@ function SecondStep(props) {
                           </div>
 
                           <span className="flex flex-col gap-0">
-                            <h5 className="text-ct-base text-white font-medium uppercase mb-0">
+                            <h5 className="text-[11.44px] text-white font-[500] leading-[13px]">
                               {" "}
                               Single Fill
                             </h5>
-                            <span className="text-ct-sm text-white">
+                            <span className="text-[8.5px]  text-[#FFFFFF80] leading-[20.24px]">
                               Entire offer must be filled by 1 user
                             </span>
                           </span>

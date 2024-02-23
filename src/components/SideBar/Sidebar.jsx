@@ -7,12 +7,9 @@ import { Link } from "react-router-dom";
 import ModalCreateOffer from "../Modal/ModalCreateOffer";
 import Sider from "antd/es/layout/Sider";
 // import ModalCreateOffer from "../Modal/ModalCreateOffer";
-import Logo from '../../imgs/logo.png'
-
+import Logo from "../../imgs/logo.png";
 
 const Sidebar = () => {
- 
-
   return (
     <StyledSidebarDiv>
       <div className=" w-[353px] h-screen flex border-r border-[#121212] max-sm:hidden ">
@@ -36,24 +33,22 @@ const Sidebar = () => {
                 OTC Market
               </span>
             </div>
-          </div> 
-          <Divider className=" mt-10 border-b-1 border-[#121212]"/>
+          </div>
+          <Divider className=" mt-10 border-b-1 border-[#121212]" />
           <div className="create-class w-full h-[45px] mt-10 mb-10  border-[rgba(36, 36, 36, 1)]">
-            <Button
-              // onClick={handleOpenModal}
-              className="w-full h-full bg-CustomGreenColor hover:bg-CustomGreenColor border-none"
-            >
-
-              <Link to='/createoffer'>
-              <span className="font-medium text-[18px] text-black ">
-                Create Offer
-              </span>
-              </Link>
-            </Button>
+            <Link to="/createoffer">
+              <Button
+                // onClick={handleOpenModal}
+                className="w-full h-full bg-CustomGreenColor hover:bg-CustomGreenColor border-none"
+              >
+                <span className="font-medium text-[18px] text-black ">
+                  Create Offer
+                </span>
+              </Button>
+            </Link>
           </div>
         </Sider>
       </div>
-      
     </StyledSidebarDiv>
   );
 };

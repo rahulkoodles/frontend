@@ -1,3 +1,5 @@
+import { InfoCircleOutlined } from "@ant-design/icons";
+import { Divider, Tooltip } from "antd";
 import React from "react";
 
 function ThirdStep(props) {
@@ -5,6 +7,7 @@ function ThirdStep(props) {
     <>
       <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
         {/* //****** Stepper*** */}
+        <Divider className=" p-0 m-0 bg-[#47474733]" />
         <div className="flex px-6 ">
           <div className="p-6">
             <div>
@@ -27,31 +30,45 @@ function ThirdStep(props) {
                         </div>
                       </div>
 
-                      <span className="font-medium text-ct-xl text-ct-gray-200 uppercase">
+                      <span className="font-medium text-[16px] text-white uppercase">
                         JLP
                       </span>
                     </div>
 
-                    <div className="flex flex-col border border-ct-white-900 text-ct-base text-ct-gray-500 rounded-lg  ">
-                      <div className="divide-y divide-ct-white-900">
+                    <div className="flex flex-col border border-[#FFFFFF33] text-[14px] leading-[19.09px] rounded-lg font-[400] ">
+                      <div className="divide-y divide-[#FFFFFF33]">
                         <span class="flex items-center justify-between px-4 py-3">
-                          <span class="text-white">Offer Type</span>
-                          <span
-                            id="tooltip-buy-undefined"
-                            class="bg-success/10 text-success px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded cursor-default text-green-400"
-                          >
-                            buying
-                          </span>
+                            <span className="text-[rgb(128,128,128)] ">Offer Type</span>
+
+                            <span
+                              id="tooltip-buy-undefined"
+                              class="bg-success/10 text-success px-1.5 py-1 uppercase w-fit text-[8px]font-semibold rounded cursor-default text-green-400"
+                            >
+                              Buying
+                            </span>
+                      
                         </span>
                         <span class="flex items-center justify-between px-4 py-3">
                           <span class="flex items-center gap-1.5">
-                            <span class="text-white">Want to buy</span>
+                            <div class="text-[rgb(128,128,128)] flex items-center gap-2">
+                              <span>Want to buy</span>
+                              <span>
+                                <Tooltip
+                                  placement="top"
+                                  title="Total token you want to buy. "
+                                  className=" w-3 h-3 cursor-pointer"
+                                >
+                                  <InfoCircleOutlined />
+                                </Tooltip>
+                              </span>
+                            </div>
+
                             <i
                               id="total-amount"
                               class="fa-regular fa-circle-info w-3 h-3 cursor-pointer text-ct-xs text-ct-gray-600"
                             ></i>
                           </span>
-                          <span class="text-ct-gray-200 flex gap-1 items-center font-medium text-gray-400">
+                          <span class="text-ct-gray-200 flex gap-1 items-center font-medium text-white">
                             1
                             <div class="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                               <img
@@ -64,13 +81,24 @@ function ThirdStep(props) {
                         </span>
                         <span class="flex items-center justify-between px-4 py-3">
                           <span class="flex items-center gap-1.5">
-                            <span class="text-white">For</span>
+                            <div class="text-[rgb(128,128,128)] flex items-center gap-2">
+                              <span>For</span>
+                              <span>
+                                <Tooltip
+                                  placement="top"
+                                  title="The amount you are paying. "
+                                  className=" w-3 h-3 cursor-pointer"
+                                >
+                                  <InfoCircleOutlined />
+                                </Tooltip>
+                              </span>
+                            </div>
                             <i
                               id="for"
                               class="fa-regular fa-circle-info w-3 h-3 cursor-pointer text-ct-xs text-ct-gray-600"
                             ></i>
                           </span>
-                          <span class="text-ct-gray-200 flex gap-1 items-center font-medium text-gray-400">
+                          <span class="text-ct-gray-200 flex gap-1 items-center font-medium text-white">
                             2
                             <div class="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                               <img
@@ -83,22 +111,33 @@ function ThirdStep(props) {
                         </span>
                         <span class="flex items-center justify-between px-4 py-3">
                           <span class="flex items-center gap-1.5">
-                            <span class="text-white">Price / Token</span>
+                            <div class="text-[rgb(128,128,128)] flex items-center gap-2">
+                              <span>Price / Token</span>
+                              <span>
+                                <Tooltip
+                                  placement="top"
+                                  title="Token price per offered amount. "
+                                  className=" w-3 h-3 cursor-pointer"
+                                >
+                                  <InfoCircleOutlined />
+                                </Tooltip>
+                              </span>
+                            </div>
                             <i
                               id="price"
                               class="fa-regular fa-circle-info w-3 h-3 cursor-pointer text-ct-xs text-ct-gray-600"
                             ></i>
                           </span>
-                          <span class="text-ct-gray-200 font-medium text-gray-400">
+                          <span class="text-ct-gray-200 font-medium text-white">
                             $2
                           </span>
                         </span>
                         <span class="flex items-center justify-between px-4 py-3">
-                          <span class="text-white">Fill Type</span>
+                          <span class="text-[#808080]">Fill Type</span>
                           <span id="fill-type" class="cursor-pointer">
                             <span
                               id="tooltip-partial-undefined"
-                              class="bg-ct-gray-700 text-ct-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded cursor-default text-gray-400"
+                              class="bg-[#2F2F2F] text-[#ffffff80] px-1.5 py-1 uppercase w-fit text-[10px] font-semibold rounded cursor-default "
                             >
                               partial fill
                             </span>
@@ -106,13 +145,24 @@ function ThirdStep(props) {
                         </span>
                         <span class="flex items-center justify-between px-4 py-3">
                           <span class="flex items-center gap-1.5">
-                            <span class="text-white">Listing Fee (0.1%)</span>
+                            <div class="text-[rgb(128,128,128)] flex items-center gap-2">
+                              <span>Listing Fee (0.1%)</span>
+                              <span>
+                                <Tooltip
+                                  placement="top"
+                                  title="The platform fee for listing offer. "
+                                  className=" w-3 h-3 cursor-pointer"
+                                >
+                                  <InfoCircleOutlined />
+                                </Tooltip>
+                              </span>
+                            </div>
                             <i
                               id="listing-fee"
-                              class="fa-regular fa-circle-info w-3 h-3 cursor-pointer text-ct-xs text-ct-gray-600"
+                              class="fa-regular fa-circle-info w-3 h-3 cursor-pointer text-ct-xs text-white"
                             ></i>
                           </span>
-                          <span class="text-ct-gray-200 flex gap-1 items-center font-medium text-gray-400">
+                          <span class="text-ct-gray-200 flex gap-1 items-center font-medium text-white">
                             0.002
                             <div class="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                               <img
@@ -124,9 +174,9 @@ function ThirdStep(props) {
                           </span>
                         </span>
                         <span class="flex items-center justify-between px-4 py-3">
-                          <span class="text-white">Privacy</span>
+                          <span class="text-[#808080]">Privacy</span>
                           <span id="privacy" class="cursor-pointer">
-                            <span class="text-ct-base font-medium text-info text-gray-400">
+                            <span class="text-ct-base font-medium text-info text-[#437FEC]">
                               Public
                             </span>
                           </span>
