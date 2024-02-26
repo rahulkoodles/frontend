@@ -4,12 +4,9 @@ import React, { useState } from "react";
 import { StyledSidebarDiv } from "../../styles/styleSidebar";
 import { DollarOutlined, WalletOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import ModalCreateOffer from "../Modal/ModalCreateOffer";
 import Sider from "antd/es/layout/Sider";
-// import ModalCreateOffer from "../Modal/ModalCreateOffer";
-import Logo from '../../imgs/logo.png'
-import otclogoImg from '../../imgs/otclogo.png'
-
+import Logo from "../../imgs/logo.png";
+import otclogoImg from "../../imgs/otclogo.png";
 
 const Sidebar = () => {
   return (
@@ -26,16 +23,18 @@ const Sidebar = () => {
               <span className="text-xl text-white">9MM</span>
             </div>
           </div>
-          <div className="">
-            <div className="w-full h-[48px] bg-[#ffffff0A] p-[12px] flex items-center gap-4 rounded-md  mt-10">
-              <div className="w-[24px] h-[24px] ">
-                <img src={otclogoImg} alt="" className=""/>
+          <Link to="/">
+            <div className="">
+              <div className="w-full h-[48px] bg-[#ffffff0A] p-[12px] flex items-center gap-4 rounded-md  mt-10">
+                <div className="w-[24px] h-[24px] ">
+                  <img src={otclogoImg} alt="" className="" />
+                </div>
+                <span className="text-[14px] font-[500] leading-[17.09px] text-CustomGreenColor">
+                  OTC Market
+                </span>
               </div>
-              <span className="text-[14px] font-[500] leading-[17.09px] text-CustomGreenColor">
-                OTC Market
-              </span>
             </div>
-          </div>
+          </Link>
           <Divider className=" mt-10 border-b-1 border-[#121212]" />
           <div className="create-class w-full h-[45px] mt-10 mb-10  border-[rgba(36, 36, 36, 1)]">
             <Link to="/createoffer">

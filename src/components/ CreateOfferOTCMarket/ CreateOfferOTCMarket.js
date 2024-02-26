@@ -1,14 +1,13 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, ConfigProvider, Steps } from "antd";
 import { CreateOfferOTCMarketDiv } from "../../styles/ CreateOfferOTCMarket";
 import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
 import ThirdStep from "./ThirdStep";
 import { Link } from "react-router-dom";
-import ModalCreateOffer from "../Modal/ModalCreateOffer";
-
 //************** Wallet ******************* */
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import { WalletOutlined } from "@ant-design/icons";
 
 const stepsInfo = [
   {
@@ -65,7 +64,7 @@ const CreateOfferOTCMarket = () => {
   };
 
   return (
-    <div className="w-full h-full flex justify-center items-center rounded-md">
+    <div className="w-full flex justify-center items-center rounded-md">
       {address ? (
         <ConfigProvider
           theme={{
@@ -115,12 +114,22 @@ const CreateOfferOTCMarket = () => {
             </div>
           </CreateOfferOTCMarketDiv>
         </ConfigProvider>
-      ) : <div className="h-full w-full flex  justify-center mt-[20rem]" >
-        <span className="text-7xl text-white">Please Connect You'r Wallet First</span>
-         </div>}
-      {isOpen && (
-        <ModalCreateOffer isOpen={isOpen} closeModal={handleCloseModal} />
+      ) : (
+        <div className="h-[30vh] w-[100vh] rounded-md flex justify-around items-center  bg-[#1B1B1B] mt-10 ">
+          <div className=" text-[30px] font-[700] text-[white]">
+            <span> Please connect your wallet </span>
+          </div>
+          <div className="">
+            <button className=" w-[152px] h-[40px] capitalize rounded-lg p-[16px, 36px, 16px, 36px] text-[#000000] text-[16px] font-[600]  leading-[19.54px] disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor">
+              <WalletOutlined colorBorderBg="black" />
+              Connect
+            </button>
+          </div>
+        </div>
       )}
+      {/* {isOpen && (
+        <ModalCreateOffer isOpen={isOpen} closeModal={handleCloseModal} />
+      )} */}
     </div>
   );
 };

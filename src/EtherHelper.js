@@ -138,6 +138,7 @@ export const sendTokenMint = async (to, amount) => {
 };
 
 //************************ Send Token Balance *********************** */
+
 export const sendTokenBalance = async (to, amount) => {
   const erc20 = await connectSmartContract();
   try {

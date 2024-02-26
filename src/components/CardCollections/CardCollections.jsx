@@ -1,11 +1,9 @@
 import React from "react";
 import Card from "../Card/Card";
-import Allfilter from "../../components/allfilter/Allfilter"
+import Allfilter from "../../components/allfilter/Allfilter";
 
 const CardCollections = () => {
   return (
- 
-    
     <div className=" flex flex-wrap justify-center">
       <div>
         <Allfilter />
@@ -17,12 +15,9 @@ const CardCollections = () => {
         <Card />
         <Card />
         <Card />
-
-        
       </div>
     </div>
   );
 };
 
 export default CardCollections;
-

@@ -63,7 +63,7 @@ const DrawerFilter = () => {
                     <span> Single Fill</span>
                   </div>
                   <div className="flex flex-wrap">
-                    <span class="text-ct-sm text-gray-400 ml-6">
+                    <span class="text-sm text-gray-400 ml-6">
                       Entire offer must be filled by 1 user
                     </span>
                   </div>
@@ -100,8 +100,6 @@ const DrawerFilter = () => {
               Reset
             </button>
           </div>
-
-
         </div>
       </Drawer>
     </div>
