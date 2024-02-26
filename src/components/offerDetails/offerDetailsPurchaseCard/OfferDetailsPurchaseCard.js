@@ -8,6 +8,7 @@ import {
   InfoCircleOutlined,
   WalletOutlined,
 } from "@ant-design/icons";
+import ConnectButton from "../../ConnectButton/ConnectButton";
 
 const OfferDetailsPurchaseCard = () => {
   return (
@@ -132,13 +133,13 @@ const OfferDetailsPurchaseCard = () => {
             </div>
           </div>
         </div>
-        <button
-          type="button"
-          className="flex items-center justify-center gap-2 w-full  px-3 h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor"
-        >
-          <WalletOutlined color="black" />
-          <span class="">Connect wallet</span>
-        </button>
+      
+        <div className="flex items-center justify-center gap-2 w-full  px-3 h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor">
+        <ConnectButton />
+        </div>
+
+
+
         <div class=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">
           <InfoCircleOutlined />
           <div class="text-info text-[#d6cdcd]">

@@ -15,6 +15,12 @@ const ModalStyle = createGlobalStyle`
   .anticon svg {
     display: inline-block;
     color: white}
-`;
+    
+    .ant-divider-horizontal {
+    
+      min-width: 1px;
+      
+    }`
+;
 
 export default ModalStyle;
