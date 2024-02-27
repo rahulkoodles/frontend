@@ -6,11 +6,13 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const Card = () => {
+  // class="bg-ct-white-900 rounded-md cursor-pointer min-h-full flex-1 flex flex-col w-full justify-between gap-4 hover:bg-ct-white-800 transition-all duration-300 "
+  // className="w-full mx-auto max-md:w-[446px] md:w-[338px] h-full bg-[#121212] p-3  rounded-[15px]  "
   return (
     <StyledCardContainer>
       <Link to="/offerdetails">
-        <div className="w-full mx-auto max-md:w-[15rem] md:w-[21.125rem] h-full bg-[#121212] p-3  rounded-[15px]  ">
-          <div className=" w-full h-[3rem] flex  ">
+        <div className="w-full  h-full  px-[10px]  rounded-[15px]   ">
+          <div className=" w-full h-[3rem] flex mt-[17px] ">
             <div className=" w-full h-full flex flex-1 gap-2 items-center">
               <div className="relative w-12 h-12 min-w-[3rem]">
                 <img
@@ -50,7 +52,7 @@ const Card = () => {
               />
             </div>
           </div>
-          <div className=" mb-248px mt-2 border-b-[1px] border-[#474747] pb-5">
+          <div className=" mb-248px border-b-[1px] border-[#474747]  ">
             <div className="flex items-center justify-between text-gray-500 text-sm font-medium w-full mt-2">
               <div className="flex-1 flex flex-col gap-1 ">
                 <span className="text-[10px] uppercase font-[400]">Offer</span>
@@ -106,8 +108,8 @@ const Card = () => {
               </div>
             </div>
           </div>
-          <div className="my-ant-button ">
-            <div className="flex items-center justify-between w-full py-2">
+          <div className="my-ant-button  ">
+            <div className="flex items-center justify-between w-full mt-[8px]">
               <span className="text-[#FFFFFF80] text-[12px]">4 hours ago</span>
 
               <Link to="/offerdetails">

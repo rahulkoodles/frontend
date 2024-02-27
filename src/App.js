@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import Sidebar from "./components/SideBar/Sidebar";
-import RoutesPages from "./routes/RoutesPages";
+import RoutesPages from "./Routes/RoutesPages";
 
 //********************** Wallet Connect ******************* */
 

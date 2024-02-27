@@ -4,10 +4,12 @@ import React from "react";
 import ProfileImage from "../../../imgs/profileImage.jpeg";
 import { StyledPurchaseCardDiv } from "../../../styles/styelsOfferdetails";
 import {
+  ArrowRightOutlined,
   InfoCircleFilled,
   InfoCircleOutlined,
   WalletOutlined,
 } from "@ant-design/icons";
+import ConnectButton from "../../ConnectButton/ConnectButton";
 
 const OfferDetailsPurchaseCard = () => {
   return (
@@ -38,7 +40,8 @@ const OfferDetailsPurchaseCard = () => {
               </span>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="bg-[#D9D9D933] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit text-xs font-semibold rounded cursor-pointer">
-                  CA:DeZx...B263
+                  CA:DeZx...B263{" "}
+                  <ArrowRightOutlined color="#FFFFFF80" rotate={-60} />
                 </span>
               </div>
             </div>
@@ -53,14 +56,14 @@ const OfferDetailsPurchaseCard = () => {
           </div>
         </div>
       </div>
-      <div className="flex-1 p-4  pb-10 text-sm text-gray-500 flex flex-col gap-4">
-        <div class="text-sm font-semibold text-gray-200 uppercase">
+      <div className="flex-1 p-4 h-full pb-10 text-sm text-gray-500 flex flex-col gap-4">
+        <div class="text-[14px] font-semibold text-gray-200 uppercase">
           Your action
         </div>
         <div className="rounded-lg p-4 flex flex-col gap-3 bg-[#1B1B1B]">
           <span class="flex items-center gap-1.5 uppercase font-semibold">
             <span class="uppercase">
-              <span class=" px-1.5 py-1 uppercase w-fit text-md font-semibold rounded cursor-default bg-[#1B1B1B] text-[#5dec96]">
+              <span class=" px-1.5 py-1 uppercase w-fit text-md font-semibold rounded cursor-default bg-[#00C89647] text-[#5dec96]">
                 buying
               </span>
             </span>
@@ -112,7 +115,7 @@ const OfferDetailsPurchaseCard = () => {
             Pay Amount
             <Tooltip
               placement="top"
-              title="The amount of you are paying for seller  "
+              title="The amount of you are paying for seller "
               className="mt-0.5 text-gray-600 text-xs w-3 h-3 cursor-pointer"
             >
               <InfoCircleOutlined />
@@ -132,13 +135,11 @@ const OfferDetailsPurchaseCard = () => {
             </div>
           </div>
         </div>
-        <button
-          type="button"
-          className="flex items-center justify-center gap-2 w-full  px-3 h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor"
-        >
-          <WalletOutlined color="black" />
-          <span class="">Connect wallet</span>
-        </button>
+
+        <div className="flex items-center justify-center gap-2 w-full h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor">
+          <ConnectButton />
+        </div>
+
         <div class=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">
           <InfoCircleOutlined />
           <div class="text-info text-[#d6cdcd]">

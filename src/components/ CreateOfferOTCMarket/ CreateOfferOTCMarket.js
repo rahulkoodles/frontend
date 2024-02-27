@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Button, ConfigProvider, Steps } from "antd";
+import { ConfigProvider, Divider, Steps } from "antd";
 import { CreateOfferOTCMarketDiv } from "../../styles/ CreateOfferOTCMarket";
 import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
 import ThirdStep from "./ThirdStep";
 import { Link } from "react-router-dom";
+import WalletImg from "../../imgs/AllWalletImg.png";
+
 //************** Wallet ******************* */
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
-import { WalletOutlined } from "@ant-design/icons";
+import { StyledCardContainer } from "../../styles/stylesCard";
+import ConnectButton from "../ConnectButton/ConnectButton";
 
 const stepsInfo = [
   {
@@ -64,7 +67,7 @@ const CreateOfferOTCMarket = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center rounded-md">
+    <div className="w-full  flex justify-center items-center rounded-md mt-[30px]">
       {address ? (
         <ConfigProvider
           theme={{
@@ -115,16 +118,51 @@ const CreateOfferOTCMarket = () => {
           </CreateOfferOTCMarketDiv>
         </ConfigProvider>
       ) : (
-        <div className="h-[30vh] w-[100vh] rounded-md flex justify-around items-center  bg-[#1B1B1B] mt-10 ">
-          <div className=" text-[30px] font-[700] text-[white]">
-            <span> Please connect your wallet </span>
-          </div>
-          <div className="">
-            <button className=" w-[152px] h-[40px] capitalize rounded-lg p-[16px, 36px, 16px, 36px] text-[#000000] text-[16px] font-[600]  leading-[19.54px] disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor">
-              <WalletOutlined colorBorderBg="black" />
-              Connect
-            </button>
-          </div>
+        <div className="flex justify-center items-center w-full h-[86vh]">
+          <StyledCardContainer>
+            <div className="mx-auto max-md:w-[18rem] md:w-[44.125rem] h-[60vh] bg-[#121212] p-3  rounded-[15px] ">
+              <div className="mt-2">
+                <div className="flex justify-center items-center">
+                  <span className="text-3xl text-white">Wallet Connect</span>
+                </div>
+                <Divider className="mt-5 bg-gray-700" />
+              </div>
+
+              <div className=" w-full  h-[40vh]">
+                <div className=" h-full  mt-10">
+                  <div className="h-full flex justify-between ">
+                    <div className=" w-[32vh] m-0 p-0">
+                      <div className="flex flex-col text-white px-2 h-full">
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Perspiciatis porro, minus voluptate ab expedita
+                          quisquam! Necessitatibus nulla veniam iusto culpa eum
+                        </p>
+                      </div>
+                    </div>
+                    <Divider
+                      className="createOffeDeivder bg-white m-0"
+                      style={{ width: "1px" }}
+                    />
+
+                    <div className="  h-full ">
+                      <div className="text-white  flex flex-col items-center gap-4">
+                        <img
+                          src={WalletImg}
+                          alt=""
+                          className="w-[15rem] h-fit "
+                        />
+
+                        {/* //******************* Connect Button************************** */}
+
+                        <ConnectButton className="h-[2.5rem] " />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </StyledCardContainer>
         </div>
       )}
       {/* {isOpen && (

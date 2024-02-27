@@ -6,6 +6,7 @@ import DrawerFilter from "./DrawerFilter";
 import Pricefilter from "./Pricefilter";
 
 import reLoadImg from "../../imgs/Frame 36.png";
+import StrictImg from "../../imgs/Vector (2).png";
 
 const Allfilter = () => {
   return (
@@ -18,7 +19,7 @@ const Allfilter = () => {
           },
         }}
       >
-        <div className="filter-btn flex flex-wrap">
+        <div className="filter-btn flex flex-wrap ">
           <div>
             <Radio.Group className="">
               <Radio.Button
@@ -51,16 +52,18 @@ const Allfilter = () => {
         <div className="filter-btn">
           <Radio.Group>
             <Radio.Button
-              className=" text-[#FFFFFF40] font-[500] text-[14px] before:bg-transparent"
+              className="  text-[#FFFFFF40] font-[500] text-[14px] before:bg-transparent"
               value="Strict List"
             >
-              Strict List
+              <spna>
+               Strict List
+              </spna>
             </Radio.Button>
             <Radio.Button
               className=" text-[#FFFFFF40] text-[14px] before:bg-transparent"
               value="All"
             >
-              All
+              <div>All</div>
             </Radio.Button>
           </Radio.Group>
         </div>
@@ -74,7 +77,7 @@ const Allfilter = () => {
         <DrawerFilter></DrawerFilter>
         <Pricefilter />
         <div className=" w-[32px] h-[32px] border-2 rounded-md bg-[#121212] border-[#d9d9d933] ">
-          <img src={reLoadImg} className=" m-1.5"/>
+          <img src={reLoadImg} className=" m-1.5" />
         </div>
       </ConfigProvider>
     </StyledAllfilter>

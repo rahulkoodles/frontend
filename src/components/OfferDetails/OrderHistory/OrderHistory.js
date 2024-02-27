@@ -7,14 +7,14 @@ const OrderHistory = () => {
     <StyeledOrderHistory>
       <div className="w-full col-span-12 order-3 p-6 bg-[#121212] rounded-lg">
         <div className="flex justify-between items-center">
-          <div class="mb-4 text-sm font-semibold text-[#FFFFFF66] uppercase">
+          <div class="mb-4 text-sm font-semibold text-white uppercase">
             Orders History
           </div>
           <div className="order-switch ">
             <label class="font-light select-none cursor-pointer text-[#FFFFFF66] mr-4 text-sm">
               Only me
             </label>
-            <Switch className=" border-2"  />
+            <Switch />
           </div>
         </div>
         <div className="whitespace-nowrap overflow-auto">

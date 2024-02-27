@@ -4,15 +4,15 @@ import React from "react";
 const Pricefilter = () => {
   return (
     <div className="price-filter">
-      <Select className=" bg-transparent"
-        defaultValue="lucy"
-        style={{ width: 200 }}
+      <Select color="#FFFFFF40" className=" "
+        defaultValue="price"
+        style={{ width: 200 ,background:""}}
         options={[
           {
-            label: "Manager",
             options: [
-              { label: "Jack", value: "jack" },
-              { label: "Lucy", value: "lucy" },
+              { label: "Created", value: "created" },
+              { label: "Price", value: "price" },
+              { label: "Collateral", value: "collateral" },
             ],
           },
           {

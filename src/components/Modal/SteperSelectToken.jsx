@@ -17,8 +17,6 @@ function SteperSelectToken({ isOpen, closeModal }) {
     setIsModalOpen(true);
   };
 
-
-
   return (
     <>
       <Modal
@@ -46,7 +44,7 @@ function SteperSelectToken({ isOpen, closeModal }) {
           </div>
         </div>
 
-       <Divider className="bg-gray-600"/>
+        <Divider className="bg-gray-600" />
 
         {/* ///////// Searching////////// */}
 
@@ -64,184 +62,269 @@ function SteperSelectToken({ isOpen, closeModal }) {
 
         {/* ///////////// Radio Button///////////// */}
         <div className="mt-6 text-white flex justify-between gap-4 items-center">
-            <div>
-          <Radio.Group value="">
-            <Radio.Button value="large" className="text-white">
-              Strict
-            </Radio.Button>
-            <Radio.Button value="default" className="text-gray-500">
-              All
-            </Radio.Button>
-          </Radio.Group>
-            </div>
+          <div>
+            <Radio.Group value="">
+              <Radio.Button value="large" className="text-white">
+                Strict
+              </Radio.Button>
+              <Radio.Button value="default" className="text-gray-500">
+                All
+              </Radio.Button>
+            </Radio.Group>
+          </div>
 
-            <div>
-                <span className="flex items-center gap-1.5 text-ct-sm text-gray-500">Token List</span>
-            </div>
-
-            
+          <div>
+            <span className="flex items-center gap-1.5 text-ct-sm text-gray-500">
+              Token List
+            </span>
+          </div>
         </div>
-            {/* // List */}
 
         <div className="px-6 py-4 flex flex-col gap-2 overflow-y-auto max-h-[40vh]">
-        <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
+          <div
+            className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
+               bg-ct-white-900"
+          >
+            <div className="flex items-center gap-1">
+              <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                <img
+                  src="https://static.jup.ag/jlp/icon.png"
+                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  alt="JLP"
+                ></img>
+              </div>
+
+              <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
-                        </span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
+                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                    JLP
+                  </span>
+                  <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
+                    <span class="flex normal-case font-normal items-center">
+                      27G8...idD4
+                      <span class="w-3 h-3 flex items-center justify-center">
+                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      </span>
+                    </span>
+                  </span>
                 </div>
 
+                <span class="text-ct-sm ml-1 text-gray-400">
+                  Jupiter Perps LP
+                </span>
+              </div>
+            </div>
+          </div>
 
+          <div
+            className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
+               bg-ct-white-900"
+          >
+            <div className="flex items-center gap-1">
+              <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                <img
+                  src="https://static.jup.ag/jlp/icon.png"
+                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  alt="JLP"
+                ></img>
+              </div>
 
-               </div>
-
-               <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
+              <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
-                        </span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
+                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                    JLP
+                  </span>
+                  <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
+                    <span class="flex normal-case font-normal items-center">
+                      27G8...idD4
+                      <span class="w-3 h-3 flex items-center justify-center">
+                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      </span>
+                    </span>
+                  </span>
                 </div>
 
+                <span class="text-ct-sm ml-1 text-gray-400">
+                  Jupiter Perps LP
+                </span>
+              </div>
+            </div>
+          </div>
 
+          <div
+            className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
+               bg-ct-white-900"
+          >
+            <div className="flex items-center gap-1">
+              <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                <img
+                  src="https://static.jup.ag/jlp/icon.png"
+                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  alt="JLP"
+                ></img>
+              </div>
 
-               </div>
-
-               <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
+              <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
-                        </span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
+                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                    JLP
+                  </span>
+                  <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
+                    <span class="flex normal-case font-normal items-center">
+                      27G8...idD4
+                      <span class="w-3 h-3 flex items-center justify-center">
+                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      </span>
+                    </span>
+                  </span>
                 </div>
 
+                <span class="text-ct-sm ml-1 text-gray-400">
+                  Jupiter Perps LP
+                </span>
+              </div>
+            </div>
+          </div>
 
+          <div
+            className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
+               bg-ct-white-900"
+          >
+            <div className="flex items-center gap-1">
+              <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                <img
+                  src="https://static.jup.ag/jlp/icon.png"
+                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  alt="JLP"
+                ></img>
+              </div>
 
-               </div>
-
-
-               <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
+              <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
-                        </span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
+                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                    JLP
+                  </span>
+                  <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
+                    <span class="flex normal-case font-normal items-center">
+                      27G8...idD4
+                      <span class="w-3 h-3 flex items-center justify-center">
+                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      </span>
+                    </span>
+                  </span>
                 </div>
 
+                <span class="text-ct-sm ml-1 text-gray-400">
+                  Jupiter Perps LP
+                </span>
+              </div>
+            </div>
+          </div>
 
+          <div
+            className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
+               bg-ct-white-900"
+          >
+            <div className="flex items-center gap-1">
+              <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                <img
+                  src="https://static.jup.ag/jlp/icon.png"
+                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  alt="JLP"
+                ></img>
+              </div>
 
-               </div>
-
-
-               <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
+              <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
-                        </span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
+                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                    JLP
+                  </span>
+                  <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
+                    <span class="flex normal-case font-normal items-center">
+                      27G8...idD4
+                      <span class="w-3 h-3 flex items-center justify-center">
+                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      </span>
+                    </span>
+                  </span>
                 </div>
 
+                <span class="text-ct-sm ml-1 text-gray-400">
+                  Jupiter Perps LP
+                </span>
+              </div>
+            </div>
+          </div>
 
+          <div
+            className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
+               bg-ct-white-900"
+          >
+            <div className="flex items-center gap-1">
+              <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                <img
+                  src="https://static.jup.ag/jlp/icon.png"
+                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  alt="JLP"
+                ></img>
+              </div>
 
-               </div>
-
-
-               <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
+              <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
-                        </span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
+                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                    JLP
+                  </span>
+                  <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
+                    <span class="flex normal-case font-normal items-center">
+                      27G8...idD4
+                      <span class="w-3 h-3 flex items-center justify-center">
+                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      </span>
+                    </span>
+                  </span>
                 </div>
-               </div>
 
+                <span class="text-ct-sm ml-1 text-gray-400">
+                  Jupiter Perps LP
+                </span>
+              </div>
+            </div>
+          </div>
 
-               <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
+          <div
+            className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
+               bg-ct-white-900"
+          >
+            <div className="flex items-center gap-1">
+              <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                <img
+                  src="https://static.jup.ag/jlp/icon.png"
+                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  alt="JLP"
+                ></img>
+              </div>
+
+              <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
-                        </span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
+                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                    JLP
+                  </span>
+                  <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
+                    <span class="flex normal-case font-normal items-center">
+                      27G8...idD4
+                      <span class="w-3 h-3 flex items-center justify-center">
+                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      </span>
+                    </span>
+                  </span>
                 </div>
-               </div>
+
+                <span class="text-ct-sm ml-1 text-gray-400">
+                  Jupiter Perps LP
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </Modal>
     </>

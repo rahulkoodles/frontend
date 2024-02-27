@@ -1,14 +1,14 @@
 import React from "react";
 import Card from "../Card/Card";
-import Allfilter from "../../components/allfilter/Allfilter";
+import Allfilter from "../Allfilter/Allfilter";
 
 const CardCollections = () => {
   return (
-    <div className=" flex flex-wrap justify-center">
-      <div>
+    <div className=" flex flex-wrap mx-[19px] gap-[24px] mt-[35px] ">
+      <div className=" grid w-full ">
         <Allfilter />
       </div>
-      <div className="flex flex-wrap gap-[20px] mt-[20px] justify-evenly">
+      <div className="grid  md:grid-cols-1 customMdd:grid-cols-2  xl:grid-cols-3 w-full gap-[20px] ">
         <Card />
         <Card />
         <Card />

@@ -8,12 +8,21 @@ import { ConfigProvider } from "antd";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    
-    <ConfigProvider theme={{
-    token: {
-      // colorBorder:"transparent"
-    }
-    }}>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBorder: "transparent",
+          colorBgElevated: "#121212",
+          colorText: "white",
+          colorTextDescription: "white",
+          colorTextPlaceholder: "white",
+          colorTextQuaternary: "black",
+          optionSelectedColor: "black",
+          colorBgTextActive: "black",
+          
+        },
+      }}
+    >
       <App />
     </ConfigProvider>
   </React.StrictMode>
