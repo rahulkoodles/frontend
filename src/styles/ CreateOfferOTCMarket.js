@@ -72,3 +72,4 @@ export const CreateOfferOTCMarketDiv = styled.div`
     }
   }
 `;
+
