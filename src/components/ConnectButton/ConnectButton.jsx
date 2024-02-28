@@ -146,7 +146,7 @@ function ConnectButton(props) {
         className={`bg-CustomGreenColor to-[#161328] rounded-lg text-black px-4 py-2 h-full flex items-center justify-center 
       ${isConnected || walletAddress ? 'bg-red-500' : ''}`}
         onClick={() =>
-          isConnected || walletAddress ? handleDisconnectWallet() : showModal()
+          isConnected  ? handleDisconnectWallet() : handleConnectWallet()
         }
       >
         <LuWallet2
@@ -168,12 +168,12 @@ function ConnectButton(props) {
 
       {/* //****************************** Modal ********************** */}
 
-      <ConnectWalletModal
+      {/* <ConnectWalletModal
         isOpen={isModalOpen}
         onCancel={handleCancel}
         onConnect={handleConnectWallet}
         onConnectMetaMask={handleWalletConnectMetaMask}
-      />
+      /> */}
     </>
   );
 }
