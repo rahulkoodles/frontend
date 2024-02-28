@@ -10,8 +10,16 @@ import {
   WalletOutlined,
 } from "@ant-design/icons";
 import ConnectButton from "../../ConnectButton/ConnectButton";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import { useSelector } from "react-redux";
 
 const OfferDetailsPurchaseCard = () => {
+  const { address } = useWeb3ModalAccount();
+  const walletAddressRedux = useSelector((state) => state.auth.walletAddress);
+
+  console.log('Address-------', address);
+  console.log('Redux--------', walletAddressRedux);
+
   return (
     <StyledPurchaseCardDiv>
       <div className="flex flex-col h-full gap-4 px-4 py-6 border-b border-[#474747] text-gray-500">
@@ -137,7 +145,9 @@ const OfferDetailsPurchaseCard = () => {
         </div>
 
         <div className="flex items-center justify-center gap-2 w-full h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor">
+         
           <ConnectButton />
+          
         </div>
 
         <div class=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">

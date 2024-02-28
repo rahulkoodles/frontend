@@ -4,17 +4,7 @@ import metaMaskImg from "../../imgs/metamask-icon.png";
 import WalletConnectImg from "../../imgs/WalletLogo.png";
 import { handleWalletConnect } from "../../EtherHelper";
 
-function ConnectWalletModal({isOpen, onCancel , onConnect}) {
-    const handleWalletConnectMetaMask = async(params) => {
-    try{
-        console.log('meta mask');
-        const result = await handleWalletConnect()
-        console.log('result meta mask', result);
-    }
-    catch(err){
-        console.log('------', err);
-    }}
-    
+function ConnectWalletModal({isOpen, onCancel , onConnect, onConnectMetaMask}) {
   return (
     <>
       <Modal
@@ -49,7 +39,7 @@ function ConnectWalletModal({isOpen, onCancel , onConnect}) {
 
           <button
             className={`rounded-lg text-black p-4 h-full flex items-center hover:bg-[#1A1F2E]`}
-            onClick={handleWalletConnectMetaMask}
+            onClick={onConnectMetaMask}
           >
             <div className="flex gap-4 text-white w-full items-center !hover:bg-red-100">
               <span>

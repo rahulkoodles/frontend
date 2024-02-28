@@ -122,11 +122,13 @@ const Header = () => {
                 />
                 <NotificationDrawerComponent />
 
-                <div className="sm:hidden   flex justify-center items-center px-2 h-[40px] w-[60px] rounded-xl cursor-pointer gap-0.5 ">
-                  <span className="text-4xl bg-CustomGreenColor w-full h-full text-black rounded-lg text-center">
-                    +
-                  </span>
-                </div>
+                <Link to="/createoffer">
+                  <div className="sm:hidden   flex justify-center items-center px-2 h-[40px] w-[60px] rounded-xl cursor-pointer gap-0.5 ">
+                    <span className="text-4xl bg-CustomGreenColor w-full h-full text-black rounded-lg text-center">
+                      +
+                    </span>
+                  </div>
+                </Link>
               </div>
             </nav>
 
