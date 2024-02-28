@@ -1,11 +1,12 @@
-import React, { useCallback, useEffect } from 'react';
-import ProfileImage from '../../imgs/profileImage.jpeg';
-import { Button, Progress } from 'antd';
-import { StyledCardContainer } from '../../styles/stylesCard';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import React, { useCallback, useEffect } from "react";
+import ProfileImage from "../../imgs/profileImage.jpeg";
+import { Button, Progress } from "antd";
+import { StyledCardContainer } from "../../styles/stylesCard";
+import { ArrowRightOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const Card = ({ offer }) => {
+ 
   return (
     <StyledCardContainer>
       <Link to="/offerdetails">
@@ -35,14 +36,14 @@ const Card = ({ offer }) => {
                 </span>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="bg-[#D9D9D933] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit text-[10px] font-[500] leading-[12.21px] rounded cursor-pointer">
-                    {offer.offerType === 0 ? 'Partial fill' : 'Single fill'}
+                    {offer.offerType === 0 ? "Partial fill" : "Single fill"}
                   </span>
                 </div>
               </div>
             </div>
             <div className="my-ant-progress">
               <Progress
-                strokeColor={'#00C896'}
+                strokeColor={"#00C896"}
                 type="circle"
                 percent={60}
                 size={50}
@@ -112,7 +113,7 @@ const Card = ({ offer }) => {
 
               <Link to="/offerdetails">
                 <Button className=" bg-[#D9D9D933] text-[#FFFFFF80] border-none">
-                  {offer.tradeType === 0 ? 'Buy' : 'Sell'}
+                  {offer.tradeType === 0 ? "Buy" : "Sell"}
                 </Button>
               </Link>
             </div>

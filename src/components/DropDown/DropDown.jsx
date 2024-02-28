@@ -9,7 +9,7 @@ function DropDown() {
   const handleMenuClick = (item) => {
     message.info(`Selected item: ${item.key}`);
     setSelectedItem(item.key); // Update the selected item state
-    console.log("Selected item:", item);
+
   };
 
   const items = [

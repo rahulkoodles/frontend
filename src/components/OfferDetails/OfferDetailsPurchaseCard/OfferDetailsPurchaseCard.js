@@ -17,8 +17,6 @@ const OfferDetailsPurchaseCard = () => {
   const { address } = useWeb3ModalAccount();
   const walletAddressRedux = useSelector((state) => state.auth.walletAddress);
 
-  console.log('Address-------', address);
-  console.log('Redux--------', walletAddressRedux);
 
   return (
     <StyledPurchaseCardDiv>

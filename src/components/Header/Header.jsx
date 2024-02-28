@@ -18,7 +18,6 @@ const Header = () => {
 
   const location = useLocation();
 
-  console.log("location", location);
 
   return (
     <div className="w-full">
