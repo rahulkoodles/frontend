@@ -14,10 +14,6 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
   const signer = useSigner();
 
   async function handleSubmit() {
-<<<<<<< HEAD
-=======
-    // console.log('Selected Radio Value:', formState);
->>>>>>> 669d7bafdcd35cce0dc092192de8cb1bcb8aff4d
     const {
       BaseToken: baseToken,
       inputFirst: baseAmount,
