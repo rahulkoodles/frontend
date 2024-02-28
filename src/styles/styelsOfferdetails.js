@@ -32,7 +32,6 @@ export const StyledAllfilter = styled.div`
   justify-content: space-between;
   width: 100%;
   .filter-btn {
-    /* border: 1px solid #FFFFFF1A; */
     border-radius: 6px;
     background-color: #0e1421;
     .ant-radio-group {
@@ -134,22 +133,12 @@ export const StyledAllfilter = styled.div`
       background: #121212;
       border: 1px solid #d9d9d933;
     }
-    .ant-select-item {
-      background-color: #121212;
+
+    .ant-select-item-option-selected {
+      background-color: gray !important;
     }
   }
 
-  .ant-select-item-option-content {
-    background-color: black;
-  }
-  :where(.css-dev-only-do-not-override-ooeqjp).ant-select-dropdown
-    .ant-select-item-option-content {
-      color: black;
-  }
-  .ant-select-dropdown,
-    .ant-select-dropdown-hidden
-      :where(.css-dev-only-do-not-override-ooeqjp).ant-select-dropdown {
-      background-color: #121212;
-    }
+
+
 `;
-

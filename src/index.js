@@ -19,6 +19,8 @@ root.render(
           colorTextQuaternary: "black",
           optionSelectedColor: "black",
           colorBgTextActive: "black",
+          colorPrimaryHover:"none",
+          colorPrimary:"#FFFFFF33"
           
         },
       }}

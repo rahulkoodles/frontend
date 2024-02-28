@@ -4,9 +4,11 @@ import React from "react";
 const Pricefilter = () => {
   return (
     <div className="price-filter">
-      <Select color="#FFFFFF40" className=" "
+      <Select
+        className=" "
         defaultValue="price"
-        style={{ width: 200 ,background:""}}
+        style={{ width: 200, background: "" }}
+        getPopupContainer={(trigger) => trigger.parentElement}
         options={[
           {
             options: [
@@ -16,8 +18,10 @@ const Pricefilter = () => {
             ],
           },
           {
-            label: "Engineer",
-            options: [{ label: "yiminghe", value: "Yiminghe" }],
+            options: [
+              { label: "Sort Ascending", value: "ascending" },
+              { label: "Sort Descending", value: "descending" },
+            ],
           },
         ]}
       />

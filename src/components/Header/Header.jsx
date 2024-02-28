@@ -71,7 +71,6 @@ const Header = () => {
                       <Select.Option
                         className=" bg-[#121212]  "
                         value="ethereum"
-                        dropdownStyle={{ backgroundColor: "green" }}
                       >
                         <div className="flex flex-wrap gap-2 items-center">
                           <img
@@ -84,7 +83,7 @@ const Header = () => {
                           </span>
                         </div>
                       </Select.Option>
-                      <Select.Option className=" bg-[#121212] " value="pulse">
+                      <Select.Option  className=" bg-[#121212] " value="pulse">
                         <div className="flex flex-wrap gap-2 items-center">
                           <img
                             src={PulseImg}

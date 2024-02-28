@@ -21,7 +21,7 @@ const Allfilter = () => {
       >
         <div className="filter-btn flex flex-wrap ">
           <div>
-            <Radio.Group className="">
+            <Radio.Group  className="">
               <Radio.Button
                 className="  text-[#FFFFFF40] text-[14px] before:bg-transparent"
                 value="Buy"
