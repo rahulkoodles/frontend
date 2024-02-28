@@ -9,29 +9,23 @@ const FirstStep = ({ StepsIncreament }) => {
   const { formState, updateFormState, resetFormState } =
     useContext(FormDataContext);
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinish = (values) => {
+  //   console.log("Success:", values);
+  // };
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
 
   const [value, setValue] = useState(null);
 
   function handleSubmit(values) {
-    console.log("Selected Radio Value:", values);
     StepsIncreament();
     updateFormState(values);
   }
 
   return (
     <>
-      <Form
-        onFinish={handleSubmit}
-        onFinishFailed={(errorInfo) => {
-          console.log("Failed:", errorInfo);
-        }}
-      >
+      <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** Stepper*** */}
           <div className="flex pt-6 "></div>

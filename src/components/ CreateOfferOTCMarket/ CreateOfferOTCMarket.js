@@ -54,7 +54,6 @@ const CreateOfferOTCMarket = () => {
     setFormState("");
   };
 
-  console.log("form data", formState);
   //*************************************** */
 
   const StepsIncreament = () => {

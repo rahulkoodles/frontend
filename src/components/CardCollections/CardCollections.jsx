@@ -14,7 +14,6 @@ const CardCollections = () => {
     try {
       const offers = await escrow9mmContract.getAllOffers();
       setOffers(offers);
-      console.log(offers);
     } catch (error) {
       console.error(error);
     }

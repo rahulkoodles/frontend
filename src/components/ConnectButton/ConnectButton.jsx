@@ -26,7 +26,7 @@ function ConnectButton() {
 
   //********************** Show Address in button ****************************** */
   const truncateAddress = (address, length) => {
-    return address.slice(0, length) + '...';
+    return address.slice(0, length) + "...";
   };
 
   return (
@@ -42,7 +42,7 @@ function ConnectButton() {
           className="text-4xl"
           size={20}
           icon={faWallet}
-          style={{ color: 'black' }}
+          style={{ color: "black" }}
         />
 
         <span className="text-[14px] ml-2 text-center font-medium hidden lg:inline ">
