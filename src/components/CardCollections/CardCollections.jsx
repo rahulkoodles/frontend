@@ -30,8 +30,8 @@ const CardCollections = () => {
         <Allfilter />
       </div>
       <div className="grid  md:grid-cols-1 customMdd:grid-cols-2  xl:grid-cols-3 w-full gap-[20px] ">
-        {offers.map((offer) => (
-          <Card offer={offer} />
+        {offers.map((offer, index) => (
+          <Card key={index} index={index} offer={offer} />
         ))}
       </div>
     </div>

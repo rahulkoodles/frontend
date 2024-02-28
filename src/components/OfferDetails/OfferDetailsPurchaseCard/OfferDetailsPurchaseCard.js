@@ -1,25 +1,12 @@
-import { Progress, Tooltip } from "antd";
-import React from "react";
+import { Progress, Tooltip } from 'antd';
+import React from 'react';
+import ProfileImage from '../../../imgs/profileImage.jpeg';
+import { StyledPurchaseCardDiv } from '../../../styles/styelsOfferdetails';
+import { ArrowRightOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import ConnectButton from '../../ConnectButton/ConnectButton';
 
-import ProfileImage from "../../../imgs/profileImage.jpeg";
-import { StyledPurchaseCardDiv } from "../../../styles/styelsOfferdetails";
-import {
-  ArrowRightOutlined,
-  InfoCircleFilled,
-  InfoCircleOutlined,
-  WalletOutlined,
-} from "@ant-design/icons";
-import ConnectButton from "../../ConnectButton/ConnectButton";
-import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
-import { useSelector } from "react-redux";
-
-const OfferDetailsPurchaseCard = () => {
-  const { address } = useWeb3ModalAccount();
-  const walletAddressRedux = useSelector((state) => state.auth.walletAddress);
-
-  console.log('Address-------', address);
-  console.log('Redux--------', walletAddressRedux);
-
+const OfferDetailsPurchaseCard = ({ signer }) => {
+  console.log(signer);
   return (
     <StyledPurchaseCardDiv>
       <div className="flex flex-col h-full gap-4 px-4 py-6 border-b border-[#474747] text-gray-500">
@@ -48,7 +35,7 @@ const OfferDetailsPurchaseCard = () => {
               </span>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="bg-[#D9D9D933] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit text-xs font-semibold rounded cursor-pointer">
-                  CA:DeZx...B263{" "}
+                  CA:DeZx...B263{' '}
                   <ArrowRightOutlined color="#FFFFFF80" rotate={-60} />
                 </span>
               </div>
@@ -56,7 +43,7 @@ const OfferDetailsPurchaseCard = () => {
           </div>
           <div className="my-ant-progress">
             <Progress
-              strokeColor={"#50CE85"}
+              strokeColor={'#50CE85'}
               type="circle"
               percent={60}
               size={50}
@@ -145,9 +132,11 @@ const OfferDetailsPurchaseCard = () => {
         </div>
 
         <div className="flex items-center justify-center gap-2 w-full h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor">
-         
-          <ConnectButton />
-          
+          {signer ? (
+            <button className="bg-CustomGreenColor to-[#161328] rounded-lg text-black px-4 py-2 h-full flex items-center justify-center">Buy</button>
+          ) : (
+            <ConnectButton />
+          )}
         </div>
 
         <div class=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">

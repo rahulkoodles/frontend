@@ -1,6 +1,6 @@
-import { ethers } from "ethers";
-import config from "../../config";
-import Escrow9MMabi from "../abi/Escrow9MM.json";
+import { ethers } from 'ethers';
+import config from '../../config';
+import Escrow9MMabi from '../abi/Escrow9MM.json';
 
 class Escrow9MMContract {
   constructor(signerOrProvider) {
@@ -32,6 +32,10 @@ class Escrow9MMContract {
 
   getAllOffers() {
     return this.contract.getAllOffers();
+  }
+
+  getOfferById(id) {
+    return this.contract.getOfferById(id);
   }
 }
 

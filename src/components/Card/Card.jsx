@@ -5,10 +5,10 @@ import { StyledCardContainer } from '../../styles/stylesCard';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-const Card = ({ offer }) => {
+const Card = ({ offer, index }) => {
   return (
     <StyledCardContainer>
-      <Link to="/offerdetails">
+      <Link to={`/offerdetails/${index + 1}`}>
         <div className="w-full  h-full  px-[10px]  rounded-[15px]   ">
           <div className=" w-full h-[3rem] flex mt-[17px] ">
             <div className=" w-full h-full flex flex-1 gap-2 items-center">

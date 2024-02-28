@@ -14,7 +14,7 @@ const RoutesPages = () => {
       <ModalStyle />
       <Routes>
         <Route path="/" element={<CardCollections />} />
-        <Route path="/offerdetails" element={<OfferDetails />} />
+        <Route path="/offerdetails/:id" element={<OfferDetails />} />
         <Route path="/createoffer" element={<CreateOfferOTCMarket />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
