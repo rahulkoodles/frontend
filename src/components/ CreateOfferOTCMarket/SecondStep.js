@@ -107,7 +107,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                             ]}
                           >
                             <Input
-                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none"
+                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent"
                               placeholder="Enter amount"
                               min="0"
                               name="tokenAmount"
@@ -172,7 +172,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                             ]}
                           >
                             <Input
-                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none"
+                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent"
                               placeholder="Enter amount"
                               min="0"
                               name="tokenAmount"
