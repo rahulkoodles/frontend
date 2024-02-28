@@ -1,61 +1,86 @@
-import { InfoCircleOutlined } from "@ant-design/icons";
-import { Button, Divider, Form, Tooltip } from "antd";
-import React, { useContext } from "react";
-import { FormDataContext } from "./FormDataContext";
+import { InfoCircleOutlined } from '@ant-design/icons';
+import { Button, Divider, Form, Tooltip } from 'antd';
+import React, { useContext } from 'react';
+import { FormDataContext } from './FormDataContext';
 
-import { otcABI } from "../../abis/OtcAbi";
-import { useWriteContract } from "wagmi";
+// import { otcABI } from "../../abis/OtcAbi";
+// import { useWriteContract } from 'wagmi';
+import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
+import useSigner from '../../hooks/useSigner';
+import Erc20Contract from '../../web3/contracts/Erc20';
+import { ethers } from 'ethers';
 
 function ThirdStep({ StepsIncreament, StepsDecreament }) {
-
-
   const { formState, updateFormState, resetFormState } =
     useContext(FormDataContext);
 
+  // const { data: hash, isPending, writeContract, error } = useWriteContract();
 
-    const { 
-      data: hash, 
-      isPending, 
-      writeContract ,
-      error
-    } = useWriteContract() 
+  //**************** Values**************************** */
+  // console.log('data final----', formState);
+  // console.log('hash :>> ', hash, isPending, error, writeContract);
+  // const Tradetype = formState.buyAndSaleRadio;
+  // const BaseInput = formState.inputFirst;
+  // const QutoeInput = formState.inputSecond;
+  // const Filltype = formState.Filltype;
+  // const Privacy = formState.Privacy;
+  // const baseToken = formState.BaseToken;
+  // const quoteToken = formState.QutoeToken;
 
-    
-    
+  const { signer } = useSigner();
 
-    //**************** Values**************************** */
-    console.log('data final----', formState);
-    console.log('hash :>> ', hash,isPending,error, writeContract);
-    const Tradetype = formState.buyAndSaleRadio
-    const BaseInput = formState.inputFirst
-    const QutoeInput = formState.inputSecond
-    const Filltype = formState.Filltype
-    const Privacy = formState.Privacy
-    const BaseToken = formState.BaseToken
-    const QutoeToken = formState.QutoeToken
+  async function handleSubmit() {
+    console.log('Selected Radio Value:', formState);
+    const {
+      BaseToken: baseToken,
+      inputFirst: baseAmount,
+      QutoeToken: quoteToken,
+      inputSecond: quoteAmount,
+      FillType: fillType,
+      buyAndSaleRadio: tradeType,
+    } = formState;
+    // StepsIncreament();
+    // updateFormState(values);
 
-    async function handleSubmit(values) {
-      console.log("Selected Radio Value:", values);
-      StepsIncreament();
-      updateFormState(values);
-      
-      writeContract({ 
-        address: '0x9781a0B0624331E0aD47B38e55948a8F396f1050', 
-       abi: otcABI, 
-        functionName: 'createOffer', 
-        args: [BaseToken,BaseInput,QutoeToken , QutoeInput, Filltype,Tradetype], 
-      }) 
-    }
-    
-    
+    // writeContract({
+    //   address: '0x9781a0B0624331E0aD47B38e55948a8F396f1050',
+    // //  abi: otcABI,
+    //   functionName: 'createOffer',
+    //   args: [BaseToken,BaseInput,QutoeToken , QutoeInput, Filltype,Tradetype],
+    // })
+
+    // initialize contract
+    const baseTokenContract = new Erc20Contract(baseToken, signer);
+    const quoteTokenContract = new Erc20Contract(quoteToken, signer);
+    const escrow9mmContract = new Escrow9MMContract(signer);
+
+    const baseTokenDecimals = await baseTokenContract.decimals();
+    const quoteTokenDecimals = await quoteTokenContract.decimals();
+
+    let approveAmount = ethers.utils.parseUnits(quoteAmount, quoteTokenDecimals);
+    approveAmount = approveAmount.add(approveAmount.div(1000));
+
+    const approveTx = await quoteTokenContract.approve(escrow9mmContract.contract.address, approveAmount);
+    await approveTx.wait();
+
+    const createOfferTx = await escrow9mmContract.createOffer(
+      baseToken,
+      ethers.utils.parseUnits(baseAmount, baseTokenDecimals),
+      quoteToken,
+      ethers.utils.parseUnits(quoteAmount, quoteTokenDecimals),
+      fillType,
+      tradeType
+    );
+    await createOfferTx.wait();
+  }
 
   return (
     <>
       <Form
-       onFinish={handleSubmit}
-       onFinishFailed={(errorInfo) => {
-         console.log("Failed:", errorInfo);
-       }}
+        onFinish={handleSubmit}
+        onFinishFailed={(errorInfo) => {
+          console.log('Failed:', errorInfo);
+        }}
       >
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** Stepper*** */}
@@ -249,7 +274,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                         className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
                         htmlType="submit"
                       >
-                        {" "}
+                        {' '}
                         Submit
                       </Button>
                     </div>

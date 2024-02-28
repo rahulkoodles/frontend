@@ -33,7 +33,7 @@ function App() {
 
   createWeb3Modal({
     ethersConfig: defaultConfig({ metadata }),
-    chains: [chains.mainnet],
+    chains: [chains.sepolia],
     projectId,
     enableAnalytics: true,
   });
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div>
-      <WagmiProvider config={config}>
+      {/* <WagmiProvider config={config}> */}
         <QueryClientProvider client={queryClient}>
           <Provider store={store}>
             <BrowserRouter>
@@ -52,7 +52,7 @@ function App() {
             </BrowserRouter>
           </Provider>
         </QueryClientProvider>
-      </WagmiProvider>
+      {/* </WagmiProvider> */}
     </div>
   );
 }

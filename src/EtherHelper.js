@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { whaleAbi } from "../src/abis/whaleAbi";
+// import { whaleAbi } from "./web3/abi/whaleAbi";
 
 export const handleWalletConnect = async () => {
   try { 
@@ -188,6 +188,6 @@ export const connectSmartContract = async () => {
   const result = getProvider();
   const signer = result.signer;
   const erc20ContractAddress = "0x060B673B58aEAb73a4851B233a00aA305BE21B72";
-  const erc20 = new ethers.Contract(erc20ContractAddress, whaleAbi, signer);
-  return erc20;
+  // const erc20 = new ethers.Contract(erc20ContractAddress, whaleAbi, signer);
+  // return erc20;
 };
