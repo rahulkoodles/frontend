@@ -1,14 +1,13 @@
 import React from "react";
-import { Button, Divider, Modal } from "antd";
+import { Modal } from "antd";
 import metaMaskImg from "../../imgs/metamask-icon.png";
 import WalletConnectImg from "../../imgs/WalletLogo.png";
-import { handleWalletConnect } from "../../EtherHelper";
 
 function ConnectWalletModal({isOpen, onCancel , onConnect, onConnectMetaMask}) {
   return (
     <>
       <Modal
-        visible={isOpen}
+        open={isOpen}
         onCancel={onCancel}
         style={{ width: "20px" }}
         width={450}

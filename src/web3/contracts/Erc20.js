@@ -6,6 +6,14 @@ class Erc20Contract {
     this.contact = new ethers.Contract(address, Erc20Abi, providerOrSigner);
   }
 
+  name() {
+    return this.contact.name();
+  }
+
+  symbol() {
+    return this.contact.symbol();
+  }
+
   decimals() {
     return this.contact.decimals();
   }
