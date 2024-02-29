@@ -1,5 +1,6 @@
-import salonaImg from '../../imgs/salona.png';
+import EthImg from '../../imgs/ethereum-eth-logo.png';
 import { Button, Form, Radio } from 'antd';
+import DropDown from '../DropDown/DropDown';
 
 const FirstStep = ({ onSubmit }) => {
   return (
@@ -16,9 +17,9 @@ const FirstStep = ({ onSubmit }) => {
                   </h5>
                   <div className="flex items-center justify-between gap-2 px-3 py-2.5 border-2 border-ct-gray-700 rounded-lg">
                     <span className="flex items-center gap-2 flex-1">
-                      <img src={salonaImg} alt="" className="w-5 h-5 rounded" />
+                      <img src={EthImg} alt="" className="w-5 h-5 rounded" />
                       <span className="flex-1 text-ct-base text-white">
-                        Solana
+                        Ethereum
                       </span>
                     </span>
                   </div>

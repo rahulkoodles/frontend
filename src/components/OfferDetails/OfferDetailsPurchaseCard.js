@@ -4,10 +4,17 @@ import ProfileImage from '../../imgs/profileImage.jpeg';
 import { StyledPurchaseCardDiv } from '../../styles/styelsOfferdetails';
 import { ArrowRightOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import ConnectButton from '../ConnectButton/ConnectButton';
+import { truncateAddress } from '../../utils';
+import useSigner from '../../hooks/useSigner';
+import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
+import Erc20Contract from '../../web3/contracts/Erc20';
+import { ethers } from 'ethers';
 
-const OfferDetailsPurchaseCard = ({ id, isConnected, offerDetails }) => {
+const OfferDetailsPurchaseCard = ({ id, offerDetails, fetchOfferDetails }) => {
   const [buyAmount, setBuyAmount] = useState(0);
   const [payAmount, setPayAmount] = useState(0);
+
+  const { isConnected, signer } = useSigner();
 
   useEffect(() => {
     setBuyAmount(offerDetails.remainingAmount);
@@ -24,7 +31,53 @@ const OfferDetailsPurchaseCard = ({ id, isConnected, offerDetails }) => {
 
   const handleMaxClick = () => {
     setBuyAmount(offerDetails.remainingAmount);
-  }
+  };
+
+  const handleBuySellClick = async () => {
+    console.log(offerDetails);
+    const escrow9mmContract = new Escrow9MMContract(signer);
+    const baseTokenContract = new Erc20Contract(offerDetails.baseToken, signer);
+    const quoteTokenContract = new Erc20Contract(
+      offerDetails.quoteToken,
+      signer
+    );
+
+    const [baseTokenDecimals, quoteTokenDecimals] = await Promise.all([
+      baseTokenContract.decimals(),
+      quoteTokenContract.decimals(),
+    ]);
+
+    const fillAmount = ethers.utils.parseUnits(
+      buyAmount.toString(),
+      baseTokenDecimals
+    );
+
+    if (offerDetails.tradeType === 0) {
+      const approveAmount = ethers.utils.parseUnits(
+        payAmount.toString(),
+        quoteTokenDecimals
+      );
+      const fee = approveAmount.div(1000);
+
+      const tx = await quoteTokenContract.approve(
+        escrow9mmContract.contract.address,
+        approveAmount.add(fee)
+      );
+
+      await tx.wait();
+    } else {
+      const tx = await baseTokenContract.approve(
+        escrow9mmContract.contract.address,
+        fillAmount
+      );
+      await tx.wait();
+    }
+
+    const fillOfferTx = await escrow9mmContract.fillOffer(id, fillAmount);
+    await fillOfferTx.wait();
+
+    fetchOfferDetails();
+  };
 
   return (
     <StyledPurchaseCardDiv>
@@ -54,7 +107,7 @@ const OfferDetailsPurchaseCard = ({ id, isConnected, offerDetails }) => {
               </span>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="bg-[#D9D9D933] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit text-xs font-semibold rounded cursor-pointer">
-                  CA:{offerDetails.offerCreator}
+                  CA:{truncateAddress(offerDetails.offerCreator, 3)}
                   <ArrowRightOutlined color="#FFFFFF80" rotate={-60} />
                 </span>
               </div>
@@ -78,7 +131,7 @@ const OfferDetailsPurchaseCard = ({ id, isConnected, offerDetails }) => {
           <span className="flex items-center gap-1.5 uppercase font-semibold">
             <span className="uppercase">
               <span className=" px-1.5 py-1 uppercase w-fit text-md font-semibold rounded cursor-default bg-[#00C89647] text-[#5dec96]">
-                buying
+                {offerDetails.tradeType === 0 ? 'Buying' : 'Selling'}
               </span>
             </span>
             <Tooltip
@@ -109,7 +162,7 @@ const OfferDetailsPurchaseCard = ({ id, isConnected, offerDetails }) => {
             <input
               className="flex-1 w-full accent-[#5dec96] border-transparent cursor-pointer outline-none"
               type="range"
-              step="1"
+              step="0.1"
               min="0"
               max={offerDetails.remainingAmount}
               value={buyAmount || 0}
@@ -127,7 +180,7 @@ const OfferDetailsPurchaseCard = ({ id, isConnected, offerDetails }) => {
         </div>
         <div className="rounded-lg p-4 bg-[#1B1B1B] flex flex-col gap-3">
           <span className="flex items-center gap-1.5 uppercase font-semibold">
-            Pay Amount
+            {offerDetails.tradeType === 0 ? 'Pay' : 'Receive'} Amount
             <Tooltip
               placement="top"
               title="The amount of you are paying for seller "
@@ -151,10 +204,13 @@ const OfferDetailsPurchaseCard = ({ id, isConnected, offerDetails }) => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2 w-full h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor">
+        <div className="flex">
           {isConnected ? (
-            <button className="bg-CustomGreenColor rounded-lg text-black px-4 py-2 text-center">
-              Buy
+            <button
+              className="bg-CustomGreenColor rounded-lg text-black px-4 py-2 text-center w-full text-xl"
+              onClick={handleBuySellClick}
+            >
+              {offerDetails.tradeType === 0 ? 'Buy' : 'Sell'}
             </button>
           ) : (
             <ConnectButton />

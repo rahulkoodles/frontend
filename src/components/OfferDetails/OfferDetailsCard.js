@@ -2,6 +2,7 @@ import React from 'react';
 import Items from './Items';
 import { Tooltip } from 'antd';
 import { ArrowRightOutlined } from '@ant-design/icons';
+import { truncateAddress } from '../../utils';
 
 const OfferDetailsCard = ({ offerDetails }) => {
   return (
@@ -111,13 +112,13 @@ const OfferDetailsCard = ({ offerDetails }) => {
           </div>
         </span>
       </div>
-      <div className="grid grid-cols-2 items-center gap-2 py-3 border-b-2 border-[#474747]">
+      <div className="grid grid-cols-2 items-center gap-2 py-3">
         <Items
-          textHeading="Offer Creator          "
+          textHeading="Offer Creator"
           tooltipText="Offer creator's wallet address"
         />
         <span className="arrowright flex items-center gap-1 text-gray-200 font-medium justify-end">
-          <span className="cursor-pointer">{offerDetails.offerCreator}</span>
+          <span className="cursor-pointer">{truncateAddress(offerDetails.offerCreator, 3)}</span>
           <span className="w-4 h-5 flex items-center justify-center">
             <i className="w-[8.39px]">
               <ArrowRightOutlined color="#FFFFFF80" rotate={-60} />
@@ -126,14 +127,14 @@ const OfferDetailsCard = ({ offerDetails }) => {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 items-center gap-2 py-3  ">
+      {/* <div className="grid grid-cols-2 items-center gap-2 py-3  ">
         <Items
           textHeading="Offer Tx"
           tooltipText="Offer creation transaction hash"
         />
         <span className="arrowright flex items-center gap-1 text-[#FFFFFF] font-[16px] justify-end">
           <span className="cursor-pointer capitalize font-semibold">
-            Solscan
+            Etherscan
           </span>
           <span className="w-4 h-5 flex items-center justify-center">
             <i className=" w-[8.39px]">
@@ -141,7 +142,7 @@ const OfferDetailsCard = ({ offerDetails }) => {
             </i>
           </span>
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -13,17 +13,7 @@ const OfferDetails = () => {
   const { id } = useParams();
   const { isConnected, signer } = useSigner();
 
-  const [offerDetails, setOfferDetails] = useState({
-    baseTokenName: '',
-    baseTokenSymbol: '',
-    baseTokenAmount: '',
-    quoteTokenSymbol: '',
-    quoteTokenAmount: '',
-    fillType: '',
-    filledAmount: '',
-    remainingAmount: '',
-    creator: '',
-  });
+  const [offerDetails, setOfferDetails] = useState({});
 
   const fetchOfferDetails = useCallback(async () => {
     if (!isConnected) return;
@@ -84,7 +74,7 @@ const OfferDetails = () => {
       filledAmount,
       remainingAmount,
       filledPercentage,
-      offerCreator: offer.offerCreator,
+      ...offer,
     });
   }, [isConnected]);
 
@@ -99,8 +89,8 @@ const OfferDetails = () => {
           <div className=" md:w-[60%]  bg-CustomCardBgColor rounded-md">
             <OfferDetailsPurchaseCard
               id={id}
-              isConnected={isConnected}
               offerDetails={offerDetails}
+              fetchOfferDetails={fetchOfferDetails}
             />
           </div>
           <div className="md:w-[40%] bg-CustomCardBgColor rounded-md">
@@ -108,7 +98,7 @@ const OfferDetails = () => {
           </div>
         </div>
       </div>
-      <OrderHistory />
+      {/* <OrderHistory /> */}
     </StyledDiv>
   );
 };

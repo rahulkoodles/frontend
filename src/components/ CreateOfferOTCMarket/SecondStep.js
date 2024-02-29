@@ -8,7 +8,6 @@ import { Input, Radio, Button, Form } from 'antd';
 import { truncateAddress } from '../../utils';
 
 function SecondStep({ formState, onSubmit }) {
-  //*********** First Modal open************** */
   const [isBaseTokenModalOpen, setIsBaseTokenModalOpen] = useState(false);
 
   const handleBaseTokenModalOpen = () => {
@@ -19,7 +18,6 @@ function SecondStep({ formState, onSubmit }) {
     setIsBaseTokenModalOpen(false);
   };
 
-  //************** Second Modal Open ********************* */
   const [isQuoteTokenModalOpen, setIsQuoteTokenModalOpen] = useState(false);
 
   const handleQuoteTokenModalOpen = () => {
@@ -70,8 +68,8 @@ function SecondStep({ formState, onSubmit }) {
                     </div>
 
                     <div className="flex items-center gap-1 w-full">
-                      <div className="flex-1 mt-4">
-                        <div className="flex items-center gap-4 ">
+                      <div className="flex-1">
+                        <div className="flex items-center justify-center gap-4 ">
                           <Form.Item
                             name="baseAmount"
                             rules={[
@@ -80,7 +78,6 @@ function SecondStep({ formState, onSubmit }) {
                                 message: 'Please Enter Amount !',
                               },
                             ]}
-                            className="mb-0 "
                           >
                             <Input
                               className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent
@@ -162,7 +159,6 @@ function SecondStep({ formState, onSubmit }) {
                                 message: 'Please Enter Amount !',
                               },
                             ]}
-                            className="mb-0"
                           >
                             <Input
                               className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent
@@ -235,7 +231,7 @@ function SecondStep({ formState, onSubmit }) {
                                 <div className="cursor-pointer">
                                   <Radio value={0} className=" flex">
                                     <span className="mt-4 ">
-                                      <h5 className="text-ct-base text-white font-medium uppercase mb-0">
+                                      <h5 className="text-ct-base text-white font-medium uppercase">
                                         Partial Fill
                                       </h5>
                                       <span className="text-ct-sm text-gray-400">
@@ -248,7 +244,7 @@ function SecondStep({ formState, onSubmit }) {
 
                                 <div className="flex  cursor-pointer">
                                   <Radio value={1} className="">
-                                    <h5 className="text-ct-base text-white font-medium uppercase mb-0">
+                                    <h5 className="text-ct-base text-white font-medium uppercase">
                                       Single Fill
                                     </h5>
                                     <span className="text-ct-sm text-gray-400">
@@ -287,8 +283,8 @@ function SecondStep({ formState, onSubmit }) {
                               <Radio.Group className="radioSecondStepper flex flex-col text-white mt-0">
                                 <div className="cursor-pointer ">
                                   <Radio value={0} className="flex">
-                                    <span className="mt-4 ">
-                                      <h5 className="text-ct-base text-white font-medium uppercase mb-0">
+                                    <span className="mt-4">
+                                      <h5 className="text-ct-base text-white font-medium uppercase">
                                         Public
                                       </h5>
                                       <span className="text-ct-sm text-gray-400">

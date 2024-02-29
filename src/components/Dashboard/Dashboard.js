@@ -1,9 +1,9 @@
-import { Divider, Spin } from "antd";
-import React, { useCallback, useEffect, useState } from "react";
-import useSigner from "../../hooks/useSigner";
-import Escrow9MMContract from "../../web3/contracts/Escrow9MM";
-import Card from "../Card/Card";
-import { LoadingOutlined } from "@ant-design/icons";
+import { Divider, Spin } from 'antd';
+import React, { useCallback, useEffect, useState } from 'react';
+import useSigner from '../../hooks/useSigner';
+import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
+import Card from '../Card/Card';
+import { LoadingOutlined } from '@ant-design/icons';
 
 const Dashboard = () => {
   const [offers, setOffers] = useState([]);
@@ -55,7 +55,7 @@ const Dashboard = () => {
         {isOffersLoading ? (
           <span className="text-white text-center">
             <Spin
-              indicator={<LoadingOutlined  style={{ fontSize: 24 }} spin />}
+              indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}
             />
           </span>
         ) : offers.length === 0 ? (
@@ -63,9 +63,11 @@ const Dashboard = () => {
             No Offers Found
           </span>
         ) : (
-          offers.map((offer, index) => (
-            <Card key={index} id={index + 1} offer={offer} />
-          ))
+          <div className='grid md:grid-cols-1 customMdd:grid-cols-2 xl:grid-cols-3 w-full gap-[20px]'>
+            {offers.map((offer, index) => (
+              <Card key={index} id={index + 1} offer={offer} />
+            ))}
+          </div>
         )}
       </div>
     </div>
