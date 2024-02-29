@@ -1,8 +1,9 @@
-import { Divider } from 'antd';
-import React, { useCallback, useEffect, useState } from 'react';
-import useSigner from '../../hooks/useSigner';
-import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
-import Card from '../Card/Card';
+import { Divider, Spin } from "antd";
+import React, { useCallback, useEffect, useState } from "react";
+import useSigner from "../../hooks/useSigner";
+import Escrow9MMContract from "../../web3/contracts/Escrow9MM";
+import Card from "../Card/Card";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const Dashboard = () => {
   const [offers, setOffers] = useState([]);
@@ -50,9 +51,13 @@ const Dashboard = () => {
         </div>
       </div>
       <Divider />
-      <div>
+      <div className=" flex justify-center">
         {isOffersLoading ? (
-          <span className="text-white">Loading</span>
+          <span className="text-white text-center">
+            <Spin
+              indicator={<LoadingOutlined  style={{ fontSize: 24 }} spin />}
+            />
+          </span>
         ) : offers.length === 0 ? (
           <span className="flex w-full items-center justify-center col-span-4 font-medium text-white text-base">
             No Offers Found
