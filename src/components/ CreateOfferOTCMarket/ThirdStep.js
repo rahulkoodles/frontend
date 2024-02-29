@@ -13,6 +13,8 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
 
   const { signer } = useSigner();
 
+  console.log('formstate', formState);
+
   async function handleSubmit() {
     const {
       BaseToken: baseToken,
@@ -246,13 +248,13 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
 
                     <div className="grid grid-cols-2 gap-2 mt-2">
                       <Button
-                        className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
+                        className="capitalize  text-black rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
                         onClick={StepsDecreament}
                       >
                         Back
                       </Button>
                       <Button
-                        className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
+                        className="capitalize rounded-lg p-7  text-black   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
                         htmlType="submit"
                       >
                         Submit

@@ -28,7 +28,7 @@ const FirstStep = ({ StepsIncreament }) => {
       <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** Stepper*** */}
-          <div className="flex pt-6 "></div>
+          <div className="flex pt-6"></div>
 
           {/* // *********** Steper Content ********** */}
           <div className="p-6">
@@ -39,18 +39,25 @@ const FirstStep = ({ StepsIncreament }) => {
                     <h5 className="text-ct-base text-white font-medium">
                       Network
                     </h5>
+                    <Form.Item>
+
+                      
+                      
                     <div className="flex items-center justify-between gap-2 px-3 py-2.5 border-2 border-ct-gray-700 rounded-lg">
                       <span className="flex items-center gap-2 flex-1">
                         <img
                           src={salonaImg}
                           alt=""
                           className="w-5 h-5 rounded"
-                        />
+                          />
                         <span className="flex-1 text-ct-base text-white">
                           Solana
                         </span>
                       </span>
                     </div>
+                          </Form.Item>
+
+
                   </div>
 
                   <Form.Item
@@ -94,12 +101,12 @@ const FirstStep = ({ StepsIncreament }) => {
                   </Form.Item>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <Button className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]">
+                    <Button className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94] text-black">
                       {" "}
                       Back
                     </Button>
                     <Button
-                      className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
+                      className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94] text-black"
                       htmlType="submit"
                     >
                       {" "}

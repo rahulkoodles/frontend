@@ -107,7 +107,7 @@ const CreateOfferOTCMarket = () => {
     <FormDataContext.Provider
       value={{ formState, updateFormState, resetFormState }}
     >
-      <div className="w-full  flex justify-center items-center rounded-md">
+      <div className="w-full  flex justify-center items-center rounded-md   ">
         {address || walletAddressRedux ? (
           <ConfigProvider
             theme={{
@@ -119,16 +119,15 @@ const CreateOfferOTCMarket = () => {
                   colorTextDescription: "#FFFFFF80",
                   iconSize: 40,
                   titleLineHeight: 60,
-                  defaultHoverColor:"#5dec96"
-
+                  defaultHoverColor: "#5dec96",
                 },
               },
             }}
           >
             <CreateOfferOTCMarketDiv>
               <div className=" w-[500px]">
-                <div className=" bg-[#121212] rounded-xl ">
-                  <div className="steps-div w-full flex p-4 ">
+                <div className=" bg-[#121212] rounded-xl">
+                  <div className="steps-div w-full flex p-4 md:flex-inline ">
                     <Steps
                       labelPlacement="vertical"
                       className="text-[#FFFFFF80]"
@@ -138,7 +137,7 @@ const CreateOfferOTCMarket = () => {
                   </div>
                   <div>
                     {renderStepComponent()}
-                    <Link to="/createoffer">       
+                    <Link to="/createoffer">
                       {/* <div className="grid grid-cols-2 gap-2  pb-4 px-6">
                       <button
                         className="capitalize rounded-lg p-[16px, 36px, 16px, 36px] text-[#000000] text-[16px] font-[400]  leading-[19.54px] disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor"
@@ -176,10 +175,17 @@ const CreateOfferOTCMarket = () => {
                       <div className=" w-[32vh] m-0 p-0">
                         <div className="flex flex-col text-white px-2 h-full">
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Perspiciatis porro, minus voluptate ab
-                            expedita quisquam! Necessitatibus nulla veniam iusto
-                            culpa eum
+                            <span className="text-2xl ">
+                            Connect your wallet for secure, personalized
+                            transactions. 
+                            </span>
+                            <br/>
+                            
+                            Click "Connect Wallet," choose your
+                            provider, and follow secure prompts. Supported
+                            wallets include MetaMask, Trust Wallet, and Coinbase
+                            Wallet. We prioritize your privacy—no access to
+                            private keys. 
                           </p>
                         </div>
                       </div>
@@ -193,7 +199,6 @@ const CreateOfferOTCMarket = () => {
                           <img src={WalletImg} alt="" className="w-[20rem] " />
 
                           {/* //******************* Connect Button************************** */}
-
                           <ConnectButton className="h-[2.5rem]" />
                         </div>
                       </div>
