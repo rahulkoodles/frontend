@@ -19,9 +19,23 @@ const Header = () => {
 
   const location = useLocation();
 
+  const chainData = [
+    {
+      name: "Ethereum",
+      img: EthImg,
+      value: "ethereum",
+    },
+
+    {
+      name: "Pulse",
+      img: PulseImg,
+      value: "pulse",
+    },
+  ];
+
   return (
-    <div className="w-full">
-      <HeaderStyled>
+    <div className="w-full sticky right-0 top-0 z-50 " style={{ backdropFilter: 'blur(10px)' }}>
+      <HeaderStyled >
         <ConfigProvider
           theme={{
             components: {
@@ -35,6 +49,10 @@ const Header = () => {
             },
           }}
         >
+
+          <div className="">
+
+          
           <div className=" w-full flex items-center justify-between gap-4 py-4 px-3  h-fit container-2xl border-b-2  border-[#47474766]">
             <nav className="h-full w-full flex items-center justify-between  mx-[19px] mr-3">
               <div className=" h-[64px] flex justify-between items-center ">
@@ -80,37 +98,31 @@ const Header = () => {
                 <div className=" h-[40px] !hover:text-white md:!w-[152px] w-[60px] sm:w-[80px]  ">
                   <div className="text-white w-[152px] h-[40px] flex justify-between items-center text-[14px]">
                     <Select
-                      value="ethereum"
+                      defaultValue={chainData[0].value}
                       className=" bg-[#121212]  h-full flex flex-wrap md:!w-[152px] sm:w-[80px] border-[1px] rounded-[8px]"
                       getPopupContainer={(trigger) => trigger.parentElement}
+                      onChange={(value) =>
+                        console.log("Selected value:", value)
+                      }
                     >
-                      <Select.Option
-                        className=" bg-[#121212]  "
-                        value="ethereum"
-                      >
-                        <div className="flex flex-wrap gap-2 items-center">
-                          <img
-                            src={EthImg}
-                            alt="Ethereum"
-                            className=" h-5 w-5 rounded "
-                          />
-                          <span className="hidden lg:inline  text-white">
-                            Ethereum
-                          </span>
-                        </div>
-                      </Select.Option>
-                      <Select.Option className=" bg-[#121212] " value="pulse">
-                        <div className="flex flex-wrap gap-2 items-center">
-                          <img
-                            src={PulseImg}
-                            alt="Ethereum"
-                            className=" h-5 w-5 rounded "
-                          />
-                          <span className="hidden lg:inline text-white">
-                            Pulse
-                          </span>
-                        </div>
-                      </Select.Option>
+                      {chainData.map((item, index) => (
+                        <Select.Option
+                          className=" bg-[#121212]  "
+                          value={item.value}
+                          key={index}
+                        >
+                          <div className="flex flex-wrap gap-2 items-center">
+                            <img
+                              src={item.img}
+                              alt=""
+                              className=" h-5 w-5 rounded "
+                            />
+                            <span className="hidden lg:inline  text-white">
+                              {item.name}
+                            </span>
+                          </div>
+                        </Select.Option>
+                      ))}
                     </Select>
                   </div>
                 </div>
@@ -148,6 +160,8 @@ const Header = () => {
             </nav>
 
             <hr />
+          </div>
+
           </div>
         </ConfigProvider>
       </HeaderStyled>
