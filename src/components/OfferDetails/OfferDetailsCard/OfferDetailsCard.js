@@ -112,7 +112,7 @@ const OfferDetailsCard = () => {
           </div>
         </span>
       </div>
-      <div className="grid grid-cols-2 items-center gap-2 py-3 border-b-2 border-[#474747]">
+      <div className="grid grid-cols-2 items-center gap-2 py-3 ">
         <Items
           textHeading="Offer Creator          "
           tooltipText="Offer creator's wallet address"
@@ -127,7 +127,7 @@ const OfferDetailsCard = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 items-center gap-2 py-3  ">
+      {/* <div className="grid grid-cols-2 items-center gap-2 py-3  ">
         <Items
           textHeading="Offer Tx"
           tooltipText="Offer creation transaction hash"
@@ -140,7 +140,7 @@ const OfferDetailsCard = () => {
             </i>
           </span>
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };

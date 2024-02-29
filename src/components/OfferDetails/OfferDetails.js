@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import OfferDetailsPurchaseCard from './OfferDetailsPurchaseCard/OfferDetailsPurchaseCard';
 import OfferDetailsCard from './OfferDetailsCard/OfferDetailsCard';
 import { StyledDiv } from '../../styles/styelsOfferdetails';
-import OrderHistory from './OrderHistory/OrderHistory';
+//import OrderHistory from './OrderHistory/OrderHistory';
 import { useParams } from 'react-router-dom';
 import useSigner from '../../hooks/useSigner';
 import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
@@ -30,7 +30,7 @@ const OfferDetails = () => {
           </div>
         </div>
       </div>
-      <OrderHistory />
+      {/* <OrderHistory /> */}
     </StyledDiv>
   );
 };

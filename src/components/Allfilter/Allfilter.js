@@ -1,6 +1,6 @@
 import { ConfigProvider, Drawer, Input, Radio } from "antd";
 import React from "react";
-import { StyledAllfilter } from "../../styles/styelsOfferdetails";
+import { StyledAllfilter } from "../../styles/stylesAllfilter";
 import { SearchOutlined } from "@ant-design/icons";
 import DrawerFilter from "./DrawerFilter";
 import Pricefilter from "./Pricefilter";

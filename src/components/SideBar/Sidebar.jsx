@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <StyledSidebarDiv>
       <div className=" w-[353px] h-screen flex border-r border-[#121212] max-customLogo:hidden  ">
-        <Sider width={353} className=" p-[37px] py-[14px]">
+        <Sider width={353} className=" p-[37px] py-[14px] fixed">
           <div className=" w-full h-[75px] flex gap-[8px] items-center ">
             <a className="flex items-center" href="/">
               <img

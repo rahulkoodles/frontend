@@ -20,7 +20,7 @@ root.render(
           optionSelectedColor: "black",
           colorBgTextActive: "black",
           colorPrimaryHover:"none",
-          colorPrimary:"#FFFFFF33"
+          colorPrimary:"transparent"
           
         },
       }}

@@ -19,7 +19,12 @@ const DrawerFilter = () => {
         className=" bg-inherit hover:bg-transparent"
         onClick={showDefaultDrawer}
       >
-        <img src={DrawerImg} />
+        <div className=" flex flex-wrap space-x-2 ">
+          <img src={DrawerImg} />
+          <span className="text-[#FFFFFF40]  text-[14px] before:content-[none] ">
+            Filter
+          </span>
+        </div>
       </Button>
       <Drawer
         title={`Filter`}
@@ -27,8 +32,8 @@ const DrawerFilter = () => {
         width={450}
         onClose={onClose}
         open={open}
-        className=" bg-black">
-
+        className=" bg-black"
+      >
         <div className="flex flex-col p-6 gap-6">
           {/* Network------------ */}
           <div className="text-ct-gray-200 text-ct-base border-b border-gray-800 pb-4">
@@ -36,7 +41,7 @@ const DrawerFilter = () => {
               <div className="mr-6 col-span-1 text-white">Network</div>
               <div className="group bg-transparent col-span-2 flex items-center px-2.5 py-1.5 h-[36px] w-full justify-between border border-gray-800 rounded-lg gap-2 cursor-pointer text-gray-400">
                 <span className="flex items-center gap-2 flex-1 text-ct-white-500">
-                <CiGlobe />
+                  <CiGlobe />
                   <span className="text-ct-base font-medium group-hover:text-ct-white-300 transition-all duration-300">
                     All Networks
                   </span>
@@ -88,7 +93,6 @@ const DrawerFilter = () => {
               </div>
             </div>
           </div>
-
 
           {/* Button  */}
 
