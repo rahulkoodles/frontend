@@ -1,10 +1,10 @@
 import React from "react";
 import Items from "./Items";
 import { Tooltip } from "antd";
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined } from "@ant-design/icons";
+import { shortenEthereumAddress } from "../../utils/helper";
 
-const OfferDetailsCard = () => {
-  const textHeading = "Offer";
+const OfferDetailsCard = ({ offerDetails }) => {
   return (
     <div className="flex-1 p-6 flex flex-col gap-3 text-base text-gray-500">
       <div className="text-[14px] font-[400] text-[#FFFFFF] uppercase mb-4">
@@ -12,11 +12,11 @@ const OfferDetailsCard = () => {
       </div>
       <div className="grid grid-cols-2 items-center gap-2 py-3 border-b-2 border-[#474747]">
         <Items
-          textHeading={textHeading}
+          textHeading="Offer"
           tooltipText="The amount that offer creator want to sell"
         />
         <span className="flex items-center gap-1 text-gray-200 font-medium justify-end">
-          1.7M
+          {offerDetails.baseTokenAmount} {offerDetails.baseTokenSymbol}
           <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
             <img
               src="https://arweave.net/hQiPZOsRZXGXBJd_82PhVdlM_hACsT_q6wqwf5cSY7I"
@@ -33,7 +33,7 @@ const OfferDetailsCard = () => {
           tooltipText="The amount that offer creator seeks to acquire"
         />
         <span className="flex items-center gap-1 text-gray-200 font-medium justify-end">
-          39.4
+          {offerDetails.quoteTokenAmount} {offerDetails.quoteTokenSymbol}
           <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
             <img
               src="https://assets.coingecko.com/coins/images/325/large/Tether.png"
@@ -50,7 +50,7 @@ const OfferDetailsCard = () => {
           tooltipText="Token price per offered amount "
         />
         <span className="flex items-center gap-1 text-gray-200 font-medium justify-end">
-          39.4
+          {offerDetails.pricePerToken}
         </span>
       </div>
       <div className="grid grid-cols-2 items-center gap-2 py-3 border-b-2 border-[#474747]">
@@ -62,7 +62,7 @@ const OfferDetailsCard = () => {
         >
           <span className="text-gray-500 text-end">
             <span className="bg-[#D9D9D933] text-[10px] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit font-semibold rounded">
-              partial fill
+              {offerDetails.fillType}
             </span>
           </span>
         </Tooltip>
@@ -86,7 +86,7 @@ const OfferDetailsCard = () => {
           tooltipText="Total Amount filled by others."
         />
         <span className="flex items-center gap-1 text-gray-200 font-medium justify-end">
-          0
+          {offerDetails.filledAmount} {offerDetails.baseTokenSymbol}
           <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
             <img
               src="https://arweave.net/hQiPZOsRZXGXBJd_82PhVdlM_hACsT_q6wqwf5cSY7I"
@@ -98,11 +98,11 @@ const OfferDetailsCard = () => {
       </div>
       <div className="grid grid-cols-2 items-center gap-2 py-3 border-b-2 border-[#474747]">
         <Items
-          textHeading="Remaining Amount          "
+          textHeading="Remaining Amount"
           tooltipText="Unfilled remaining amount."
         />
         <span className="flex items-center gap-1 text-gray-200 font-medium justify-end">
-          1,715,029
+          {offerDetails.remainingAmount} {offerDetails.baseTokenSymbol}
           <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
             <img
               src="https://arweave.net/hQiPZOsRZXGXBJd_82PhVdlM_hACsT_q6wqwf5cSY7I"
@@ -118,10 +118,13 @@ const OfferDetailsCard = () => {
           tooltipText="Offer creator's wallet address"
         />
         <span className="arrowright flex items-center gap-1 text-gray-200 font-medium justify-end">
-          <span className="cursor-pointer">2pV...qpL</span>
+          <span className="cursor-pointer">
+            {shortenEthereumAddress(offerDetails.offerCreator)}
+          </span>
+
           <span className="w-4 h-5 flex items-center justify-center">
             <i className="w-[8.39px]">
-              <ArrowRightOutlined  color="#FFFFFF80"rotate={-60} />
+              <ArrowRightOutlined color="#FFFFFF80" rotate={-60} />
             </i>
           </span>
         </span>
@@ -133,10 +136,12 @@ const OfferDetailsCard = () => {
           tooltipText="Offer creation transaction hash"
         />
         <span className="arrowright flex items-center gap-1 text-[#FFFFFF] font-[16px] justify-end">
-          <span className="cursor-pointer capitalize font-semibold">Solscan</span>
+          <span className="cursor-pointer capitalize font-semibold">
+            Solscan
+          </span>
           <span className="w-4 h-5 flex items-center justify-center">
             <i className=" w-[8.39px]">
-              <ArrowRightOutlined color="#FFFFFF80"  rotate={-60} />
+              <ArrowRightOutlined color="#FFFFFF80" rotate={-60} />
             </i>
           </span>
         </span>

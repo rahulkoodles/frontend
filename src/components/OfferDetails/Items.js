@@ -16,7 +16,6 @@ const Items = ({
           placement="top"
           title={tooltipText}
         >
-          {/* <InfoCircleFilled/> */}
           <InfoCircleOutlined/>
         </Tooltip>
       )}
