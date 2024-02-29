@@ -5,8 +5,7 @@ const CreateOfferStepperStyledComponent = createGlobalStyle`
 .ant-radio-wrapper span.ant-radio+* {
     padding-inline-start: 13px;
     padding-inline-end: 8px;
-
-    margin-top:1.5rem;
+    margin-top:1.3rem;
 }
 .ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
     border-color: #3165ad;
@@ -26,7 +25,7 @@ const CreateOfferStepperStyledComponent = createGlobalStyle`
 
 :where(.css-dev-only-do-not-override-1xg9z9n).ant-input-outlined:focus, :where(.css-dev-only-do-not-override-1xg9z9n).ant-input-outlined:focus-within {
     border-color: black; 
-    box-shadow: none; 
+    box-shadow: transparent; 
     outline: 0;
      background-color: transparent; 
 }
@@ -39,5 +38,16 @@ const CreateOfferStepperStyledComponent = createGlobalStyle`
     text-overflow: ellipsis;
     font-size: 22px;
 }
-    `;
+
+:where(.css-dev-only-do-not-override-2dyxi7).ant-form-item {
+    margin-bottom: 0px;
+}
+:where(.css-dev-only-do-not-override-2dyxi7).ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+    background: transparent;
+    border-width: 0px;
+    border-style: solid;
+    border-color: none;
+}
+
+`;
 export default CreateOfferStepperStyledComponent;

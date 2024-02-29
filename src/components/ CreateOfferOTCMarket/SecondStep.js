@@ -47,8 +47,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
       ...formState,
       QutoeToken: data,
     });
-  }
-  
+  };
 
   const [FirstRadioValue, setFirstRadioValue] = useState(1);
   const [SecondRadioValue, setSecondRadioValue] = useState(1);
@@ -96,7 +95,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                     <div className=" flex items-center gap-1 w-full h-10  mb-4">
                       <div className="flex-1 mt-4">
-                        <div className="flex ">
+                        <div className="flex items-center gap-4 ">
                           <Form.Item
                             name="inputFirst"
                             rules={[
@@ -107,16 +106,31 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                             ]}
                           >
                             <Input
-                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent"
+                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent
+                              [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
+                              "
                               placeholder="Enter amount"
                               min="0"
                               name="tokenAmount"
                               type="number"
+                              style={{
+                                boxShadow: "none",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                borderWidth: "0px",
+                                borderStyle: "solid",
+                                borderColor: "none",
+                              }}
+                              autoComplete="off"
                             />
                           </Form.Item>
+
+                          {/* // Select Token  */}
+
                           <div className=" w-[11.5rem]">
                             <div
-                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-2 w-full bg-[#2A2F3A] "
+                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-4 w-full bg-[#2A2F3A] "
                               onClick={() => handleSelectTokenModal()}
                             >
                               <span className="flex items-center justify-center ">
@@ -137,8 +151,6 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                           </span>
                         </div>
                       </div>
-
-                      {/* // Select Token  */}
                     </div>
                   </div>
                   {/* //**************** */}
@@ -161,7 +173,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                     <div className=" flex items-center gap-1 w-full h-10">
                       <div className="flex-1 ">
-                        <div className="flex">
+                        <div className="flex items-center gap-4 ">
                           <Form.Item
                             name="inputSecond"
                             rules={[
@@ -172,17 +184,29 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                             ]}
                           >
                             <Input
-                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent"
+                              className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent
+                              [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
+                              "
                               placeholder="Enter amount"
                               min="0"
                               name="tokenAmount"
                               type="number"
+                              style={{
+                                boxShadow: "none",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                borderWidth: "0px",
+                                borderStyle: "solid",
+                                borderColor: "none",
+                              }}
+                              autoComplete="off"
                             />
                           </Form.Item>
 
                           <div className=" w-[11.5rem]">
                             <div
-                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-2 w-full bg-[#2A2F3A] "
+                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-4 w-full bg-[#2A2F3A] "
                               onClick={() => handleSecondSelectTokenModal()}
                             >
                               <span className="flex items-center justify-center ">
@@ -201,10 +225,10 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                   </div>
 
                   {/* // Fill Type */}
-                  <div className="flex flex-col gap-6  mt-6">
+                  <div className="flex flex-col gap-4  mt-6 ">
                     <div className="flex flex-col sm:flex-row gap-4 ">
                       <span className="flex item-center gap-0.5 min-w-[96px] ">
-                        <span class="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white">
+                        <span class="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white mt-5">
                           Fill Type
                         </span>
                       </span>
@@ -230,7 +254,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                                       <h5 className="text-ct-base text-white font-medium uppercase mb-0">
                                         Partial Fill
                                       </h5>
-                                      <span className="text-ct-sm text-white">
+                                      <span className="text-ct-sm text-gray-400">
                                         Multiple users can contribute to fulfill
                                         the offer
                                       </span>
@@ -241,10 +265,10 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                                 <div className="flex  cursor-pointer">
                                   <Radio value={1} className="">
                                     <h5 className="text-ct-base text-white font-medium uppercase mb-0">
-                                      Selling
+                                      Single Fill
                                     </h5>
-                                    <span className="text-ct-sm text-white">
-                                      You want to sell your tokens
+                                    <span className="text-ct-sm text-gray-400">
+                                      Entire offer must be filled by 1 user
                                     </span>
                                   </Radio>
                                 </div>
@@ -255,12 +279,12 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                       </div>
                     </div>
 
+                    <Divider className="bg-gray-800 m-0 p-0 " />
                     {/* // Privacy */}
-                    <hr />
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-2">
                       <span className="flex item-center gap-0.5 min-w-[96px]">
-                        <span class="text-white text-ct-sm font-semibold uppercase">
+                        <span class="text-white text-ct-sm font-semibold uppercase mt-5">
                           Privacy
                         </span>
                       </span>
@@ -286,13 +310,13 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                                       <h5 className="text-ct-base text-white font-medium uppercase mb-0">
                                         Public
                                       </h5>
-                                      <span className="text-ct-sm text-white">
+                                      <span className="text-ct-sm text-gray-400">
                                         Everyone can see your offer
                                       </span>
                                     </span>
                                   </Radio>
                                 </div>
-
+                                {/* 
                                 <div className="flex  cursor-pointer">
                                   <Radio value={1} className="">
                                     <h5 className="text-ct-base text-white font-medium uppercase mb-0">
@@ -303,7 +327,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                                       private link
                                     </span>
                                   </Radio>
-                                </div>
+                                </div> */}
                               </Radio.Group>
                             </Form.Item>
                           </div>
@@ -336,12 +360,14 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
           </div>
         </div>
 
-        <SteperSelectToken
-          isOpen={isSelectTokenModalOpen}
-          closeModal={closeModal}
-          handleSelectToken={handleSelectToken}
-        />
-        <StepSelectTokenComponent />
+       
+          <SteperSelectToken
+            isOpen={isSelectTokenModalOpen}
+            closeModal={closeModal}
+            handleSelectToken={handleSelectToken}
+          />
+          <StepSelectTokenComponent />
+
 
         <StepSecondSelectToken
           isOpen={isSecondSelectTokenModalOpen}

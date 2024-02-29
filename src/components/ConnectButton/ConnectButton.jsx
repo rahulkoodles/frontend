@@ -63,6 +63,8 @@ function ConnectButton(props) {
       if (result.address) {
         localStorage.setItem("walletAddress", result?.address);
         dispatch(setWalletAddress(result.address));
+        
+        handleCancel()
       }
     } catch (err) {
       console.log("------", err);

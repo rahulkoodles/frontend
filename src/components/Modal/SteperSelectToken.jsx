@@ -2,20 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Button, Divider, Modal, Radio } from "antd";
 import { IoIosSearch } from "react-icons/io";
 
-function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
+function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedToken, setSelectedToken] = useState(null);
 
-  
-  
-
   useEffect(() => {
     setIsModalOpen(isOpen);
-    // Reset selectedToken when modal is opened
     if (isOpen) {
       setSelectedToken(null);
     }
-  }, [isOpen]);
+  },[isOpen]);
 
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -28,17 +24,15 @@ function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
     handleSelectToken(tokenData.basetoken);
   };
 
-  console.log('select token ', selectedToken);
-
+  console.log("select token ", selectedToken);
 
   const tokenList = [
     {
       icon: "https://static.jup.ag/jlp/icon.png",
       name: "JLP",
-      address: "27G8...idD4",
+      address: "0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A",
       description: "Jupiter Perps LP",
-
-      basetoken: '0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A'
+      basetoken: "0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A",
     },
   ];
 
@@ -104,58 +98,61 @@ function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
             </span>
           </div>
         </div>
+
         {/* // List */}
 
         <div className="px-6 py-4 flex flex-col gap-2 overflow-y-auto max-h-[40vh]">
           {tokenList.map((tokenData, index) => (
+            <div
+              key={index}
+              className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 bg-ct-white-900"
+              onClick={() => handleSelectedToken(tokenData)}
+            >
+              <div className="flex items-center gap-1">
+                <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                  <img
+                    src={tokenData.icon}
+                    className="object-cover rounded-full w-[26px] h-[26px]"
+                    alt={tokenData.name}
+                  />
+                </div>
+
+                <div className="flex flex-col text-ct-white-500">
+                  <div className="flex items-center gap-1">
+                    <span className="text-ct-base text-gray-200 font-medium ml-1">
+                      {tokenData.name}
+                    </span>
+                    <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded cursor-pointer">
+                      <span className="flex normal-case font-normal items-center">
+                        {tokenData.address}
+                        <span className="w-3 h-3 flex items-center justify-center">
+                          <i className="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+
+                  <span className="text-ct-sm ml-1 text-gray-400">
+                    {tokenData.description}
+                  </span>
+                </div>
+              </div>
+            </div>
+
             // <div
             //   key={index}
-            //   className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 bg-ct-white-900"
-            //   onClick={() => handleSelectToken(tokenData)}
+            //   onClick={() => handleSelectedToken(tokenData)}
+            //   className="cursor-pointer"
             // >
-            //   <div className="flex items-center gap-1">
-            //     <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-            //       <img
-            //         src={tokenData.icon}
-            //         className="object-cover rounded-full w-[26px] h-[26px]"
-            //         alt={tokenData.name}
-            //       />
-            //     </div>
-
-            //     <div className="flex flex-col text-ct-white-500">
-            //       <div className="flex items-center gap-1">
-            //         <span className="text-ct-base text-gray-200 font-medium ml-1">
-            //           {tokenData.name}
-            //         </span>
-            //         <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded cursor-pointer">
-            //           <span className="flex normal-case font-normal items-center">
-            //             {tokenData.address}
-            //             <span className="w-3 h-3 flex items-center justify-center">
-            //               <i className="fa-regular fa-arrow-up-right text-ct-sm"></i>
-            //             </span>
-            //           </span>
-            //         </span>
-            //       </div>
-
-            //       <span className="text-ct-sm ml-1 text-gray-400">
-            //         {tokenData.description}
-            //       </span>
-            //     </div>
-            //   </div>
+            //   <span className="text-1xl text-white">
+            //     0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A
+            //   </span>
             // </div>
-
-            <div
-            key={index}
-              onClick={() => handleSelectedToken(tokenData)}
-              className="cursor-pointer"
-            >
-              <span className="text-1xl text-white">0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A</span>
-              </div>
           ))}
 
           {/*  */}
 
-          <div
+          {/* <div
             className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
                bg-ct-white-900"
           >
@@ -188,7 +185,7 @@ function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
                bg-ct-white-900">
@@ -212,8 +209,6 @@ function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
 
 
                </div> */}
-
-
         </div>
       </Modal>
     </>

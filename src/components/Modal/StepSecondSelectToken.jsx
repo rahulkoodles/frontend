@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button, Divider, Modal, Radio } from "antd";
 import { IoIosSearch } from "react-icons/io";
 
-function StepSecondSelectToken({ isOpen, closeModal ,handleSecondSelectToken}) {
+function StepSecondSelectToken({
+  isOpen,
+  closeModal,
+  handleSecondSelectToken,
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedToken, setSelectedToken] = useState(null);
 
@@ -26,15 +30,13 @@ function StepSecondSelectToken({ isOpen, closeModal ,handleSecondSelectToken}) {
     handleSecondSelectToken(tokenData);
   };
 
-
   const tokenList = [
     {
       icon: "https://static.jup.ag/jlp/icon.png",
       name: "JLP",
       description: "Jupiter Perps LP",
-      QutoeToken: '0xbCa3d850f64715f91aa8c257641443E38E3d3478'
+      QutoeToken: "0xbCa3d850f64715f91aa8c257641443E38E3d3478",
     },
-   
   ];
   return (
     <>
@@ -46,7 +48,6 @@ function StepSecondSelectToken({ isOpen, closeModal ,handleSecondSelectToken}) {
         className="modalStyle"
         footer={null}
         closeIcon={null}
-        
       >
         <div className="w-full flex justify-between mb-8">
           <div>
@@ -64,80 +65,49 @@ function StepSecondSelectToken({ isOpen, closeModal ,handleSecondSelectToken}) {
           </div>
         </div>
 
-       <Divider className="bg-gray-600"/>
-                
-            {/* // List */}
+        <Divider className="bg-gray-600" />
+
+        {/* // List */}
 
         <div className="px-6 py-2 flex flex-col gap-2 overflow-y-auto max-h-[40vh] ">
-
-        
-        {tokenList.map((tokenData, index) => (
-            // <div
-            //   key={index}
-            //   onClick={() => handleSelectedToken(tokenData.QutoeToken)}
-            //   className={`flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-            //    bg-${selectedToken === tokenData ? "green" : "ct-white-900"}`}
-            // >
-            //   <div className="flex items-center gap-1">
-            //     <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-            //       <img
-            //         src={tokenData.icon}
-            //         className="object-cover rounded-full w-[26px] h-[26px]"
-            //         alt={tokenData.name}
-            //       />
-            //     </div>
-
-            //     <div className="flex flex-col text-ct-white-500">
-            //       <div className="flex items-center gap-1">
-            //         <span className="text-ct-base text-gray-200 font-medium ml-1">
-            //           {tokenData.name}
-            //         </span>
-            //       </div>
-
-            //       <span className="text-ct-sm ml-1 text-gray-400">
-            //         {tokenData.description}
-            //       </span>
-            //     </div>
-            //   </div>
-            //   <div>
-            //     <span className="text-lg text-green-300">
-            //       {selectedToken === tokenData ? "Selected" : "0"}
-            //     </span>
-            //   </div>
-            // </div>
-
+          {tokenList.map((tokenData, index) => (
             <div
-            key={index}
+              key={index}
               onClick={() => handleSelectedToken(tokenData.QutoeToken)}
-              className="cursor-pointer"
+              className={`flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300
+               bg-${selectedToken === tokenData ? "green" : "ct-white-900"}`}
             >
-              <span className="text-1xl text-white">0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A</span>
+              <div className="flex items-center gap-1">
+                <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+                  <img
+                    src={tokenData.icon}
+                    className="object-cover rounded-full w-[26px] h-[26px]"
+                    alt={tokenData.name}
+                  />
+                </div>
+
+                <div className="flex flex-col text-ct-white-500">
+                  <div className="flex items-center gap-1">
+                    <span className="text-ct-base text-gray-200 font-medium ml-1">
+                      {tokenData.name}
+                    </span>
+                  </div>
+
+                  <span className="text-ct-sm ml-1 text-gray-400">
+                    {tokenData.description}
+                  </span>
+                </div>
               </div>
+              <div>
+                <span className="text-lg text-green-300">
+                  {selectedToken === tokenData ? "Selected" : "0"}
+                </span>
+              </div>
+            </div>
           ))}
 
-               <div className="flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300 
-               bg-ct-white-900">
-                <div className="flex items-center gap-1">
-                    <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
-                    </div>
-
-                    <div className="flex flex-col text-ct-white-500">
-                        <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
-                        </div>
-
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
-                    </div>
-                </div>
-                <div>
-                  <span className="text-lg text-green-300">0</span>
-                </div>
-               </div>
+        
         </div>
-
-
-
       </Modal>
     </>
   );

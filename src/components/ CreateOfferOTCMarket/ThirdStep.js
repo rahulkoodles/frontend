@@ -7,55 +7,35 @@ import { otcABI } from "../../abis/OtcAbi";
 import { useWriteContract } from "wagmi";
 
 function ThirdStep({ StepsIncreament, StepsDecreament }) {
-
-
   const { formState, updateFormState, resetFormState } =
     useContext(FormDataContext);
 
+  const { data: hash, isPending, writeContract, error } = useWriteContract();
 
-    const { 
-      data: hash, 
-      isPending, 
-      writeContract ,
-      error
-    } = useWriteContract() 
+  //**************** Values**************************** */
+  console.log("data final----", formState);
+  console.log("hash :>> ", hash, isPending, error, writeContract);
+  const Tradetype = formState.buyAndSaleRadio;
+  const BaseInput = formState.inputFirst;
+  const QutoeInput = formState.inputSecond;
+  const Filltype = formState.Filltype;
+  const Privacy = formState.Privacy;
+  const BaseToken = formState.BaseToken;
+  const QutoeToken = formState.QutoeToken;
 
-    
-    
-
-    //**************** Values**************************** */
-    console.log('data final----', formState);
-    console.log('hash :>> ', hash,isPending,error, writeContract);
-    const Tradetype = formState.buyAndSaleRadio
-    const BaseInput = formState.inputFirst
-    const QutoeInput = formState.inputSecond
-    const Filltype = formState.Filltype
-    const Privacy = formState.Privacy
-    const BaseToken = formState.BaseToken
-    const QutoeToken = formState.QutoeToken
-
-    async function handleSubmit(values) {
-      console.log("Selected Radio Value:", values);
-      StepsIncreament();
-      updateFormState(values);
-      
-      writeContract({ 
-        address: '0x9781a0B0624331E0aD47B38e55948a8F396f1050', 
-       abi: otcABI, 
-        functionName: 'createOffer', 
-        args: [BaseToken,BaseInput,QutoeToken , QutoeInput, Filltype,Tradetype], 
-      }) 
-    }
-    
-    
+  async function handleSubmit(values) {
+    console.log("Selected Radio Value:", values);
+    StepsIncreament();
+    updateFormState(values);
+  }
 
   return (
     <>
       <Form
-       onFinish={handleSubmit}
-       onFinishFailed={(errorInfo) => {
-         console.log("Failed:", errorInfo);
-       }}
+        onFinish={handleSubmit}
+        onFinishFailed={(errorInfo) => {
+          console.log("Failed:", errorInfo);
+        }}
       >
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** Stepper*** */}

@@ -45,18 +45,25 @@ const FirstStep = ({ StepsIncreament }) => {
                     <h5 className="text-ct-base text-white font-medium">
                       Network
                     </h5>
+                    <Form.Item>
+
+                      
+                      
                     <div className="flex items-center justify-between gap-2 px-3 py-2.5 border-2 border-ct-gray-700 rounded-lg">
                       <span className="flex items-center gap-2 flex-1">
                         <img
                           src={salonaImg}
                           alt=""
                           className="w-5 h-5 rounded"
-                        />
+                          />
                         <span className="flex-1 text-ct-base text-white">
                           Solana
                         </span>
                       </span>
                     </div>
+                          </Form.Item>
+
+
                   </div>
 
                   <Form.Item

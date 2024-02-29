@@ -106,8 +106,7 @@ const CreateOfferOTCMarket = () => {
 
   return (
     <FormDataContext.Provider
-      value={{ formState, updateFormState, resetFormState }}
-    >
+      value={{ formState, updateFormState, resetFormState }}>
       <div className="w-full  flex justify-center items-center rounded-md">
         {address || walletAddressRedux ? (
           <ConfigProvider
@@ -192,7 +191,6 @@ const CreateOfferOTCMarket = () => {
                           <img src={WalletImg} alt="" className="w-[20rem] " />
 
                           {/* //******************* Connect Button************************** */}
-
                           <ConnectButton className="h-[2.5rem]" />
                         </div>
                       </div>
