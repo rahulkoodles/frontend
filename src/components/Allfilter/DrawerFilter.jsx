@@ -33,11 +33,11 @@ const DrawerFilter = () => {
           {/* Network------------ */}
           <div className="text-ct-gray-200 text-ct-base border-b border-gray-800 pb-4">
             <div className="grid grid-cols-3 items-center">
-              <div class="mr-6 col-span-1 text-white">Network</div>
-              <div class="group bg-transparent col-span-2 flex items-center px-2.5 py-1.5 h-[36px] w-full justify-between border border-gray-800 rounded-lg gap-2 cursor-pointer text-gray-400">
-                <span class="flex items-center gap-2 flex-1 text-ct-white-500">
+              <div className="mr-6 col-span-1 text-white">Network</div>
+              <div className="group bg-transparent col-span-2 flex items-center px-2.5 py-1.5 h-[36px] w-full justify-between border border-gray-800 rounded-lg gap-2 cursor-pointer text-gray-400">
+                <span className="flex items-center gap-2 flex-1 text-ct-white-500">
                 <CiGlobe />
-                  <span class="text-ct-base font-medium group-hover:text-ct-white-300 transition-all duration-300">
+                  <span className="text-ct-base font-medium group-hover:text-ct-white-300 transition-all duration-300">
                     All Networks
                   </span>
                 </span>
@@ -50,10 +50,10 @@ const DrawerFilter = () => {
 
           <div className="text-ct-gray-200 text-ct-base border-b border-gray-800">
             <div className="grid grid-cols-3">
-              <div class="mr-6 text-white">Fill Type</div>
+              <div className="mr-6 text-white">Fill Type</div>
 
               <div className="flex flex-col col-span-2">
-                <div class="container-checkbox text-white mb-4">
+                <div className="container-checkbox text-white mb-4">
                   <div className="flex items-center  gap-2">
                     <input
                       type="checkbox"
@@ -63,13 +63,13 @@ const DrawerFilter = () => {
                     <span> Single Fill</span>
                   </div>
                   <div className="flex flex-wrap">
-                    <span class="text-sm text-gray-400 ml-6">
+                    <span className="text-sm text-gray-400 ml-6">
                       Entire offer must be filled by 1 user
                     </span>
                   </div>
                 </div>
 
-                <div class="container-checkbox text-white mb-4">
+                <div className="container-checkbox text-white mb-4">
                   <div className="flex items-center  gap-2">
                     <input
                       type="checkbox"
@@ -80,7 +80,7 @@ const DrawerFilter = () => {
                     <span> Partial Fill</span>
                   </div>
                   <div className="flex flex-wrap">
-                    <span class="text-ct-sm text-gray-400 ml-6">
+                    <span className="text-ct-sm text-gray-400 ml-6">
                       Multiple users can contribute to fulfill the offer
                     </span>
                   </div>
@@ -92,11 +92,11 @@ const DrawerFilter = () => {
 
           {/* Button  */}
 
-          <div class="py-3 grid grid-cols-2 gap-4">
-            <button type="button" class="btn p-1 bg-green-400 rounded-md">
+          <div className="py-3 grid grid-cols-2 gap-4">
+            <button type="button" className="btn p-1 bg-green-400 rounded-md">
               Apply
             </button>
-            <button type="button" class="btn p-1 bg-gray-700 rounded-md">
+            <button type="button" className="btn p-1 bg-gray-700 rounded-md">
               Reset
             </button>
           </div>

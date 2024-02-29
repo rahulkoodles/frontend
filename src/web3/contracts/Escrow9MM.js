@@ -33,6 +33,10 @@ class Escrow9MMContract {
     return this.contract.getAllOffers();
   }
 
+  getOfferByAddress(address) {
+    return this.contract.getOfferByAddress(address);
+  }
+
   getOfferById(id) {
     return this.contract.getOfferById(id);
   }

@@ -195,7 +195,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                   <div className="flex flex-col gap-6  mt-6">
                     <div className="flex flex-col sm:flex-row gap-4 ">
                       <span className="flex item-center gap-0.5 min-w-[96px] ">
-                        <span class="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white">
+                        <span className="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white">
                           Fill Type
                         </span>
                       </span>
@@ -251,7 +251,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-2">
                       <span className="flex item-center gap-0.5 min-w-[96px]">
-                        <span class="text-white text-ct-sm font-semibold uppercase">
+                        <span className="text-white text-ct-sm font-semibold uppercase">
                           Privacy
                         </span>
                       </span>

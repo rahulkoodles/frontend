@@ -6,10 +6,10 @@ import useSigner from '../../hooks/useSigner';
 
 const CardCollections = () => {
   const [offers, setOffers] = useState([]);
-  const signer = useSigner();
+  const { isConnected, signer } = useSigner();
 
   const fetchOffers = useCallback(async () => {
-    if (!signer) return;
+    if (!isConnected) return;
     const escrow9mmContract = new Escrow9MMContract(signer);
     try {
       const offers = await escrow9mmContract.getAllOffers();
@@ -17,7 +17,7 @@ const CardCollections = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [signer]);
+  }, [isConnected]);
 
   useEffect(() => {
     fetchOffers();
@@ -30,7 +30,7 @@ const CardCollections = () => {
       </div>
       <div className="grid  md:grid-cols-1 customMdd:grid-cols-2  xl:grid-cols-3 w-full gap-[20px] ">
         {offers.map((offer, index) => (
-          <Card key={index} index={index} offer={offer} />
+          <Card key={index} id={index + 1} offer={offer} />
         ))}
       </div>
     </div>

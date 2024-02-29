@@ -55,9 +55,9 @@ const Allfilter = () => {
               className="  text-[#FFFFFF40] font-[500] text-[14px] before:bg-transparent"
               value="Strict List"
             >
-              <spna>
+              <span>
                Strict List
-              </spna>
+              </span>
             </Radio.Button>
             <Radio.Button
               className=" text-[#FFFFFF40] text-[14px] before:bg-transparent"

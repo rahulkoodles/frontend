@@ -119,15 +119,15 @@ function StepSecondSelectToken({ isOpen, closeModal ,handleSecondSelectToken}) {
                bg-ct-white-900">
                 <div className="flex items-center gap-1">
                     <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
+                    <img src="https://static.jup.ag/jlp/icon.png" className="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
                     </div>
 
                     <div className="flex flex-col text-ct-white-500">
                         <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
+                        <span className="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
                         </div>
 
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
+                    <span className="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
                     </div>
                 </div>
                 <div>

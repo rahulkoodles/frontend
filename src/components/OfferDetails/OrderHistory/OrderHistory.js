@@ -7,11 +7,11 @@ const OrderHistory = () => {
     <StyeledOrderHistory>
       <div className="w-full col-span-12 order-3 p-6 bg-[#121212] rounded-lg">
         <div className="flex justify-between items-center">
-          <div class="mb-4 text-sm font-semibold text-white uppercase">
+          <div className="mb-4 text-sm font-semibold text-white uppercase">
             Orders History
           </div>
           <div className="order-switch ">
-            <label class="font-light select-none cursor-pointer text-[#FFFFFF66] mr-4 text-sm">
+            <label className="font-light select-none cursor-pointer text-[#FFFFFF66] mr-4 text-sm">
               Only me
             </label>
             <Switch />
@@ -20,18 +20,18 @@ const OrderHistory = () => {
         <div className="whitespace-nowrap overflow-auto">
           <table className="w-full table-auto text-left text-xs ">
             <thead>
-              <tr class="border-b border-gray-800 text-xs font-semibold text-[#FFFFFF66] uppercase">
-                <th class="border-none bg-transparent py-3">
-                  <span class="">Time</span>
+              <tr className="border-b border-gray-800 text-xs font-semibold text-[#FFFFFF66] uppercase">
+                <th className="border-none bg-transparent py-3">
+                  <span className="">Time</span>
                 </th>
-                <th class="border-none text-right bg-transparent py-3 px-2">
-                  <span class="">filled Amount</span>
+                <th className="border-none text-right bg-transparent py-3 px-2">
+                  <span className="">filled Amount</span>
                 </th>
-                <th class="border-none text-right bg-transparent py-3 px-2">
-                  <span class="">PAID amount </span>
+                <th className="border-none text-right bg-transparent py-3 px-2">
+                  <span className="">PAID amount </span>
                 </th>
-                <th class="border-none text-right bg-transparent py-3 px-2">
-                  <span class="">TX. Hash</span>
+                <th className="border-none text-right bg-transparent py-3 px-2">
+                  <span className="">TX. Hash</span>
                 </th>
               </tr>
             </thead>

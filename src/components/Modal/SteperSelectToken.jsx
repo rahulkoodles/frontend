@@ -74,7 +74,7 @@ function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
         <div className="flex gap-4 relative items-center flex-col shadow-sm mt-6">
           <input
             placeholder="Enter token mint address"
-            class="w-full pl-9 py-2 px-2.5 border-[3px] border-ct-white-800 bg-transparent rounded-lg focus:border-green-900 focus:!ring-0  text-ct-white-200 placeholder:text-ct-white-700 text-ct-base !outline-none text-white transition-all duration-300"
+            className="w-full pl-9 py-2 px-2.5 border-[3px] border-ct-white-800 bg-transparent rounded-lg focus:border-green-900 focus:!ring-0  text-ct-white-200 placeholder:text-ct-white-700 text-ct-base !outline-none text-white transition-all duration-300"
           />
           <button className="shadow-sm rounded-lg text-base absolute left-4 inset-y-0 text-white">
             <IoIosSearch size={20} />
@@ -173,27 +173,27 @@ function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
               <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
                 <img
                   src="https://static.jup.ag/jlp/icon.png"
-                  class="object-cover rounded-full w-[26px] h-[26px]"
+                  className="object-cover rounded-full w-[26px] h-[26px]"
                   alt="JLP"
                 ></img>
               </div>
 
               <div className="flex flex-col text-ct-white-500">
                 <div className="flex items-center gap-1">
-                  <span class="text-ct-base text-gray-200 font-medium ml-1">
+                  <span className="text-ct-base text-gray-200 font-medium ml-1">
                     JLP
                   </span>
                   <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                    <span class="flex normal-case font-normal items-center">
+                    <span className="flex normal-case font-normal items-center">
                       27G8...idD4
-                      <span class="w-3 h-3 flex items-center justify-center">
-                        <i class="fa-regular fa-arrow-up-right text-ct-sm"></i>
+                      <span className="w-3 h-3 flex items-center justify-center">
+                        <i className="fa-regular fa-arrow-up-right text-ct-sm"></i>
                       </span>
                     </span>
                   </span>
                 </div>
 
-                <span class="text-ct-sm ml-1 text-gray-400">
+                <span className="text-ct-sm ml-1 text-gray-400">
                   Jupiter Perps LP
                 </span>
               </div>
@@ -204,18 +204,18 @@ function SteperSelectToken({ isOpen, closeModal,handleSelectToken }) {
                bg-ct-white-900">
                 <div className="flex items-center gap-1">
                     <div  className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
-                    <img src="https://static.jup.ag/jlp/icon.png" class="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
+                    <img src="https://static.jup.ag/jlp/icon.png" className="object-cover rounded-full w-[26px] h-[26px]" alt="JLP"></img>
                     </div>
 
                     <div className="flex flex-col text-ct-white-500">
                         <div className="flex items-center gap-1">
-                        <span class="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
+                        <span className="text-ct-base text-gray-200 font-medium ml-1">JLP</span>
                         <span className="bg-ct-gray-700 text-gray-500 px-1.5 py-1 uppercase w-fit text-ct-xs font-semibold rounded  cursor-pointer">
-                        <span class="flex normal-case font-normal items-center">27G8...idD4<span class="w-3 h-3 flex items-center justify-center"><i class="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
+                        <span className="flex normal-case font-normal items-center">27G8...idD4<span className="w-3 h-3 flex items-center justify-center"><i className="fa-regular fa-arrow-up-right text-ct-sm"></i></span></span>
                         </span>
                         </div>
 
-                    <span class="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
+                    <span className="text-ct-sm ml-1 text-gray-400">Jupiter Perps LP</span>
                     </div>
                 </div>
 
