@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Divider, Modal, Radio } from "antd";
 import { IoIosSearch } from "react-icons/io";
 
-function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
+function SelectBaseTokenModal({ isOpen, closeModal, handleSelectToken }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedToken, setSelectedToken] = useState(null);
 
@@ -24,14 +24,12 @@ function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
     handleSelectToken(tokenData.basetoken);
   };
 
-  console.log("select token ", selectedToken);
-
   const tokenList = [
     {
       icon: "https://static.jup.ag/jlp/icon.png",
-      name: "JLP",
+      name: "WETH",
       address: "0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A",
-      description: "Jupiter Perps LP",
+      description: "Wrapped Ether",
       basetoken: "0xf805f7437C1D26c00bbd5B1445cc1D5eaB1A428A",
     },
   ];
@@ -39,7 +37,7 @@ function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
   return (
     <>
       <Modal
-        visible={isModalOpen}
+        open={isModalOpen}
         onCancel={handleCancel}
         style={{ width: "20px", padding: "0px" }}
         width={580}
@@ -221,4 +219,4 @@ function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
   );
 }
 
-export default SteperSelectToken;
+export default SelectBaseTokenModal;

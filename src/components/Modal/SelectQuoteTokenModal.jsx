@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Divider, Modal, Radio } from "antd";
 import { IoIosSearch } from "react-icons/io";
 
-function StepSecondSelectToken({
+function SelectQuoteTokenModal({
   isOpen,
   closeModal,
   handleSecondSelectToken,
@@ -33,15 +33,16 @@ function StepSecondSelectToken({
   const tokenList = [
     {
       icon: "https://static.jup.ag/jlp/icon.png",
-      name: "JLP",
-      description: "Jupiter Perps LP",
+      name: "USDC",
+      description: "USD Coin",
       QutoeToken: "0xbCa3d850f64715f91aa8c257641443E38E3d3478",
     },
   ];
+
   return (
     <>
       <Modal
-        visible={isModalOpen}
+        open={isModalOpen}
         onCancel={handleCancel}
         style={{ padding: "0px" }}
         width={580}
@@ -113,4 +114,4 @@ function StepSecondSelectToken({
   );
 }
 
-export default StepSecondSelectToken;
+export default SelectQuoteTokenModal;
