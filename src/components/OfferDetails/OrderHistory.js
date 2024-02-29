@@ -1,6 +1,6 @@
 import { Switch } from "antd";
 import React from "react";
-import { StyeledOrderHistory } from "../../../styles/styelsOfferdetails";
+import { StyeledOrderHistory } from "../../styles/styelsOfferdetails";
 
 const OrderHistory = () => {
   return (
