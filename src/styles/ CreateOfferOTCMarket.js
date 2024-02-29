@@ -32,44 +32,33 @@ export const CreateOfferOTCMarketDiv = styled.div`
       > .ant-steps-icon {
       color: black;
     }
-    :where(.css-dev-only-do-not-override-2dyxi7).ant-steps
-      .ant-steps-item-finish
-      .ant-steps-item-icon {
+    .ant-steps .ant-steps-item-finish .ant-steps-item-icon {
       background: #5dec96;
     }
-    :where(.css-dev-only-do-not-override-2dyxi7).ant-steps
-      .ant-steps-item-wait
-      .ant-steps-item-icon {
+    .ant-steps .ant-steps-item-wait .ant-steps-item-icon {
       background: #3a3a3a;
     }
     .anticon svg {
       color: #3a3a3a;
     }
-    :where(.css-dev-only-do-not-override-2dyxi7).ant-steps
-      .ant-steps-item-wait
-      .ant-steps-item-icon
-      > .ant-steps-icon {
+    .ant-steps .ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon {
       color: #ffffff80;
     }
 
-    :where(.css-dev-only-do-not-override-2dyxi7).ant-steps
+    .ant-steps
       .ant-steps-item-process
       > .ant-steps-item-container
       > .ant-steps-item-tail::after {
       background-color: #ffffff33;
     }
-    :where(.css-dev-only-do-not-override-2dyxi7).ant-steps
+    .ant-steps
       .ant-steps-item-wait
       > .ant-steps-item-container
       > .ant-steps-item-tail::after {
       background-color: #ffffff33;
     }
-    :where(.css-dev-only-do-not-override-2dyxi7).ant-steps
-      .ant-steps-item-process
-      .ant-steps-item-icon
-      > .ant-steps-icon {
+    .ant-steps .ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon {
       color: black;
     }
   }
 `;
-
