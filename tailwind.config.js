@@ -16,6 +16,7 @@ module.exports = {
         // Add your custom breakpoints here
         custom: "1024px",
         customMdd:"970px",
+        customLogo:"835px",
       },
     },
   },
