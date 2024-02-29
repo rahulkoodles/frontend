@@ -49,5 +49,21 @@ const CreateOfferStepperStyledComponent = createGlobalStyle`
     border-color: none;
 }
 
+:where(.css-dev-only-do-not-override-tpabqw).ant-steps .ant-steps-item-process .ant-steps-item-icon >.ant-steps-icon {
+    color: #000;
+}
+
+:where(.css-dev-only-do-not-override-tpabqw).ant-steps .ant-steps-item-finish .ant-steps-item-icon {
+    background-color: #5dec96;
+}
+
+
+:where(.css-dev-only-do-not-override-tpabqw).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
+    background-color: #808080; /* Default gray color */
+}
+
+:where(.css-dev-only-do-not-override-tpabqw).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
+    background-color: #5dec96; /* Green color for finish */
+}
 `;
 export default CreateOfferStepperStyledComponent;

@@ -12,6 +12,10 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
   const [isSelectTokenModalOpen, setIsSelectTokenModalOpen] = useState(false);
   const [selectBaseToken, setSelectBaseToken] = useState(null);
 
+  const [baseTokenData, setBaseTokenData] = useState(null);
+
+  const [qouteTokenData, setQouteTokenData] = useState(null);
+
   const handleSelectTokenModal = () => {
     setIsSelectTokenModalOpen(true);
   };
@@ -33,32 +37,35 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
   };
 
   // Data Come From Modal-------------
-  const handleSelectToken = (data) => {
+  const handleSelectToken = (value) => {
+    setBaseTokenData(value);
+    const data = value.basetoken;
     updateFormState({
       ...formState,
       BaseToken: data,
     });
   };
 
-  const handleSecondSelectToken = (data) => {
+  const handleSecondSelectToken = (value) => {
+    setQouteTokenData(value);
+    const data = value.QutoeToken;
     updateFormState({
       ...formState,
       QutoeToken: data,
     });
   };
 
-  
   const [FirstRadioValue, setFirstRadioValue] = useState(1);
   const [SecondRadioValue, setSecondRadioValue] = useState(1);
-  
+
   const { formState, updateFormState, resetFormState } =
-  useContext(FormDataContext);
+    useContext(FormDataContext);
 
-  console.log('form state', formState.buyAndSaleRadio);
+  console.log("form state", formState.buyAndSaleRadio);
 
-  const tradeType = formState?.buyAndSaleRadio
-  console.log('tradetype', tradeType);
-  
+  const tradeType = formState?.buyAndSaleRadio;
+  console.log("tradetype", tradeType);
+
   function handleSubmit(values) {
     StepsIncreament();
     updateFormState(values);
@@ -68,23 +75,26 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
       <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** 2nd Stepper*** */}
-          <div className="flex p-6 border-b border-ct-white-900"></div>
+          {/* <div className="flex p-6 ">
+
+          </div> */}
+          <Divider className="bg-gray-700 m-1" />
 
           {/* // *********** Steper Content ********** */}
           <div className="p-6">
             <div>
               <div className="secondhead">
                 <div className="flex flex-col gap-2 text-ct-gray-500">
-
                   <div className="p-3 flex flex-col gap-2 w-full bg-[#3A3A3A] rounded-lg pb-10">
                     <div className=" rounded-lg flex flex-col gap-3 ">
                       <div className="flex items-center gap-2 w-full ">
                         <span
                           id="tooldip-buy"
-                          className="bg-success/10 text-success px-0 text-start py-1 uppercase w-fit  font-semibold rounded cursor-default text-green-300 mb-2"
+                          className={`bg-success/10 px-0 text-start py-1 uppercase w-fit font-semibold rounded cursor-default mb-2 ${
+                            tradeType === 0 ? "text-green-300" : "text-red-500"
+                          }`}
                         >
-                          {tradeType === 0 ? 'Buying' : 'Selling'}
-                          
+                          {tradeType === 0 ? "Buying" : "Selling"}
                         </span>
                         <i
                           id="total-amount"
@@ -136,7 +146,10 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                             >
                               <span className="flex items-center justify-center ">
                                 <span className="text-ct-base  font-medium text-ct-white-500">
-                                  Select Token
+
+                                  {baseTokenData
+                                    ? baseTokenData.name
+                                    : "Select Token"}
                                 </span>
                               </span>
                               <span className="flex items-center justify-center w-5 h-5 min-w-[20px] mt-0.5">
@@ -213,7 +226,9 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                             >
                               <span className="flex items-center justify-center ">
                                 <span className="text-ct-base  font-medium text-ct-white-500">
-                                  Select Token
+                                {qouteTokenData
+                                    ? qouteTokenData.name
+                                    : "Select Token"}
                                 </span>
                               </span>
                               <span className="flex items-center justify-center w-5 h-5 min-w-[20px] mt-0.5">
@@ -362,14 +377,12 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
           </div>
         </div>
 
-       
-          <SteperSelectToken
-            isOpen={isSelectTokenModalOpen}
-            closeModal={closeModal}
-            handleSelectToken={handleSelectToken}
-          />
-          <StepSelectTokenComponent />
-
+        <SteperSelectToken
+          isOpen={isSelectTokenModalOpen}
+          closeModal={closeModal}
+          handleSelectToken={handleSelectToken}
+        />
+        <StepSelectTokenComponent />
 
         <StepSecondSelectToken
           isOpen={isSecondSelectTokenModalOpen}
