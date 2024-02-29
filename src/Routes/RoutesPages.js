@@ -9,7 +9,7 @@ import Dashboard from "../components/Dashboard/Dashboard";
 
 const RoutesPages = () => {
   return (
-    <div className="w-full relative">
+    <div className="w-full relative border-l border-[#121212] ">
       <Header />
       <ModalStyle />
       <Routes>

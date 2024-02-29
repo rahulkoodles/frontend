@@ -34,7 +34,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="w-full sticky right-0 top-0 z-50 " style={{ backdropFilter: 'blur(10px)' }}>
+    <div className="w-full sticky right-0 top-0 z-50 " style={{ backdropFilter: 'blur(20px)' }}>
       <HeaderStyled >
         <ConfigProvider
           theme={{

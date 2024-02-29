@@ -21,7 +21,7 @@ const Allfilter = () => {
       >
         <div className="filter-btn flex flex-wrap ">
           <div>
-            <Radio.Group  className="">
+            <Radio.Group className="">
               <Radio.Button
                 className="  text-[#FFFFFF40] text-[14px] before:bg-transparent"
                 value="Buy"
@@ -55,9 +55,12 @@ const Allfilter = () => {
               className="  text-[#FFFFFF40] font-[500] text-[14px] before:bg-transparent"
               value="Strict List"
             >
-              <span>
-               Strict List
-              </span>
+              <div className="  flex flex-wrap justify-center items-center gap-2 ">
+                {/* <div>
+                  <img src={StrictImg} />
+                </div> */}
+                <spna>Strict List</spna>
+              </div>
             </Radio.Button>
             <Radio.Button
               className=" text-[#FFFFFF40] text-[14px] before:bg-transparent"
