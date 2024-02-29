@@ -9,6 +9,7 @@ import PulseImg from "../../imgs/pulse.png";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { ConfigProvider, Select } from "antd";
 import { HeaderStyled } from "../../styles/styleHeader";
+import Logo from "../../imgs/logo.png";
 
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -17,7 +18,6 @@ const Header = () => {
   };
 
   const location = useLocation();
-
 
   return (
     <div className="w-full">
@@ -36,9 +36,9 @@ const Header = () => {
           }}
         >
           <div className=" w-full flex items-center justify-between gap-4 py-4 px-3  h-fit container-2xl border-b-2  border-[#47474766]">
-            <nav className="h-full w-full flex items-center justify-between  mx-[19px]">
+            <nav className="h-full w-full flex items-center justify-between  mx-[19px] mr-3">
               <div className=" h-[64px] flex justify-between items-center ">
-                <h1 className="text-[20px] text-white">
+                <h1 className="text-[20px] max-md:text-[15px] text-white max-customLogo:hidden  ">
                   {location.pathname === "/" && "OTC Market"}
                   {location.pathname === "/dashboard" && "Dashboard"}
 
@@ -55,6 +55,23 @@ const Header = () => {
                     </Link>
                   )}
                 </h1>
+                <div className=" customLogo:hidden mr-2">
+                  <div className=" w-full h-[75px] flex gap-[8px] items-center ">
+                    <a className="flex items-center" href="/">
+                      <img
+                        alt=""
+                        className="h-[40px] w-[40px] cursor-pointer"
+                        src={Logo}
+                      />
+                    </a>
+
+                    <div>
+                      <span className="text-[20px] leading-[24.42px] font-[500] text-white">
+                        9MM
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="chain-selector h-[2.5rem] flex items-center gap-4 text-white">
@@ -82,7 +99,7 @@ const Header = () => {
                           </span>
                         </div>
                       </Select.Option>
-                      <Select.Option  className=" bg-[#121212] " value="pulse">
+                      <Select.Option className=" bg-[#121212] " value="pulse">
                         <div className="flex flex-wrap gap-2 items-center">
                           <img
                             src={PulseImg}

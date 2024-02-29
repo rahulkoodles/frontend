@@ -11,7 +11,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
   const { formState, updateFormState, resetFormState } =
     useContext(FormDataContext);
 
-  const signer = useSigner();
+  const { signer } = useSigner();
 
   console.log('formstate', formState);
 
@@ -35,10 +35,16 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
     const baseTokenDecimals = await baseTokenContract.decimals();
     const quoteTokenDecimals = await quoteTokenContract.decimals();
 
-    let approveAmount = ethers.utils.parseUnits(quoteAmount, quoteTokenDecimals);
+    let approveAmount = ethers.utils.parseUnits(
+      quoteAmount,
+      quoteTokenDecimals
+    );
     approveAmount = approveAmount.add(approveAmount.div(1000));
 
-    const approveTx = await quoteTokenContract.approve(escrow9mmContract.contract.address, approveAmount);
+    const approveTx = await quoteTokenContract.approve(
+      escrow9mmContract.contract.address,
+      approveAmount
+    );
     await approveTx.wait();
 
     const createOfferTx = await escrow9mmContract.createOffer(
@@ -251,7 +257,6 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                         className="capitalize rounded-lg p-7  text-black   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
                         htmlType="submit"
                       >
-                        {' '}
                         Submit
                       </Button>
                     </div>

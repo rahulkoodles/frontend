@@ -1,17 +1,81 @@
-import React from "react";
-import ProfileImage from "../../imgs/profileImage.jpeg";
-import { Button, Progress } from "antd";
-import { StyledCardContainer } from "../../styles/stylesCard";
-import { ArrowRightOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from 'react';
+import ProfileImage from '../../imgs/profileImage.jpeg';
+import { Button, Progress } from 'antd';
+import { StyledCardContainer } from '../../styles/stylesCard';
+import { ArrowRightOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import useSigner from '../../hooks/useSigner';
+import Erc20Contract from '../../web3/contracts/Erc20';
+import { ethers } from 'ethers';
+import moment from 'moment';
 
 const Card = ({ id, offer }) => {
+  const [offerDetails, setOfferDetails] = useState({
+    baseTokenName: '',
+    baseTokenSymbol: '',
+    baseTokenAmount: '',
+    quoteTokenSymbol: '',
+    quoteTokenAmount: '',
+    relativeTime: '',
+    completedPercent: 0,
+  });
+
+  const { isConnected, provider } = useSigner();
+
+  const fetchOfferDetails = useCallback(async () => {
+    if (!isConnected) return;
+
+    const baseTokenContract = new Erc20Contract(offer.baseToken, provider);
+    const quoteTokenContract = new Erc20Contract(offer.quoteToken, provider);
+
+    const [
+      baseTokenName,
+      baseTokenSymbol,
+      baseTokenDecimals,
+      quoteTokenSymbol,
+      quoteTokenDecimals,
+    ] = await Promise.all([
+      baseTokenContract.name(),
+      baseTokenContract.symbol(),
+      baseTokenContract.decimals(),
+      quoteTokenContract.symbol(),
+      quoteTokenContract.decimals(),
+    ]);
+
+    const baseTokenAmount = ethers.utils.formatUnits(
+      offer.baseAmount,
+      baseTokenDecimals
+    );
+    const quoteTokenAmount = ethers.utils.formatUnits(
+      offer.quoteAmount,
+      quoteTokenDecimals
+    );
+
+    const relativeTime = moment.unix(offer.createdAt).fromNow();
+    const completed = offer.baseAmount.sub(offer.remaningAmount);
+    const completedPercent = completed.mul(100).div(offer.baseAmount);
+
+    setOfferDetails({
+      baseTokenName,
+      baseTokenSymbol,
+      baseTokenAmount,
+      quoteTokenSymbol,
+      quoteTokenAmount,
+      relativeTime,
+      completedPercent,
+    });
+  }, [isConnected]);
+
+  useEffect(() => {
+    fetchOfferDetails();
+  }, [fetchOfferDetails]);
+
   return (
     <StyledCardContainer>
       <Link to={`/offerdetails/${id}`}>
-        <div className="w-full  h-full  px-[10px]  rounded-[15px]   ">
-          <div className=" w-full h-[3rem] flex mt-[17px] ">
-            <div className=" w-full h-full flex flex-1 gap-2 items-center">
+        <div className="w-full h-full px-5 py-4 mt-4 rounded-[15px]">
+          <div className="w-full flex">
+            <div className="w-full flex flex-1 gap-2 items-center">
               <div className="relative w-12 h-12 min-w-[3rem]">
                 <img
                   src={ProfileImage}
@@ -27,24 +91,24 @@ const Card = ({ id, offer }) => {
               <div className=" flex flex-col gap-1">
                 <span className="font-medium text-white cursor-pointer flex items-center gap-1.5 uppercase text-xl">
                   <span className=" flex gap-1">
-                    <span>Bonk</span>
+                    <span>{offerDetails.baseTokenName}</span>
                     <span className="text-xs flex">
-                      <span className="h-1/2">#1988</span>
+                      <span className="h-1/2">#{id}</span>
                     </span>
                   </span>
                 </span>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="bg-[#D9D9D933] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit text-[10px] font-[500] leading-[12.21px] rounded cursor-pointer">
-                    {offer.offerType === 0 ? "Partial fill" : "Single fill"}
+                    {offer.offerType === 0 ? 'Partial fill' : 'Single fill'}
                   </span>
                 </div>
               </div>
             </div>
             <div className="my-ant-progress">
               <Progress
-                strokeColor={"#00C896"}
+                strokeColor={'#00C896'}
                 type="circle"
-                percent={60}
+                percent={offerDetails.completedPercent}
                 size={50}
                 strokeWidth={8}
               />
@@ -57,7 +121,8 @@ const Card = ({ id, offer }) => {
                 <div className="flex flex-col text-base gap-1">
                   <span className="flex gap-0.5 items-center text-[#FFFFFF]">
                     <span className=" text-[16px] font-[500] font-Helvetica Neue ">
-                      5.00M Bonk
+                      {offerDetails.baseTokenAmount}{' '}
+                      {offerDetails.baseTokenSymbol}
                     </span>
                     <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                       <img
@@ -88,7 +153,8 @@ const Card = ({ id, offer }) => {
                   <div className="flex flex-col text-base items-end gap-1">
                     <div className="flex gap-0.5 items-center">
                       <span className="text-[16px] font-[400] text-[#6135A8]">
-                        75
+                        {offerDetails.quoteTokenAmount}{' '}
+                        {offerDetails.quoteTokenSymbol}
                       </span>
                       <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                         <img
@@ -106,15 +172,14 @@ const Card = ({ id, offer }) => {
               </div>
             </div>
           </div>
-          <div className="my-ant-button  ">
+          <div className="my-ant-button">
             <div className="flex items-center justify-between w-full mt-[8px]">
-              <span className="text-[#FFFFFF80] text-[12px]">4 hours ago</span>
-
-              <Link to="/offerdetails">
-                <Button className=" bg-[#D9D9D933] text-[#FFFFFF80] border-none">
-                  {offer.tradeType === 0 ? "Buy" : "Sell"}
-                </Button>
-              </Link>
+              <span className="text-[#FFFFFF80] text-[12px]">
+                {offerDetails.relativeTime}
+              </span>
+              <Button className=" bg-[#D9D9D933] text-[#FFFFFF80] border-none">
+                {offer.tradeType === 0 ? 'Buy' : 'Sell'}
+              </Button>
             </div>
           </div>
         </div>

@@ -47,12 +47,18 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
     });
   };
 
+  
   const [FirstRadioValue, setFirstRadioValue] = useState(1);
   const [SecondRadioValue, setSecondRadioValue] = useState(1);
-
+  
   const { formState, updateFormState, resetFormState } =
-    useContext(FormDataContext);
+  useContext(FormDataContext);
 
+  console.log('form state', formState.buyAndSaleRadio);
+
+  const tradeType = formState?.buyAndSaleRadio
+  console.log('tradetype', tradeType);
+  
   function handleSubmit(values) {
     StepsIncreament();
     updateFormState(values);
@@ -70,14 +76,15 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
               <div className="secondhead">
                 <div className="flex flex-col gap-2 text-ct-gray-500">
 
-                  <div className="p-3 flex flex-col gap-2 w-full bg-[#212632] rounded-lg pb-10">
+                  <div className="p-3 flex flex-col gap-2 w-full bg-[#3A3A3A] rounded-lg pb-10">
                     <div className=" rounded-lg flex flex-col gap-3 ">
                       <div className="flex items-center gap-2 w-full ">
                         <span
                           id="tooldip-buy"
                           className="bg-success/10 text-success px-0 text-start py-1 uppercase w-fit  font-semibold rounded cursor-default text-green-300 mb-2"
                         >
-                          Buying
+                          {tradeType === 0 ? 'Buying' : 'Selling'}
+                          
                         </span>
                         <i
                           id="total-amount"
@@ -124,7 +131,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                           <div className=" w-[11.5rem]">
                             <div
-                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-4 w-full bg-[#2A2F3A] "
+                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-4 w-full bg-[#5B5B5B] "
                               onClick={() => handleSelectTokenModal()}
                             >
                               <span className="flex items-center justify-center ">
@@ -149,7 +156,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                   </div>
                   {/* //**************** */}
 
-                  <div className="p-3 pb-10 flex flex-col gap-2 w-full bg-[#212632] rounded-lg ">
+                  <div className="p-3 pb-10 flex flex-col gap-2 w-full bg-[#3A3A3A] rounded-lg ">
                     <div className=" rounded-lg flex flex-col gap-3 ">
                       <div className="flex items-center gap-2 w-full ">
                         <span
@@ -201,7 +208,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                           <div className=" w-[11.5rem]">
                             <div
-                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-4 w-full bg-[#2A2F3A] "
+                              className="flex items-center justify-between text-gray-400 rounded-lg cursor-pointer h-[45px] gap-1 px-4 w-full bg-[#5B5B5B] "
                               onClick={() => handleSecondSelectTokenModal()}
                             >
                               <span className="flex items-center justify-center ">
@@ -223,7 +230,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                   <div className="flex flex-col gap-4  mt-6 ">
                     <div className="flex flex-col sm:flex-row gap-4 ">
                       <span className="flex item-center gap-0.5 min-w-[96px] ">
-                        <span className="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white">
+                        <span className="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white mt-5">
                           Fill Type
                         </span>
                       </span>
@@ -279,7 +286,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-2">
                       <span className="flex item-center gap-0.5 min-w-[96px]">
-                        <span className="text-white text-ct-sm font-semibold uppercase">
+                        <span className="text-white text-ct-sm font-semibold uppercase mt-5">
                           Privacy
                         </span>
                       </span>
