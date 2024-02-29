@@ -21,7 +21,7 @@ function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
   const handleSelectedToken = (tokenData) => {
     setSelectedToken(tokenData.basetoken);
     closeModal();
-    handleSelectToken(tokenData.basetoken);
+    handleSelectToken(tokenData);
   };
 
   console.log("select token ", selectedToken);

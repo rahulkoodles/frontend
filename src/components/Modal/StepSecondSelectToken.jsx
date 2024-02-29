@@ -73,7 +73,7 @@ function StepSecondSelectToken({
           {tokenList.map((tokenData, index) => (
             <div
               key={index}
-              onClick={() => handleSelectedToken(tokenData.QutoeToken)}
+              onClick={() => handleSelectedToken(tokenData)}
               className={`flex justify-between rounded-lg items-center py-2 px-3 -mx-3 cursor-pointer transition-all duration-300
                bg-${selectedToken === tokenData ? "green" : "ct-white-900"}`}
             >

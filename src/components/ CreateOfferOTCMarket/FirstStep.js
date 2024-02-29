@@ -28,7 +28,7 @@ const FirstStep = ({ StepsIncreament }) => {
       <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** Stepper*** */}
-          <div className="flex pt-6"></div>
+          <Divider className="bg-gray-700 m-1"/>
 
           {/* // *********** Steper Content ********** */}
           <div className="p-6">

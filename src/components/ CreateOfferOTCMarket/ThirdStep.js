@@ -67,7 +67,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
         }}
       >
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
-          <Divider className=" p-0 m-0 bg-[#47474733]" />
+        <Divider className="bg-gray-700 m-1"/>
           <div className="flex px-6 ">
             <div className="p-6">
               <div>
