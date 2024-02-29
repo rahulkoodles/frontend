@@ -51,10 +51,10 @@ function ConnectWalletModal({isOpen, onCancel , onConnect, onConnectMetaMask}) {
             </div>
           </button>
 
-          <div class="flex items-center">
-            <hr class="flex-grow border-t border-white mx-1" />
-            <span class="text-white font-bold ">Or</span>
-            <hr class="flex-grow border-t border-white mx-1" />
+          <div className="flex items-center">
+            <hr className="flex-grow border-t border-white mx-1" />
+            <span className="text-white font-bold ">Or</span>
+            <hr className="flex-grow border-t border-white mx-1" />
           </div>
 
           <button

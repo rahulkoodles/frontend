@@ -9,32 +9,26 @@ const FirstStep = ({ StepsIncreament }) => {
   const { formState, updateFormState, resetFormState } =
     useContext(FormDataContext);
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinish = (values) => {
+  //   console.log("Success:", values);
+  // };
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
 
   const [value, setValue] = useState(null);
 
   function handleSubmit(values) {
-    console.log("Selected Radio Value:", values);
     StepsIncreament();
     updateFormState(values);
   }
 
   return (
     <>
-      <Form
-        onFinish={handleSubmit}
-        onFinishFailed={(errorInfo) => {
-          console.log("Failed:", errorInfo);
-        }}
-      >
+      <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** Stepper*** */}
-          <div className="flex pt-6 "></div>
+          <div className="flex pt-6"></div>
 
           {/* // *********** Steper Content ********** */}
           <div className="p-6">
@@ -107,12 +101,12 @@ const FirstStep = ({ StepsIncreament }) => {
                   </Form.Item>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <Button className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]">
+                    <Button className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94] text-black">
                       {" "}
                       Back
                     </Button>
                     <Button
-                      className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
+                      className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94] text-black"
                       htmlType="submit"
                     >
                       {" "}

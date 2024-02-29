@@ -9,7 +9,7 @@ function DropDown() {
   const handleMenuClick = (item) => {
     message.info(`Selected item: ${item.key}`);
     setSelectedItem(item.key); // Update the selected item state
-    console.log("Selected item:", item);
+
   };
 
   const items = [
@@ -56,7 +56,16 @@ function DropDown() {
       className="h-[40px] !hover:text-white md:!w-[152px] w-[80px] sm:!w-[80px]"
       trigger={["click"]}
     >
-      <Button className="text-white w-[10rem] h-[40px] flex items-center justify-between text-lg">
+      <Button className="text-[#121212] w-[10rem] h-[40px] flex items-center justify-between text-lg">
+        <div className="flex gap-2 items-center">
+          <img src={salonaImg} alt="" />
+          <span className="hidden lg:inline">Solana</span>
+        </div>
+        <span>
+          <DownOutlined />
+        </span>
+      </Button>
+      <Button className="text-[#121212] w-[10rem] h-[40px] flex items-center justify-between text-lg">
         <div className="flex gap-2 items-center">
           <img src={salonaImg} alt="" />
           <span className="hidden lg:inline">Solana</span>

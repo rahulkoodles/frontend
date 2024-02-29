@@ -20,21 +20,18 @@ export const StyeledOrderHistory = styled.div`
     .ant-switch-inner {
       background-color: #282e39;
     }
-  }
-
-  .ant-switch-checked {
-    color: #5dec96;
-    background-color: #5dec96;
+    .ant-switch-inner-checked {
+      background-color: #5dec96;
+    }
   }
 `;
 
 export const StyledAllfilter = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: space-between;
+  width: 100%;
   .filter-btn {
-    /* border: 1px solid #FFFFFF1A; */
     border-radius: 6px;
     background-color: #0e1421;
     .ant-radio-group {
@@ -136,5 +133,12 @@ export const StyledAllfilter = styled.div`
       background: #121212;
       border: 1px solid #d9d9d933;
     }
+
+    .ant-select-item-option-selected {
+      background-color: gray !important;
+    }
   }
+
+
+
 `;

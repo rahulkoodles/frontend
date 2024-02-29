@@ -54,7 +54,6 @@ const CreateOfferOTCMarket = () => {
     setFormState("");
   };
 
-  console.log("form data", formState);
   //*************************************** */
 
   const StepsIncreament = () => {
@@ -107,7 +106,7 @@ const CreateOfferOTCMarket = () => {
   return (
     <FormDataContext.Provider
       value={{ formState, updateFormState, resetFormState }}>
-      <div className="w-full  flex justify-center items-center rounded-md">
+      <div className="w-full  flex justify-center items-center rounded-md   ">
         {address || walletAddressRedux ? (
           <ConfigProvider
             theme={{
@@ -119,14 +118,16 @@ const CreateOfferOTCMarket = () => {
                   colorTextDescription: "#FFFFFF80",
                   iconSize: 40,
                   titleLineHeight: 60,
+                  defaultHoverColor:"#5dec96"
+
                 },
               },
             }}
           >
             <CreateOfferOTCMarketDiv>
               <div className=" w-[500px]">
-                <div className=" bg-[#121212] rounded-xl ">
-                  <div className="steps-div w-full flex p-4 ">
+                <div className=" bg-[#121212] rounded-xl">
+                  <div className="steps-div w-full flex p-4 md:flex-inline ">
                     <Steps
                       labelPlacement="vertical"
                       className="text-[#FFFFFF80]"
@@ -136,7 +137,7 @@ const CreateOfferOTCMarket = () => {
                   </div>
                   <div>
                     {renderStepComponent()}
-                    <Link to="/createoffer">
+                    <Link to="/createoffer">       
                       {/* <div className="grid grid-cols-2 gap-2  pb-4 px-6">
                       <button
                         className="capitalize rounded-lg p-[16px, 36px, 16px, 36px] text-[#000000] text-[16px] font-[400]  leading-[19.54px] disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-CustomGreenColor"

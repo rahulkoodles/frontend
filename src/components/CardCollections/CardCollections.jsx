@@ -1,28 +1,40 @@
-import React from "react";
-import Card from "../Card/Card";
-import Allfilter from "../../components/allfilter/Allfilter"
+import React, { useCallback, useEffect, useState } from 'react';
+import Card from '../Card/Card';
+import Allfilter from '../Allfilter/Allfilter';
+import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
+import useSigner from '../../hooks/useSigner';
 
 const CardCollections = () => {
+  const [offers, setOffers] = useState([]);
+  const { isConnected, signer } = useSigner();
+
+  const fetchOffers = useCallback(async () => {
+    if (!isConnected) return;
+    const escrow9mmContract = new Escrow9MMContract(signer);
+    try {
+      const offers = await escrow9mmContract.getAllOffers();
+      setOffers(offers);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [isConnected]);
+
+  useEffect(() => {
+    fetchOffers();
+  }, [fetchOffers]);
+
   return (
- 
-    
-    <div className=" flex flex-wrap justify-center">
-      <div>
+    <div className=" flex flex-wrap mx-[19px] gap-[24px] mt-[35px] ">
+      <div className=" grid w-full ">
         <Allfilter />
       </div>
-      <div className="flex flex-wrap gap-[20px] mt-[20px] justify-evenly">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-
-        
+      <div className="grid  md:grid-cols-1 customMdd:grid-cols-2  xl:grid-cols-3 w-full gap-[20px] ">
+        {offers.map((offer, index) => (
+          <Card key={index} id={index + 1} offer={offer} />
+        ))}
       </div>
     </div>
   );
 };
 
 export default CardCollections;
-

@@ -8,7 +8,7 @@ const Items = ({
   check=true
 }) => {
   return (
-    <span class="flex items-center gap-1.5 text-[#FFFFFF80] ">
+    <span className="flex items-center gap-1.5 text-[#FFFFFF80] ">
       {textHeading}
       {check && (
         <Tooltip

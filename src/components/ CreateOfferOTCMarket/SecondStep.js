@@ -34,7 +34,6 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
   // Data Come From Modal-------------
   const handleSelectToken = (data) => {
-    console.log("data iin parent", data);
     updateFormState({
       ...formState,
       BaseToken: data,
@@ -42,7 +41,6 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
   };
 
   const handleSecondSelectToken = (data) => {
-    console.log("data iin parent", data);
     updateFormState({
       ...formState,
       QutoeToken: data,
@@ -56,18 +54,12 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
     useContext(FormDataContext);
 
   function handleSubmit(values) {
-    console.log("First Radio Value:", values);
     StepsIncreament();
     updateFormState(values);
   }
   return (
     <>
-      <Form
-        onFinish={handleSubmit}
-        onFinishFailed={(errorInfo) => {
-          console.log("Failed:", errorInfo);
-        }}
-      >
+      <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** 2nd Stepper*** */}
           <div className="flex p-6 border-b border-ct-white-900"></div>
@@ -77,7 +69,8 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
             <div>
               <div className="secondhead">
                 <div className="flex flex-col gap-2 text-ct-gray-500">
-                  <div className="p-3 flex flex-col gap-2 w-full bg-[#212632] rounded-lg ">
+
+                  <div className="p-3 flex flex-col gap-2 w-full bg-[#212632] rounded-lg pb-10">
                     <div className=" rounded-lg flex flex-col gap-3 ">
                       <div className="flex items-center gap-2 w-full ">
                         <span
@@ -104,6 +97,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                                 message: "Please Enter Ammount !",
                               },
                             ]}
+                            className="mb-0 "
                           >
                             <Input
                               className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent
@@ -145,8 +139,8 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                           </div>
                         </div>
 
-                        <div className="flex justify-start pb-2">
-                          <span className="text-start text-ct-sm text-gray-400">
+                        <div className="flex justify-start">
+                          <span className="text-start text-ct-sm text-gray-400 mt-0">
                             1 Token ={" "}
                           </span>
                         </div>
@@ -155,7 +149,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                   </div>
                   {/* //**************** */}
 
-                  <div className="p-3 flex flex-col gap-2 w-full bg-[#212632] rounded-lg ">
+                  <div className="p-3 pb-10 flex flex-col gap-2 w-full bg-[#212632] rounded-lg ">
                     <div className=" rounded-lg flex flex-col gap-3 ">
                       <div className="flex items-center gap-2 w-full ">
                         <span
@@ -171,7 +165,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                       </div>
                     </div>
 
-                    <div className=" flex items-center gap-1 w-full h-10">
+                    <div className=" flex items-center gap-1 w-full ">
                       <div className="flex-1 ">
                         <div className="flex items-center gap-4 ">
                           <Form.Item
@@ -182,6 +176,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                                 message: "Please Enter Ammount !",
                               },
                             ]}
+                            className="mb-0"
                           >
                             <Input
                               className="w-full  border-none pl-0 text-white bg-transparent text-left text-2xl text-ct-gray-200 placeholder:text-ct-gray-500 focus:outline-none !hover:bg-none focus:bg-transparent
@@ -228,7 +223,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
                   <div className="flex flex-col gap-4  mt-6 ">
                     <div className="flex flex-col sm:flex-row gap-4 ">
                       <span className="flex item-center gap-0.5 min-w-[96px] ">
-                        <span class="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white mt-5">
+                        <span className="text-ct-gray-200 text-ct-sm font-semibold uppercase text-white">
                           Fill Type
                         </span>
                       </span>
@@ -284,7 +279,7 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-2">
                       <span className="flex item-center gap-0.5 min-w-[96px]">
-                        <span class="text-white text-ct-sm font-semibold uppercase mt-5">
+                        <span className="text-white text-ct-sm font-semibold uppercase">
                           Privacy
                         </span>
                       </span>
@@ -340,14 +335,14 @@ function SecondStep({ StepsIncreament, StepsDecreament }) {
 
                   <div className="grid grid-cols-2 gap-2 mt-2">
                     <Button
-                      className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
+                      className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] hover:bg-[#87EE94] text-black"
                       onClick={StepsDecreament}
                     >
                       {" "}
                       Back
                     </Button>
                     <Button
-                      className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
+                      className="capitalize rounded-lg p-7   border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94] text-black"
                       htmlType="submit"
                     >
                       {" "}

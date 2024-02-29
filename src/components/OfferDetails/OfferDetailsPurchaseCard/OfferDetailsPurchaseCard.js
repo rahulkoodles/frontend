@@ -1,16 +1,12 @@
-import { Progress, Tooltip } from "antd";
-import React from "react";
+import { Progress, Tooltip } from 'antd';
+import React from 'react';
+import ProfileImage from '../../../imgs/profileImage.jpeg';
+import { StyledPurchaseCardDiv } from '../../../styles/styelsOfferdetails';
+import { ArrowRightOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import ConnectButton from '../../ConnectButton/ConnectButton';
 
-import ProfileImage from "../../../imgs/profileImage.jpeg";
-import { StyledPurchaseCardDiv } from "../../../styles/styelsOfferdetails";
-import {
-  InfoCircleFilled,
-  InfoCircleOutlined,
-  WalletOutlined,
-} from "@ant-design/icons";
-import ConnectButton from "../../ConnectButton/ConnectButton";
-
-const OfferDetailsPurchaseCard = () => {
+const OfferDetailsPurchaseCard = ({ signer }) => {
+  console.log(signer);
   return (
     <StyledPurchaseCardDiv>
       <div className="flex flex-col h-full gap-4 px-4 py-6 border-b border-[#474747] text-gray-500">
@@ -39,14 +35,15 @@ const OfferDetailsPurchaseCard = () => {
               </span>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="bg-[#D9D9D933] text-[#FFFFFF80] px-1.5 py-1 uppercase w-fit text-xs font-semibold rounded cursor-pointer">
-                  CA:DeZx...B263
+                  CA:DeZx...B263{' '}
+                  <ArrowRightOutlined color="#FFFFFF80" rotate={-60} />
                 </span>
               </div>
             </div>
           </div>
           <div className="my-ant-progress">
             <Progress
-              strokeColor={"#50CE85"}
+              strokeColor={'#50CE85'}
               type="circle"
               percent={60}
               size={50}
@@ -54,14 +51,14 @@ const OfferDetailsPurchaseCard = () => {
           </div>
         </div>
       </div>
-      <div className="flex-1 p-4  pb-10 text-sm text-gray-500 flex flex-col gap-4">
-        <div class="text-sm font-semibold text-gray-200 uppercase">
+      <div className="flex-1 p-4 h-full pb-10 text-sm text-gray-500 flex flex-col gap-4">
+        <div className="text-[14px] font-semibold text-gray-200 uppercase">
           Your action
         </div>
         <div className="rounded-lg p-4 flex flex-col gap-3 bg-[#1B1B1B]">
-          <span class="flex items-center gap-1.5 uppercase font-semibold">
-            <span class="uppercase">
-              <span class=" px-1.5 py-1 uppercase w-fit text-md font-semibold rounded cursor-default bg-[#1B1B1B] text-[#5dec96]">
+          <span className="flex items-center gap-1.5 uppercase font-semibold">
+            <span className="uppercase">
+              <span className=" px-1.5 py-1 uppercase w-fit text-md font-semibold rounded cursor-default bg-[#00C89647] text-[#5dec96]">
                 buying
               </span>
             </span>
@@ -78,7 +75,7 @@ const OfferDetailsPurchaseCard = () => {
               <input
                 type="text"
                 inputmode="decimal"
-                class="text-gray-200 text-xl w-full bg-transparent focus:outline-0 placeholder:text-white-500"
+                className="text-gray-200 text-xl w-full bg-transparent focus:outline-0 placeholder:text-white-500"
                 placeholder="Enter amount"
                 pattern="[0-9.,]*"
                 value="4,9900,00"
@@ -86,7 +83,7 @@ const OfferDetailsPurchaseCard = () => {
             </div>
             <img
               src={ProfileImage}
-              class="object-cover rounded-full w-[26px] h-[26px]"
+              className="object-cover rounded-full w-[26px] h-[26px]"
               alt="Bonk"
             />
           </div>
@@ -101,9 +98,9 @@ const OfferDetailsPurchaseCard = () => {
               value="4999"
             />
             <div className="border border-gray-700 p-[3px] rounded flex items-center text-center text-xs text-[#5dec96] font-semibold">
-              <span class="w-10">100%</span>
+              <span className="w-10">100%</span>
             </div>
-            <span class=" font-semibold cursor-pointer border border-gray-700 py-[3px] px-[5px] rounded text-xs text-[#5dec96]">
+            <span className=" font-semibold cursor-pointer border border-gray-700 py-[3px] px-[5px] rounded text-xs text-[#5dec96]">
               MAX
             </span>
           </div>
@@ -113,39 +110,41 @@ const OfferDetailsPurchaseCard = () => {
             Pay Amount
             <Tooltip
               placement="top"
-              title="The amount of you are paying for seller  "
+              title="The amount of you are paying for seller "
               className="mt-0.5 text-gray-600 text-xs w-3 h-3 cursor-pointer"
             >
               <InfoCircleOutlined />
             </Tooltip>
           </span>
           <div className="flex justify-between gap-2 items-start">
-            <span class="flex flex-col flex-1">
-              <span class="text-lg text-white ">99.8</span>
+            <span className="flex flex-col flex-1">
+              <span className="text-lg text-white ">99.8</span>
               <span>$99.8</span>
             </span>
-            <div class="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
+            <div className="flex items-center justify-center relative w-8 h-8 min-w-[32px]">
               <img
                 src="https://assets.coingecko.com/coins/images/6319/large/usdc.png"
-                class="object-cover rounded-full w-[26px] h-[26px]"
+                className="object-cover rounded-full w-[26px] h-[26px]"
                 alt="USDC"
               />
             </div>
           </div>
         </div>
-      
-        <div className="flex items-center justify-center gap-2 w-full  px-3 h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor">
-        <ConnectButton />
+
+        <div className="flex items-center justify-center gap-2 w-full h-[48px] rounded-lg text-base text-black font-medium text-start bg-CustomGreenColor">
+          {signer ? (
+            <button className="bg-CustomGreenColor to-[#161328] rounded-lg text-black px-4 py-2 h-full flex items-center justify-center">Buy</button>
+          ) : (
+            <ConnectButton />
+          )}
         </div>
 
-
-
-        <div class=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">
+        <div className=" text-sm flex items-center p-2 gap-1 rounded-md bg-[#363539]">
           <InfoCircleOutlined />
-          <div class="text-info text-[#d6cdcd]">
+          <div className="text-info text-[#d6cdcd]">
             <span>Platform fee (0.1%): 0.1199 USDC. </span>
             <a
-              class="cursor-pointer underline"
+              className="cursor-pointer underline"
               target="_blank"
               href="https://docs.whales.market/otc-markets/platform-fee"
             >
