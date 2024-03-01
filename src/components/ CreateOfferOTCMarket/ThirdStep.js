@@ -1,31 +1,24 @@
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Button, Divider, Form, Tooltip } from 'antd';
-import React, { useContext } from 'react';
-import { FormDataContext } from './FormDataContext';
 import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
 import useSigner from '../../hooks/useSigner';
 import Erc20Contract from '../../web3/contracts/Erc20';
 import { ethers } from 'ethers';
 
-function ThirdStep({ StepsIncreament, StepsDecreament }) {
-  const { formState, updateFormState, resetFormState } =
-    useContext(FormDataContext);
+function ThirdStep({ formState, onSubmit }) {
+  const {
+    baseToken,
+    baseAmount,
+    quoteToken,
+    quoteAmount,
+    fillType,
+    tradeType,
+  } = formState;
 
   const { signer } = useSigner();
 
-  console.log('formstate', formState);
-
   async function handleSubmit() {
-    const {
-      BaseToken: baseToken,
-      inputFirst: baseAmount,
-      QutoeToken: quoteToken,
-      inputSecond: quoteAmount,
-      FillType: fillType,
-      buyAndSaleRadio: tradeType,
-    } = formState;
-    // StepsIncreament();
-    // updateFormState(values);
+    console.log('formstate', formState);
 
     // initialize contract
     const baseTokenContract = new Erc20Contract(baseToken, signer);
@@ -106,18 +99,18 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                               id="tooltip-buy-undefined"
                               className="bg-success/10 text-success px-1.5 py-1 uppercase w-fit text-[8px]font-semibold rounded cursor-default text-green-400"
                             >
-                              Buying
+                              {tradeType === 0 ? 'Buying' : 'Selling'}
                             </span>
                           </span>
                           <span className="flex items-center justify-between px-4 py-3">
                             <span className="flex items-center gap-1.5">
                               <div className="text-[rgb(128,128,128)] flex items-center gap-2">
-                                <span>Want to buy</span>
+                                <span>Want to {tradeType === 0 ? 'buy' : 'sell'}</span>
                                 <span>
                                   <Tooltip
                                     placement="top"
-                                    title="Total token you want to buy. "
-                                    className=" w-3 h-3 cursor-pointer"
+                                    title="Total token you want to buy."
+                                    className="w-3 h-3 cursor-pointer"
                                   >
                                     <InfoCircleOutlined />
                                   </Tooltip>
@@ -130,7 +123,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                               ></i>
                             </span>
                             <span className="text-ct-gray-200 flex gap-1 items-center font-medium text-white">
-                              1
+                              {baseAmount}
                               <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                                 <img
                                   src="https://static.jup.ag/jlp/icon.png"
@@ -160,7 +153,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                               ></i>
                             </span>
                             <span className="text-ct-gray-200 flex gap-1 items-center font-medium text-white">
-                              2
+                              {quoteAmount}
                               <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                                 <img
                                   src="https://assets.coingecko.com/coins/images/6319/large/usdc.png?1696506694"
@@ -190,7 +183,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                               ></i>
                             </span>
                             <span className="text-ct-gray-200 font-medium text-white">
-                              $2
+                              {quoteAmount / baseAmount}
                             </span>
                           </span>
                           <span className="flex items-center justify-between px-4 py-3">
@@ -200,7 +193,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                                 id="tooltip-partial-undefined"
                                 className="bg-[#2F2F2F] text-[#ffffff80] px-1.5 py-1 uppercase w-fit text-[10px] font-semibold rounded cursor-default "
                               >
-                                partial fill
+                                 {fillType === 0 ? 'Partial fill' : 'Single fill'}
                               </span>
                             </span>
                           </span>
@@ -224,7 +217,7 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
                               ></i>
                             </span>
                             <span className="text-ct-gray-200 flex gap-1 items-center font-medium text-white">
-                              0.002
+                              {quoteAmount * 0.001}
                               <div className="flex items-center justify-center relative w-5 h-5 min-w-[20px]">
                                 <img
                                   src="https://assets.coingecko.com/coins/images/6319/large/usdc.png?1696506694"
@@ -248,8 +241,8 @@ function ThirdStep({ StepsIncreament, StepsDecreament }) {
 
                     <div className="grid grid-cols-2 gap-2 mt-2">
                       <Button
-                        className="capitalize  text-black rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
-                        onClick={StepsDecreament}
+                        className="capitalize text-black rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
+                        // onClick={StepsDecreament}
                       >
                         Back
                       </Button>
