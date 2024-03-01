@@ -69,26 +69,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <Divider />
-      <div className=" flex justify-center">
-        {isOffersLoading ? (
-          <span className="text-white text-center">
-            <Spin
-              indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}
-            />
-          </span>
-        ) : offers.length === 0 ? (
-          <span className="flex w-full items-center justify-center col-span-4 font-medium text-white text-base">
-            No Offers Found
-          </span>
-        ) : (
-          <div className="grid md:grid-cols-1 customMdd:grid-cols-2 xl:grid-cols-3 w-full gap-[20px]">
-            {offers.map((offer, index) => (
-              <Card key={index} id={index + 1} offer={offer} />
-            ))}
-          </div>
-        )}
-      </div>
     </div>
   );
 };

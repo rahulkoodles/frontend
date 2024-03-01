@@ -47,11 +47,11 @@ const CreateOfferOTCMarket = () => {
         return <FirstStep onSubmit={handleFirstStepSubmit} />;
       case 1:
         return (
-          <SecondStep formState={formState} onSubmit={handleSecondStepSubmit} />
+          <SecondStep setActiveStep={setActiveStep}  formState={formState} onSubmit={handleSecondStepSubmit} />
         );
       case 2:
         return (
-          <ThirdStep formState={formState} onSubmit={handleThirdStepSubmit} />
+          <ThirdStep setActiveStep={setActiveStep}   formState={formState} onSubmit={handleThirdStepSubmit} />
         );
       default:
         return null;

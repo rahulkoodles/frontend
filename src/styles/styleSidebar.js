@@ -8,23 +8,14 @@ export const StyledSidebarDiv = styled.div`
     .ant-btn-default {
       background-color: "CustomGreenColor";
       &:hover {
-        background-color: "Green";
+        background-color: "CustomGreenColor";
         color: black;
       }
 
       element.style {
         display: none;
       }
-      .ant-btn-default:hover {
-        background-color: "Green";
-        color: black;
-      }
 
-      &:where(.css-dev-only-do-not-override-1xg9z9n).ant-btn-default:not(
-          :disabled
-        ):not(.ant-btn-disabled):hover {
-        background: #5dec96;
-      }
     }
     .ant-layout-sider {
       .ant-layout-sider-children {

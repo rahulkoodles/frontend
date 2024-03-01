@@ -1,12 +1,12 @@
-import { InfoCircleOutlined } from '@ant-design/icons';
-import { Button, Divider, Form, Tooltip } from 'antd';
-import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
-import useSigner from '../../hooks/useSigner';
-import Erc20Contract from '../../web3/contracts/Erc20';
-import { ethers } from 'ethers';
-import { useNavigate } from 'react-router-dom';
+import { InfoCircleOutlined } from "@ant-design/icons";
+import { Button, Divider, Form, Tooltip } from "antd";
+import Escrow9MMContract from "../../web3/contracts/Escrow9MM";
+import useSigner from "../../hooks/useSigner";
+import Erc20Contract from "../../web3/contracts/Erc20";
+import { ethers } from "ethers";
+import { useNavigate } from "react-router-dom";
 
-function ThirdStep({ formState, onSubmit }) {
+function ThirdStep({ formState, onSubmit, setActiveStep }) {
   const navigate = useNavigate();
 
   const {
@@ -72,7 +72,7 @@ function ThirdStep({ formState, onSubmit }) {
     );
     await createOfferTx.wait();
 
-    navigate('/');
+    navigate("/");
   }
 
   return (
@@ -80,11 +80,11 @@ function ThirdStep({ formState, onSubmit }) {
       <Form
         onFinish={handleSubmit}
         onFinishFailed={(errorInfo) => {
-          console.log('Failed:', errorInfo);
+          console.log("Failed:", errorInfo);
         }}
       >
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
-        <Divider className="bg-gray-700 m-1"/>
+          <Divider className="bg-gray-700 m-1" />
           <div className="flex px-6 ">
             <div className="p-6">
               <div>
@@ -123,14 +123,14 @@ function ThirdStep({ formState, onSubmit }) {
                               id="tooltip-buy-undefined"
                               className="bg-success/10 text-success px-1.5 py-1 uppercase w-fit text-[8px]font-semibold rounded cursor-default text-green-400"
                             >
-                              {tradeType === 0 ? 'Buying' : 'Selling'}
+                              {tradeType === 0 ? "Buying" : "Selling"}
                             </span>
                           </span>
                           <span className="flex items-center justify-between px-4 py-3">
                             <span className="flex items-center gap-1.5">
                               <div className="text-[rgb(128,128,128)] flex items-center gap-2">
                                 <span>
-                                  Want to {tradeType === 0 ? 'buy' : 'sell'}
+                                  Want to {tradeType === 0 ? "buy" : "sell"}
                                 </span>
                                 <span>
                                   <Tooltip
@@ -220,8 +220,8 @@ function ThirdStep({ formState, onSubmit }) {
                                 className="bg-[#2F2F2F] text-[#ffffff80] px-1.5 py-1 uppercase w-fit text-[10px] font-semibold rounded cursor-default "
                               >
                                 {fillType === 0
-                                  ? 'Partial fill'
-                                  : 'Single fill'}
+                                  ? "Partial fill"
+                                  : "Single fill"}
                               </span>
                             </span>
                           </span>
@@ -269,8 +269,8 @@ function ThirdStep({ formState, onSubmit }) {
 
                     <div className="grid grid-cols-2 gap-2 mt-2">
                       <Button
+                        onClick={() => setActiveStep(1)}
                         className="capitalize text-black rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94]"
-                        // onClick={StepsDecreament}
                       >
                         Back
                       </Button>

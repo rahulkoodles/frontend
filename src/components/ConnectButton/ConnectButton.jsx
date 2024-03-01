@@ -51,15 +51,6 @@ function ConnectButton() {
             : 'Connect wallet'}
         </span>
       </button>
-
-      {/* //****************************** Modal ********************** */}
-
-      {/* <ConnectWalletModal
-        isOpen={isModalOpen}
-        onCancel={handleCancel}
-        onConnect={handleConnectWallet}
-        onConnectMetaMask={handleWalletConnectMetaMask}
-      /> */}
     </>
   );
 }

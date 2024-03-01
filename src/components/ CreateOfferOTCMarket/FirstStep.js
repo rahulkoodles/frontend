@@ -63,7 +63,7 @@ const FirstStep = ({ onSubmit }) => {
                   </Form.Item>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <Button className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] !hover:bg-[#87EE94] text-black">
+                    <Button disabled className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 !bg-[#87EE94]  text-black">
                       Back
                     </Button>
                     <Button

@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
-import SelectBaseTokenModal from '../Modal/SelectBaseTokenModal';
-import StepSelectTokenComponent from '../Modal/StepSelectTokenComponent';
-import SelectQuoteTokenModal from '../Modal/SelectQuoteTokenModal';
-import { Divider } from 'antd';
-import { Input, Radio, Button, Form } from 'antd';
-import { truncateAddress } from '../../utils';
+import { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import SelectBaseTokenModal from "../Modal/SelectBaseTokenModal";
+import StepSelectTokenComponent from "../Modal/StepSelectTokenComponent";
+import SelectQuoteTokenModal from "../Modal/SelectQuoteTokenModal";
+import { Divider } from "antd";
+import { Input, Radio, Button, Form } from "antd";
+import { truncateAddress } from "../../utils";
 
-function SecondStep({ formState, onSubmit }) {
+function SecondStep({ formState, onSubmit, setActiveStep }) {
   const [isBaseTokenModalOpen, setIsBaseTokenModalOpen] = useState(false);
 
   const handleBaseTokenModalOpen = () => {
@@ -28,20 +28,21 @@ function SecondStep({ formState, onSubmit }) {
     setIsQuoteTokenModalOpen(false);
   };
 
-  const [baseToken, setBaseToken] = useState('');
-  const [quoteToken, setQuoteToken] = useState('');
+  const [baseToken, setBaseToken] = useState(null);
+  const [quoteToken, setQuoteToken] = useState("");
 
   const handleSelectBaseToken = (token) => {
-    setBaseToken(token);
+    setBaseToken(token.basetoken);
   };
 
   const handleSelectQuoteToken = (token) => {
-    setQuoteToken(token);
+    setQuoteToken(token.QutoeToken);
   };
 
   function handleSubmit(values) {
     onSubmit({ ...values, baseToken, quoteToken });
   }
+
   return (
     <>
       <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
@@ -58,7 +59,7 @@ function SecondStep({ formState, onSubmit }) {
                           id="tooldip-buy"
                           className="bg-success/10 text-success px-0 text-start py-1 uppercase w-fit  font-semibold rounded cursor-default text-green-300"
                         >
-                          {formState.tradeType === 0 ? 'Buying' : 'Selling'}
+                          {formState.tradeType === 0 ? "Buying" : "Selling"}
                         </span>
                         <i
                           id="total-amount"
@@ -75,7 +76,7 @@ function SecondStep({ formState, onSubmit }) {
                             rules={[
                               {
                                 required: true,
-                                message: 'Please Enter Amount !',
+                                message: "Please Enter Amount !",
                               },
                             ]}
                           >
@@ -88,13 +89,13 @@ function SecondStep({ formState, onSubmit }) {
                               name="tokenAmount"
                               type="number"
                               style={{
-                                boxShadow: 'none',
-                                border: 'none',
-                                outline: 'none',
-                                background: 'transparent',
-                                borderWidth: '0px',
-                                borderStyle: 'solid',
-                                borderColor: 'none',
+                                boxShadow: "none",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                borderWidth: "0px",
+                                borderStyle: "solid",
+                                borderColor: "none",
                               }}
                               autoComplete="off"
                             />
@@ -110,7 +111,7 @@ function SecondStep({ formState, onSubmit }) {
                               ) : (
                                 <>
                                   <span className="flex items-center justify-center ">
-                                    <span className="text-ct-base  font-medium text-ct-white-500">
+                                    <span className="text-base  font-medium text-white-500">
                                       Select Token
                                     </span>
                                   </span>
@@ -122,12 +123,6 @@ function SecondStep({ formState, onSubmit }) {
                             </div>
                           </div>
                         </div>
-
-                        {/* <div className="flex justify-start">
-                          <span className="text-start text-ct-sm text-gray-400 mt-0">
-                            1 Token ={' '}
-                          </span>
-                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -156,7 +151,7 @@ function SecondStep({ formState, onSubmit }) {
                             rules={[
                               {
                                 required: true,
-                                message: 'Please Enter Amount !',
+                                message: "Please Enter Amount !",
                               },
                             ]}
                           >
@@ -169,13 +164,13 @@ function SecondStep({ formState, onSubmit }) {
                               name="tokenAmount"
                               type="number"
                               style={{
-                                boxShadow: 'none',
-                                border: 'none',
-                                outline: 'none',
-                                background: 'transparent',
-                                borderWidth: '0px',
-                                borderStyle: 'solid',
-                                borderColor: 'none',
+                                boxShadow: "none",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                borderWidth: "0px",
+                                borderStyle: "solid",
+                                borderColor: "none",
                               }}
                               autoComplete="off"
                             />
@@ -223,7 +218,7 @@ function SecondStep({ formState, onSubmit }) {
                               rules={[
                                 {
                                   required: true,
-                                  message: 'Please Select !',
+                                  message: "Please Select !",
                                 },
                               ]}
                             >
@@ -276,7 +271,7 @@ function SecondStep({ formState, onSubmit }) {
                               rules={[
                                 {
                                   required: true,
-                                  message: 'Please Select !',
+                                  message: "Please Select !",
                                 },
                               ]}
                             >
@@ -293,18 +288,6 @@ function SecondStep({ formState, onSubmit }) {
                                     </span>
                                   </Radio>
                                 </div>
-                                {/* 
-                                <div className="flex  cursor-pointer">
-                                  <Radio value={1} className="">
-                                    <h5 className="text-ct-base text-white font-medium uppercase mb-0">
-                                      Private
-                                    </h5>
-                                    <span className="text-ct-sm text-white">
-                                      Your offer is accessible only through a
-                                      private link
-                                    </span>
-                                  </Radio>
-                                </div> */}
                               </Radio.Group>
                             </Form.Item>
                           </div>
@@ -317,8 +300,8 @@ function SecondStep({ formState, onSubmit }) {
 
                   <div className="grid grid-cols-2 gap-2 mt-2">
                     <Button
+                      onClick={() => setActiveStep(0)}
                       className="capitalize rounded-lg p-7 border border-black text-ct-gray-950 text-xl font-semibold disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#87EE94] hover:bg-[#87EE94] text-black"
-                      // onClick={StepsDecreament}
                     >
                       Back
                     </Button>

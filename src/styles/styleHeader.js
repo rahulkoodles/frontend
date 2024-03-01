@@ -2,13 +2,6 @@ import styled from "styled-components";
 
 export const HeaderStyled = styled.div`
   .chain-selector {
-    .ant-select-selection {
-      background-color: green;
-    }
-    .ant-select-selection {
-      background-color: green;
-    }
-
     .ant-select-selector {
       background: #121212;
       color: white;
@@ -23,8 +16,7 @@ export const HeaderStyled = styled.div`
       color: white;
     }
     .ant-select-dropdown,
-    .ant-select-dropdown-hidden
-      :where(.css-dev-only-do-not-override-1cq53sz).ant-select-dropdown {
+    .ant-select-dropdown-hidden .ant-select-dropdown {
       background-color: #121212;
     }
   }
