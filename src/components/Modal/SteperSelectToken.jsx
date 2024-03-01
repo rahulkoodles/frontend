@@ -64,8 +64,7 @@ function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
         </div>
 
         <Divider className="bg-gray-600" />
-        <Divider className="bg-gray-600" />
-
+     
         {/* ///////// Searching////////// */}
 
         <div className="flex gap-4 relative items-center flex-col shadow-sm mt-6">
@@ -102,9 +101,6 @@ function SteperSelectToken({ isOpen, closeModal, handleSelectToken }) {
         </div>
 
         {/* // List */}
-
-
-        
         <div className="px-6 py-4 pl-0 flex flex-col gap-2 overflow-y-auto max-h-[40vh]">
           {tokenList.map((tokenData, index) => (
             <div

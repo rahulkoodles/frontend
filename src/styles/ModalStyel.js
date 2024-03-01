@@ -20,7 +20,11 @@ const ModalStyle = createGlobalStyle`
     
       min-width: 1px;
       
-    }`
-;
-
-export default ModalStyle;
+    }
+    
+    
+    `
+    ;
+    
+    export default ModalStyle;
+    

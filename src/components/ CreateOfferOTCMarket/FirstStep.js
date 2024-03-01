@@ -4,6 +4,7 @@ import { Divider } from "antd";
 import { FormDataContext } from "./FormDataContext";
 
 import { Button, Checkbox, Form, Input, Radio, Space } from "antd";
+import DropDown from "../DropDown/DropDown";
 
 const FirstStep = ({ StepsIncreament }) => {
   const { formState, updateFormState, resetFormState } =
@@ -28,7 +29,7 @@ const FirstStep = ({ StepsIncreament }) => {
       <Form onFinish={handleSubmit} onFinishFailed={(errorInfo) => {}}>
         <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
           {/* //****** Stepper*** */}
-          <Divider className="bg-gray-700 m-1"/>
+          <Divider className="bg-gray-700 m-1" />
 
           {/* // *********** Steper Content ********** */}
           <div className="p-6">
@@ -41,23 +42,11 @@ const FirstStep = ({ StepsIncreament }) => {
                     </h5>
                     <Form.Item>
 
-                      
-                      
-                    <div className="flex items-center justify-between gap-2 px-3 py-2.5 border-2 border-ct-gray-700 rounded-lg">
-                      <span className="flex items-center gap-2 flex-1">
-                        <img
-                          src={salonaImg}
-                          alt=""
-                          className="w-5 h-5 rounded"
-                          />
-                        <span className="flex-1 text-ct-base text-white">
-                          Solana
-                        </span>
-                      </span>
-                    </div>
-                          </Form.Item>
 
-
+                      <div className="flex items-center justify-between py-2.5 rounded-lg">
+                        <DropDown />
+                      </div>
+                    </Form.Item>
                   </div>
 
                   <Form.Item
