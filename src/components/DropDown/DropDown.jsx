@@ -52,7 +52,7 @@ function DropDown() {
 
   return (
     <Dropdown
-      overlay={menu}
+      menu={menu}
       className="h-[40px] !hover:text-white md:!w-[152px] w-[80px] sm:!w-[80px]"
       trigger={["click"]}
     >

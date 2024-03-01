@@ -6,7 +6,7 @@ import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
 import CreateOfferStepperStyledComponent from '../../styles/CreateOfferStepperStyledComponent';
 
-import WalletConnect from './WalletConnect';
+import WalletConnect from '../WalletConnect/WalletConnect';
 import useSigner from '../../hooks/useSigner';
 
 const stepsInfo = [
@@ -59,7 +59,7 @@ const CreateOfferOTCMarket = () => {
   };
 
   return (
-    <div className="w-full  flex justify-center items-center rounded-md">
+    <div className="w-full flex justify-center items-center rounded-md">
       {isConnected ? (
         <ConfigProvider
           theme={{
@@ -77,7 +77,7 @@ const CreateOfferOTCMarket = () => {
           }}
         >
           <CreateOfferOTCMarketDiv>
-            <div className="w-[500px]">
+            <div className="w-[500px] mt-10">
               <div className="bg-[#121212] rounded-xl ">
                 <div className="steps-div w-full flex p-4 ">
                   <Steps

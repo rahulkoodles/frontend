@@ -29,6 +29,10 @@ class Escrow9MMContract {
     );
   }
 
+  fillOffer(id, fillAmount) {
+    return this.contract.fillOffer(id, fillAmount);
+  }
+
   getAllOffers() {
     return this.contract.getAllOffers();
   }

@@ -4,8 +4,11 @@ import Escrow9MMContract from '../../web3/contracts/Escrow9MM';
 import useSigner from '../../hooks/useSigner';
 import Erc20Contract from '../../web3/contracts/Erc20';
 import { ethers } from 'ethers';
+import { useNavigate } from 'react-router-dom';
 
 function ThirdStep({ formState, onSubmit }) {
+  const navigate = useNavigate();
+
   const {
     baseToken,
     baseAmount,
@@ -18,27 +21,46 @@ function ThirdStep({ formState, onSubmit }) {
   const { signer } = useSigner();
 
   async function handleSubmit() {
-    console.log('formstate', formState);
-
-    // initialize contract
     const baseTokenContract = new Erc20Contract(baseToken, signer);
     const quoteTokenContract = new Erc20Contract(quoteToken, signer);
     const escrow9mmContract = new Escrow9MMContract(signer);
+    const escrowAddress = escrow9mmContract.contract.address;
 
     const baseTokenDecimals = await baseTokenContract.decimals();
     const quoteTokenDecimals = await quoteTokenContract.decimals();
 
-    let approveAmount = ethers.utils.parseUnits(
-      quoteAmount,
-      quoteTokenDecimals
-    );
-    approveAmount = approveAmount.add(approveAmount.div(1000));
+    if (tradeType === 0) {
+      let approveAmount = ethers.utils.parseUnits(
+        quoteAmount,
+        quoteTokenDecimals
+      );
+      approveAmount = approveAmount.add(approveAmount.div(1000));
 
-    const approveTx = await quoteTokenContract.approve(
-      escrow9mmContract.contract.address,
-      approveAmount
-    );
-    await approveTx.wait();
+      const approveTx = await quoteTokenContract.approve(
+        escrowAddress,
+        approveAmount
+      );
+      await approveTx.wait();
+    } else {
+      const approveAmount = ethers.utils.parseUnits(
+        baseAmount,
+        baseTokenDecimals
+      );
+      const approveTx = await baseTokenContract.approve(
+        escrowAddress,
+        approveAmount
+      );
+      await approveTx.wait();
+
+      const fees = ethers.utils
+        .parseUnits(quoteAmount, quoteTokenDecimals)
+        .div(1000);
+      const approveFeesTx = await quoteTokenContract.approve(
+        escrowAddress,
+        fees
+      );
+      await approveFeesTx.wait();
+    }
 
     const createOfferTx = await escrow9mmContract.createOffer(
       baseToken,
@@ -49,6 +71,8 @@ function ThirdStep({ formState, onSubmit }) {
       tradeType
     );
     await createOfferTx.wait();
+
+    navigate('/');
   }
 
   return (
@@ -105,7 +129,9 @@ function ThirdStep({ formState, onSubmit }) {
                           <span className="flex items-center justify-between px-4 py-3">
                             <span className="flex items-center gap-1.5">
                               <div className="text-[rgb(128,128,128)] flex items-center gap-2">
-                                <span>Want to {tradeType === 0 ? 'buy' : 'sell'}</span>
+                                <span>
+                                  Want to {tradeType === 0 ? 'buy' : 'sell'}
+                                </span>
                                 <span>
                                   <Tooltip
                                     placement="top"
@@ -193,7 +219,9 @@ function ThirdStep({ formState, onSubmit }) {
                                 id="tooltip-partial-undefined"
                                 className="bg-[#2F2F2F] text-[#ffffff80] px-1.5 py-1 uppercase w-fit text-[10px] font-semibold rounded cursor-default "
                               >
-                                 {fillType === 0 ? 'Partial fill' : 'Single fill'}
+                                {fillType === 0
+                                  ? 'Partial fill'
+                                  : 'Single fill'}
                               </span>
                             </span>
                           </span>

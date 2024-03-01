@@ -1,37 +1,26 @@
-import salonaImg from "../../imgs/salona.png";
+import EthImg from "../../imgs/ethereum-eth-logo.png";
 import { Button, Form, Radio } from "antd";
 
 const FirstStep = ({ onSubmit }) => {
   return (
-    <>
-      <Form onFinish={onSubmit} onFinishFailed={(errorInfo) => {}}>
-        <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
-          {/* //****** Stepper*** */}
-          <div className="flex pt-6"></div>
-
-          {/* // *********** Steper Content ********** */}
-          <div className="p-6">
-            <div>
-              <div id="head">
-                <div className="flex flex-col  text-start">
-                  <div className="flex flex-col gap-2">
-                    <h5 className="text-ct-base text-white font-medium">
-                      Network
-                    </h5>
-                    <Form.Item>
-                      <div className="flex items-center justify-between gap-2 px-3 py-2.5 border-2 border-ct-gray-700 rounded-lg">
-                        <span className="flex items-center gap-2 flex-1">
-                          <img
-                            src={salonaImg}
-                            alt=""
-                            className="w-5 h-5 rounded"
-                          />
-                          <span className="flex-1 text-ct-base text-white">
-                            Solana
-                          </span>
-                        </span>
-                      </div>
-                    </Form.Item>
+    <Form onFinish={onSubmit} onFinishFailed={(errorInfo) => {}}>
+      <div className="bg-[#121212] rounded-lg w-full max-w-[552px]  shadow-xl transition-all">
+        <div className="flex pt-6"></div>
+        <div className="p-6">
+          <div>
+            <div id="head">
+              <div className="flex flex-col  text-start">
+                <div className="flex flex-col gap-2">
+                  <h5 className="text-ct-base text-white font-medium">
+                    Network
+                  </h5>
+                  <div className="flex items-center justify-between gap-2 px-3 py-2.5 border-2 border-ct-gray-700 rounded-lg">
+                    <span className="flex items-center gap-2 flex-1">
+                      <img src={EthImg} alt="" className="w-5 h-5 rounded" />
+                      <span className="flex-1 text-ct-base text-white">
+                        Ethereum
+                      </span>
+                    </span>
                   </div>
 
                   <Form.Item
@@ -89,8 +78,8 @@ const FirstStep = ({ onSubmit }) => {
             </div>
           </div>
         </div>
-      </Form>
-    </>
+      </div>
+    </Form>
   );
 };
 
