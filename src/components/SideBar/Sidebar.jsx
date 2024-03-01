@@ -1,43 +1,58 @@
-import { Button } from "antd";
-import Sider from "antd/es/layout/Sider";
-import React from "react";
+import { Button, Divider } from "antd";
+
+import React, { useState } from "react";
 import { StyledSidebarDiv } from "../../styles/styleSidebar";
-import { DollarOutlined, WalletOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import Sider from "antd/es/layout/Sider";
+import Logo from "../../imgs/logo.png";
+import otclogoImg from "../../imgs/otclogo.png";
 
 const Sidebar = () => {
   return (
     <StyledSidebarDiv>
-      <div className=" flex p-[12px] border-r border-[#202631] max-sm:hidden ">
-        <Sider>
-          <div className=" w-[353px] h-[75px] flex flex-wrap gap-10 items-center ">
+      <div className=" w-[353px] h-screen flex  max-customLogo:hidden  ">
+        <Sider width={353} className=" p-[37px] py-[14px] fixed">
+          <div className=" w-full h-[75px] flex gap-[8px] items-center ">
+            <a className="flex items-center" href="/">
+              <img
+                alt=""
+                className="h-[40px] w-[40px] cursor-pointer"
+                src={Logo}
+              />
+            </a>
+
             <div>
-              <a class="flex items-center mt-1" href="/">
-                <img
-                  alt=""
-                  class="h-10 cursor-pointer"
-                  src="https://app.whales.market/logo-full.svg"
-                />
-              </a>
-            </div>
-            <div>
-              <WalletOutlined className=" text-[#42454F] active:text-[CustomGreenColor] " />
-            </div>
-          </div>
-          <div className=" h-[200px] border-b-2 border-[#202631]  ">
-            <div className=" w-full h-[48px] bg-[#ffffff0A] p-[12px] flex justify-around rounded-md hover:bg-[#411E7C] mt-10 ">
-              <div className=" w-[24px] h-[24px] ">
-                <DollarOutlined className=" text-CustomGreenColor " />
-              </div>
-              <span className="text-[20px] text-CustomGreenColor">
-                OTC Market
+              <span className="text-[20px] leading-[24.42px] font-[500] text-white">
+                9MM
               </span>
             </div>
           </div>
-          <div className="create-class w-full h-[45px] mt-10 mb-10  border-[rgba(36, 36, 36, 1)] ">
+          <Link to="/">
+            <div className="">
+              <div className="w-full h-[48px] bg-[#ffffff0A] p-[12px] flex items-center gap-4 rounded-md  mt-10">
+                <div className="w-[24px] h-[24px] ">
+                  <img src={otclogoImg} alt="" className="" />
+                </div>
+                <span className="text-[14px] font-[500] leading-[17.09px] text-CustomGreenColor">
+                  OTC Market
+                </span>
+              </div>
+            </div>
+          </Link>
+          <Divider className=" mt-10 border-b-1 border-[#121212]" />
+          <Link to="/dashboard">
+            <div className=" ">
+              <div className="w-full h-[48px] bg-[#ffffff0A] p-[12px] flex justify-center gap-4 rounded-md  mt-10 hover:bg-[#1B1B1B]">
+                <span className="text-[14px] font-[500] leading-[17.09px] text-CustomGreenColor">
+                  Dashboard
+                </span>
+              </div>
+            </div>
+          </Link>
+          <div className="create-class w-full h-[45px] mt-10 mb-10  border-[rgba(36, 36, 36, 1)]">
             <Link to="/createoffer">
-              <Button className=" w-full h-full bg-CustomGreenColor hover:bg-CustomGreenColor border-none ">
-                <span className=" font-medium text-[18px] text-black ">
+              <Button className="w-full h-full bg-CustomGreenColor hover:bg-CustomGreenColor border-none">
+                <span className="font-medium text-[18px] text-black ">
                   Create Offer
                 </span>
               </Button>
